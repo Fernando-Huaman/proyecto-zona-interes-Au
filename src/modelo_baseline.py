@@ -1,5 +1,5 @@
 """
-Baseline Models - Con guardado automático de resultados
+Modelos Baseline
 """
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -10,12 +10,16 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 
 from src.config import logger
-from src.evaluacion import evaluar_holdout, evaluar_cross_validation
+from src.evaluacion import limpiar_archivo_resultados, evaluar_holdout, evaluar_cross_validation
 
 def ejecutar_baseline():
-    logger.info("Iniciando Baseline con guardado de resultados...")
+    logger.info("Iniciando Modelos Baseline...")
     
-    # Cargar datos
+    # Limpiar resultados anteriores
+    limpiar_archivo_resultados()
+    print("Archivo de resultados limpiado\n")
+    
+    # Cargar datos procesados
     df = pd.read_csv("data/processed/data_procesada.csv")
     
     features = [col for col in df.columns if col not in ['Au_ppm', 'target_Au', 'East', 'North', 'Level']]
@@ -40,14 +44,19 @@ def ejecutar_baseline():
     }
     
     for nombre, modelo in modelos.items():
-        logger.info(f"Entrenando {nombre}...")
+        print(f"\n{'#'*90}")
+        print(f"ENTRENANDO: {nombre.upper()}")
+        print(f"{'#'*90}\n")
+        
         modelo.fit(X_train_scaled, y_train)
         
         evaluar_holdout(modelo, X_test_scaled, y_test, nombre)
         evaluar_cross_validation(modelo, X_train_scaled, y_train, nombre)
     
-    logger.info("Pipeline completado. Resultados guardados en carpeta 'results/'")
-    print("\n¡Todo finalizado! Revisa la carpeta 'results/evaluacion_resultados.txt'")
+    print(f"\n{'#'*90}")
+    print("BASELINE COMPLETO")
+    print(f"Resultados guardados en → results/evaluacion_resultados.txt")
+    print(f"{'#'*90}")
 
 if __name__ == "__main__":
     ejecutar_baseline()
