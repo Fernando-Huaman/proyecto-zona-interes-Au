@@ -91,11 +91,12 @@ Archivos generados:
 ---
 
 📌 **Roadmap**
-
+```bash
 [x] Sprint 1 → Pipeline mínimo reproducible + EDA + Baseline.
 [ ] Sprint 2 → Mejora de features, balanceo y modelos avanzados.
 [ ] Sprint 3 → Optimización e interpretabilidad.
 [ ] Sprint 4 → Resultados finales y defensa.
+```
 
 ---
 
