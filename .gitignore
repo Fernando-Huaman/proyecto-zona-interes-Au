@@ -3,6 +3,7 @@ __pycache__/
 .venv/
 venv/
 env/
+data/interim/*
 logs/*.log
 .ipynb_checkpoints/
 .DS_Store
