@@ -11,7 +11,7 @@ from sklearn.ensemble import RandomForestClassifier
 
 from src.config import logger
 from src.evaluacion import limpiar_archivo_resultados, evaluar_holdout, evaluar_cross_validation
-from src.visualizacion import generar_graficos_desempeno
+from src.graficos import generar_graficos_desempeno
 
 def ejecutar_baseline():
     logger.info("Iniciando Modelos Baseline...")
