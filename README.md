@@ -25,16 +25,18 @@
 data/
 ├── raw/                    # DataSet_final.csv (original)
 ├── processed/              # data_procesada.csv (limpio y target)
-notebooks/
+├── interim/                # Archivos intermedios
+notebooks/ 
 ├── EDA.ipynb               # Análisis exploratorio completo
 src/
 ├── config.py               # Configuración y logging
 ├── ingesta.py              # Carga del dataset original
 ├── preprocesamiento.py     # Limpieza de censurados y creación de target
 ├── evaluacion.py           # Hold-out y Validación Cruzada
+├── graficos.py             # Generación de gráficos de desempeño
 ├── modelo_baseline.py      # Modelos, Entrenamiento y Evaluación
 └── run_all.py              # Ejecuta todo el pipeline
-results/                    # evaluacion_resultados.txt
+results/                    # evaluacion_resultados.txt y Gráficos
 notebooks/output/           # Gráficos y tablas del EDA
 logs/                       # pipeline.log
 ```
@@ -74,7 +76,7 @@ Los gráficos y tablas se guardan automáticamente en notebooks/output/
 python -m src.modelo_baseline
 ```
 Incluye Hold-out y Validación Cruzada (5-Fold). 
-Resultados en results/evaluacion_resultados.txt
+Resultados en results/evaluacion_resultados.txt y Gráficos
 
 ---
 
