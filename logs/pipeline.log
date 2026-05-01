@@ -1,0 +1,36 @@
+2026-05-01 18:50:17 - INFO - Estructura de carpetas creada correctamente
+2026-05-01 18:50:17 - INFO - Iniciando EDA completo
+2026-05-01 18:50:44 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-01 18:50:44 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-01 18:59:10 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-01 18:59:49 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-01 19:02:12 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-01 19:02:56 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-01 19:04:33 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-01 19:04:33 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-01 19:04:46 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-01 19:04:46 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-01 19:07:00 - INFO - Estructura de carpetas creada correctamente
+2026-05-01 19:07:00 - INFO - Ejecutando: 1. Ingesta de datos
+2026-05-01 19:07:00 - INFO - Estructura de carpetas creada correctamente
+2026-05-01 19:07:02 - INFO - Cargando dataset desde: data/raw/DataSet_final.csv
+2026-05-01 19:07:02 - INFO - Dataset cargado → 2137 filas, 51 columnas
+2026-05-01 19:07:03 - INFO - Archivo guardado en data/interim/
+2026-05-01 19:07:03 - INFO - Ejecutando: 2. Preprocesamiento y creación de target
+2026-05-01 19:07:05 - INFO - Estructura de carpetas creada correctamente
+2026-05-01 19:07:05 - INFO - Cargando dataset desde: data/raw/DataSet_final.csv
+2026-05-01 19:07:05 - INFO - Dataset cargado → 2137 filas, 51 columnas
+2026-05-01 19:07:05 - INFO - Archivo guardado en data/interim/
+2026-05-01 19:07:05 - INFO - Tratando valores censurados...
+2026-05-01 19:07:05 - INFO - Tratamiento completado → (2137, 50)
+2026-05-01 19:07:05 - INFO - Variable objetivo creada
+2026-05-01 19:07:05 - INFO - Datos procesados guardados en data/processed/data_procesada.csv
+2026-05-01 19:07:05 - INFO - Ejecutando: 3. Notebook EDA
+2026-05-01 19:07:12 - INFO - Estructura de carpetas creada correctamente
+2026-05-01 19:07:12 - INFO - Iniciando EDA completo
+2026-05-01 19:07:12 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-01 19:07:12 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-01 19:07:39 - INFO - Ejecutando: 4. Modelos Baseline + Validación Cruzada
+2026-05-01 19:07:43 - INFO - Estructura de carpetas creada correctamente
+2026-05-01 19:07:43 - INFO - Iniciando Modelos Baseline...
+2026-05-01 19:07:43 - INFO - Train: 1709 | Test: 428
