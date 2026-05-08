@@ -14,7 +14,7 @@
 - **Fuente**: DataSet_final.csv (muestreos geoquímicos)
 - **Registros**: 2,137 muestras
 - **Variables**: Coordenadas (East, North, Level) + 47 elementos químicos (Au_ppm, Ag_ppm, Cu_ppm, etc.)
-- **Objetivo**: Clasificar zonas de interés (`target_Au = 1` si Au > 0.10 ppm)
+- **Objetivo**: Clasificar zonas de interés de oro (`target_Au = 1` si Au > 0.10 ppm) según probabilidad y concentración predicha (Au_ppm)
 - **Versión usada**: Abril 2026
 
 ---
@@ -32,11 +32,12 @@ src/
 ├── config.py               # Configuración y logging
 ├── ingesta.py              # Carga del dataset original
 ├── preprocesamiento.py     # Limpieza de censurados y creación de target
-├── evaluacion.py           # Hold-out y Validación Cruzada
+├── evaluacion.py           # Métricas, Hold-out y Validación Cruzada
 ├── graficos.py             # Generación de gráficos de desempeño
+├── mapas.py                # 16 mapas de probabilidad y predicción Au
 ├── modelo_baseline.py      # Modelos, Entrenamiento y Evaluación
 └── run_all.py              # Ejecuta todo el pipeline
-results/                    # evaluacion_resultados.txt y Gráficos
+results/                    # Evaluacion_resultados.txt, Gráficos y Mapas
 notebooks/output/           # Gráficos y tablas del EDA
 logs/                       # pipeline.log
 ```
@@ -75,26 +76,28 @@ Los gráficos y tablas se guardan automáticamente en notebooks/output/
 ```bash
 python -m src.modelo_baseline
 ```
-Incluye Hold-out y Validación Cruzada (5-Fold). 
-Resultados en results/evaluacion_resultados.txt y Gráficos
+Incluye Métricas, Hold-out y Validación Cruzada (5-Fold). 
+Resultados en results/evaluacion_resultados.txt, Gráficos y Mapas.
 
 ---
 
 📈 **Resultados esperados**
 
 EDA completo con matriz de correlación, distribuciones normal y lognormal de todos los elementos.
-Modelos Baseline: KNN, Regresión Logística, Árbol de Decisión y Random Forest.
-Validación Cruzada (5-Fold Stratified).
+Modelos Baseline: Clasificación (KNN, Regresión Logística, Árbol de Decisión y Random Forest) y Regresión (KNN_Regresor, Ridge, Árbol de Decisión Regressor y Random Forest Regressor).
+Métricas, Validación Cruzada (5-Fold Stratified).
 Archivos generados:
 - results/evaluacion_resultados.txt
-- notebooks/output/ (imágenes y tablas)
+- results/Comparacion*.png (Comparacion de los modelos)
+- results/mapa*.png (Mapas de probabilidad y predicción Au)
+- notebooks/output/ (Imágenes y tablas)
 - logs/pipeline.log
 
 ---
 
 📌 **Roadmap**
 ```bash
-[x] Sprint 1 → Pipeline mínimo reproducible + EDA + Baseline.
+[x] Sprint 1 → Pipeline mínimo reproducible + EDA + Baseline + Mapas.
 [ ] Sprint 2 → Mejora de features, balanceo y modelos avanzados.
 [ ] Sprint 3 → Optimización e interpretabilidad.
 [ ] Sprint 4 → Resultados finales y defensa.
