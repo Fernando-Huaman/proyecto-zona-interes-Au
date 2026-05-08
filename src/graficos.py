@@ -8,7 +8,7 @@ import numpy as np
 from sklearn.metrics import (confusion_matrix, ConfusionMatrixDisplay, 
                            accuracy_score, f1_score, roc_curve, auc, 
                            precision_recall_curve, average_precision_score,
-                           mean_absolute_error, r2_score)
+                           mean_absolute_error, r2_score, mean_squared_error)
 from src.config import logger
 
 def generar_graficos_desempeno(modelos, X_test_scaled, y_test, feature_names=None):
@@ -47,7 +47,7 @@ def generar_graficos_desempeno(modelos, X_test_scaled, y_test, feature_names=Non
         ax.text(i + width/2, f1 + 0.01, f'{f1:.3f}', ha='center')
     
     plt.tight_layout()
-    plt.savefig('results/comparacion_modelos_clasificacion.png', dpi=300, bbox_inches='tight')
+    plt.savefig('results/Comparacion_clasificacion.png', dpi=300, bbox_inches='tight')
     plt.close()
 
     # 2. Matrices de confusión
@@ -102,34 +102,101 @@ def generar_graficos_desempeno(modelos, X_test_scaled, y_test, feature_names=Non
     print("Gráficos de clasificación generados")
 
 def generar_graficos_regresion(modelos_reg, X_test_scaled, y_test_real_ppm):
-    """Gráficos para modelos de regresión"""
+    """Genera gráficos de Regresión"""
     os.makedirs("results", exist_ok=True)
-    print("Generando gráficos de regresión...")
+    logger.info("Generando gráficos de regresión...")
     
     nombres = list(modelos_reg.keys())
-    maes = []
-    r2s = []
     
+    # Calcular predicciones
+    predicciones = {}
     for nombre, modelo in modelos_reg.items():
         y_pred_log = modelo.predict(X_test_scaled)
         y_pred = np.expm1(y_pred_log)
-        mae = mean_absolute_error(y_test_real_ppm, y_pred)
-        r2 = r2_score(y_test_real_ppm, y_pred)
-        maes.append(mae)
-        r2s.append(r2)
+        predicciones[nombre] = y_pred
     
-    fig, ax = plt.subplots(1, 2, figsize=(15, 6))
-    ax[0].bar(nombres, maes, color='coral')
-    ax[0].set_title('MAE por Modelo de Regresión')
-    ax[0].set_ylabel('MAE (ppm)')
-    ax[0].tick_params(axis='x', rotation=15)
+    # 1. Comparación General
+    maes = [mean_absolute_error(y_test_real_ppm, predicciones[n]) for n in nombres]
+    rmses = [np.sqrt(mean_squared_error(y_test_real_ppm, predicciones[n])) for n in nombres]
+    r2s = [r2_score(y_test_real_ppm, predicciones[n]) for n in nombres]
     
-    ax[1].bar(nombres, r2s, color='teal')
-    ax[1].set_title('R² por Modelo de Regresión')
-    ax[1].set_ylabel('R²')
-    ax[1].tick_params(axis='x', rotation=15)
+    fig, axes = plt.subplots(1, 3, figsize=(18, 6))
+    axes[0].bar(nombres, maes, color='coral')
+    axes[0].set_title('MAE (menor es mejor)')
+    axes[0].set_ylabel('MAE (ppm)')
+    axes[0].tick_params(axis='x', rotation=15)
     
+    axes[1].bar(nombres, rmses, color='orange')
+    axes[1].set_title('RMSE (menor es mejor)')
+    axes[1].set_ylabel('RMSE (ppm)')
+    axes[1].tick_params(axis='x', rotation=15)
+    
+    axes[2].bar(nombres, r2s, color='teal')
+    axes[2].set_title('R² (mayor es mejor)')
+    axes[2].set_ylabel('R²')
+    axes[2].tick_params(axis='x', rotation=15)
+    
+    plt.suptitle('Comparación de Desempeño - Modelos de Regresión', fontsize=16)
     plt.tight_layout()
-    plt.savefig('results/comparacion_modelos_regresion.png', dpi=300, bbox_inches='tight')
+    plt.savefig('results/Comparacion_regresion.png', dpi=300, bbox_inches='tight')
     plt.close()
-    print("Gráfico de regresión guardado: comparacion_regresion.png")
+
+    # 2. Predicted vs Actual
+    fig, axes = plt.subplots(2, 2, figsize=(16, 12))
+    axes = axes.ravel()
+    
+    for i, nombre in enumerate(nombres):
+        y_pred = predicciones[nombre]
+        ax = axes[i]
+        ax.scatter(y_test_real_ppm, y_pred, alpha=0.6, edgecolors='k', s=40)
+        ax.plot([y_test_real_ppm.min(), y_test_real_ppm.max()], 
+                [y_test_real_ppm.min(), y_test_real_ppm.max()], 'r--', lw=2)
+        ax.set_xlabel('Au Real (ppm)')
+        ax.set_ylabel('Au Predicho (ppm)')
+        ax.set_title(f'{nombre}\nPredicted vs Actual')
+        ax.grid(True, alpha=0.3)
+    
+    plt.suptitle('Predicted vs Actual - Modelos de Regresión', fontsize=16)
+    plt.tight_layout()
+    plt.savefig('results/Comparacion_regre_predicted_vs_actual.png', dpi=300, bbox_inches='tight')
+    plt.close()
+
+    # 3. Residuals Plot
+    fig, axes = plt.subplots(2, 2, figsize=(16, 12))
+    axes = axes.ravel()
+    
+    for i, nombre in enumerate(nombres):
+        y_pred = predicciones[nombre]
+        residuals = y_test_real_ppm - y_pred
+        ax = axes[i]
+        ax.scatter(y_pred, residuals, alpha=0.6, edgecolors='k', s=40)
+        ax.axhline(0, color='r', linestyle='--', lw=2)
+        ax.set_xlabel('Au Predicho (ppm)')
+        ax.set_ylabel('Residuales (Real - Predicho)')
+        ax.set_title(f'{nombre}\nResidual Plot')
+        ax.grid(True, alpha=0.3)
+    
+    plt.suptitle('Análisis de Residuales - Modelos de Regresión', fontsize=16)
+    plt.tight_layout()
+    plt.savefig('results/Comparacion_regre_residuals.png', dpi=300, bbox_inches='tight')
+    plt.close()
+
+    # 4. Distribución de Residuales
+    fig, axes = plt.subplots(2, 2, figsize=(16, 12))
+    axes = axes.ravel()
+    
+    for i, nombre in enumerate(nombres):
+        y_pred = predicciones[nombre]
+        residuals = y_test_real_ppm - y_pred
+        ax = axes[i]
+        sns.histplot(residuals, kde=True, ax=ax, color='purple')
+        ax.set_title(f'{nombre}\nDistribución de Residuales')
+        ax.set_xlabel('Residuales')
+        ax.grid(True, alpha=0.3)
+    
+    plt.suptitle('Distribución de Residuales - Modelos de Regresión', fontsize=16)
+    plt.tight_layout()
+    plt.savefig('results/Comparacion_regre_hist_residuals.png', dpi=300, bbox_inches='tight')
+    plt.close()
+
+    print("Gráficos de regresión generados")

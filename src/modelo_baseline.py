@@ -11,9 +11,9 @@ from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
 from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 
 from src.config import logger
-from src.evaluacion import limpiar_archivo_resultados, evaluar_holdout, evaluar_cross_validation, evaluar_regresion
-from src.ranking import generar_rankings_y_visualizaciones
+from src.evaluacion import limpiar_archivo_resultados, limpiar_carpeta_results, evaluar_holdout, evaluar_cross_validation, evaluar_regresion
 from src.graficos import generar_graficos_desempeno, generar_graficos_regresion
+from src.mapas import generar_mapas
 
 def ejecutar_baseline():
     logger.info("Iniciando Modelos Baseline...")
@@ -22,6 +22,10 @@ def ejecutar_baseline():
     limpiar_archivo_resultados()
     print("Archivo de resultados limpiado\n")
     
+    #Limpieza completa de results
+    limpiar_carpeta_results()
+    print("Carpeta de resultados limpiado\n")
+
     # Cargar datos procesados
     df = pd.read_csv("data/processed/data_procesada.csv")
     
@@ -65,9 +69,12 @@ def ejecutar_baseline():
     print("ENTRENANDO MODELOS DE REGRESIÓN")
     print(f"{'#'*90}\n")
     
+    upper_limit = 22.424
+    df['Auppm'] = df['Au_ppm'].clip(upper=upper_limit)
+
     df_pos = df[df['target_Au'] == 1].copy()
     X_pos = df_pos[features]
-    y_pos = np.log1p(df_pos['Au_ppm'])
+    y_pos = np.log1p(df_pos['Auppm'])
     X_pos_scaled = scaler.transform(X_pos)
     
     modelos_reg = {
@@ -80,12 +87,12 @@ def ejecutar_baseline():
     for nombre, modelo in modelos_reg.items():
         print(f"ENTRENANDO: {nombre}")
         modelo.fit(X_pos_scaled, y_pos)
-        evaluar_regresion(modelo, X_pos_scaled, df_pos['Au_ppm'], nombre)
-
-    generar_rankings_y_visualizaciones(modelos_clf, modelos_reg, df, scaler, features)
+        evaluar_regresion(modelo, X_pos_scaled, df_pos['Auppm'], nombre)
 
     generar_graficos_desempeno(modelos_clf, X_test_scaled, y_test)
-    generar_graficos_regresion(modelos_reg, X_pos_scaled, df_pos['Au_ppm'])
+    generar_graficos_regresion(modelos_reg, X_pos_scaled, df_pos['Auppm'])
+
+    generar_mapas(modelos_clf, modelos_reg, df, scaler, features)
     
     print(f"\n{'#'*90}")
     print("BASELINE COMPLETO")

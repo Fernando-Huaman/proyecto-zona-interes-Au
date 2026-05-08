@@ -8,11 +8,11 @@ from src.config import logger
 import os
 from datetime import datetime
 import numpy as np
+import shutil
 
 RESULTS_DIR = "results"
 os.makedirs(RESULTS_DIR, exist_ok=True)
 RESULT_FILE = os.path.join(RESULTS_DIR, "evaluacion_resultados.txt")
-
 
 def limpiar_archivo_resultados():
     """Limpia el archivo antes de una nueva evaluación"""
@@ -21,6 +21,17 @@ def limpiar_archivo_resultados():
         f.write(f"Fecha: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
         f.write("="*90 + "\n\n")
 
+def limpiar_carpeta_results():
+    """Elimina todos los archivos results"""
+    if os.path.exists(RESULTS_DIR):
+        try:
+            shutil.rmtree(RESULTS_DIR)      # Borra todo
+            os.makedirs(RESULTS_DIR)        # Vuelve a crear la carpeta vacía
+            print("Carpeta results/ limpiada completamente")
+        except Exception as e:
+            print(f"Error al limpiar results/: {e}")
+    else:
+        os.makedirs(RESULTS_DIR)
 
 def evaluar_holdout(modelo, X_test_scaled, y_test, nombre_modelo):
     """Evaluación en conjunto de prueba"""
