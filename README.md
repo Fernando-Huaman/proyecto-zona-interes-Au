@@ -84,7 +84,11 @@ Resultados en results/evaluacion_resultados.txt, Gráficos y Mapas.
 📈 **Resultados esperados**
 
 EDA completo con matriz de correlación, distribuciones normal y lognormal de todos los elementos.
-Modelos Baseline: Clasificación (KNN, Regresión Logística, Árbol de Decisión y Random Forest) y Regresión (KNN_Regresor, Ridge, Árbol de Decisión Regressor y Random Forest Regressor).
+
+Modelos Baseline: 
+* Clasificación (KNN, Regresión Logística, Árbol de Decisión y Random Forest)
+* Regresión (KNN_Regresor, Ridge, Árbol de Decisión Regressor y Random Forest Regressor)
+
 Métricas, Validación Cruzada (5-Fold Stratified).
 Archivos generados:
 - results/evaluacion_resultados.txt
