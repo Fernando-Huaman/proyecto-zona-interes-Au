@@ -136,3 +136,191 @@
 2026-05-01 22:42:48 - INFO - Iniciando Modelos Baseline...
 2026-05-01 22:42:48 - INFO - Train: 1709 | Test: 428
 2026-05-01 22:42:54 - INFO - Generando gráficos de desempeño del baseline...
+2026-05-08 17:43:27 - INFO - Estructura de carpetas creada correctamente
+2026-05-08 17:43:27 - INFO - Ejecutando: 1. Ingesta de datos
+2026-05-08 17:43:27 - INFO - Estructura de carpetas creada correctamente
+2026-05-08 17:43:32 - INFO - Cargando dataset desde: data/raw/DataSet_final.csv
+2026-05-08 17:43:33 - INFO - Dataset cargado → 2137 filas, 51 columnas
+2026-05-08 17:43:33 - INFO - Archivo guardado en data/interim/
+2026-05-08 17:43:33 - INFO - Ejecutando: 2. Preprocesamiento y creación de target
+2026-05-08 17:43:33 - INFO - Estructura de carpetas creada correctamente
+2026-05-08 17:43:33 - INFO - Cargando dataset desde: data/raw/DataSet_final.csv
+2026-05-08 17:43:33 - INFO - Dataset cargado → 2137 filas, 51 columnas
+2026-05-08 17:43:33 - INFO - Archivo guardado en data/interim/
+2026-05-08 17:43:33 - INFO - Tratando valores censurados...
+2026-05-08 17:43:33 - INFO - Tratamiento completado → (2137, 50)
+2026-05-08 17:43:33 - INFO - Variable objetivo creada
+2026-05-08 17:43:33 - INFO - Datos procesados guardados en data/processed/data_procesada.csv
+2026-05-08 17:43:33 - INFO - Ejecutando: 3. Notebook EDA
+2026-05-08 17:43:50 - INFO - Estructura de carpetas creada correctamente
+2026-05-08 17:43:50 - INFO - Iniciando EDA completo
+2026-05-08 17:43:50 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 17:43:50 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 17:44:17 - INFO - Ejecutando: 4. Modelos Baseline + Validación Cruzada
+2026-05-08 17:44:21 - INFO - Estructura de carpetas creada correctamente
+2026-05-08 17:44:21 - INFO - Iniciando Modelos Baseline...
+2026-05-08 17:44:21 - INFO - Train: 1709 | Test: 428
+2026-05-08 17:44:28 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 17:44:28 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 17:44:29 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 17:44:29 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 17:44:30 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 17:44:30 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 17:44:32 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 17:44:32 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 17:44:33 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 17:44:33 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 17:44:34 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 17:44:34 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 17:44:36 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 17:44:36 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 17:44:37 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 17:44:37 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 17:44:38 - INFO - Generando gráficos de desempeño del baseline...
+2026-05-08 18:34:23 - INFO - Estructura de carpetas creada correctamente
+2026-05-08 18:34:23 - INFO - Ejecutando: 1. Ingesta de datos
+2026-05-08 18:34:23 - INFO - Estructura de carpetas creada correctamente
+2026-05-08 18:34:23 - INFO - Cargando dataset desde: data/raw/DataSet_final.csv
+2026-05-08 18:34:24 - INFO - Dataset cargado → 2137 filas, 51 columnas
+2026-05-08 18:34:24 - INFO - Archivo guardado en data/interim/
+2026-05-08 18:34:24 - INFO - Ejecutando: 2. Preprocesamiento y creación de target
+2026-05-08 18:34:24 - INFO - Estructura de carpetas creada correctamente
+2026-05-08 18:34:24 - INFO - Cargando dataset desde: data/raw/DataSet_final.csv
+2026-05-08 18:34:24 - INFO - Dataset cargado → 2137 filas, 51 columnas
+2026-05-08 18:34:24 - INFO - Archivo guardado en data/interim/
+2026-05-08 18:34:24 - INFO - Tratando valores censurados...
+2026-05-08 18:34:24 - INFO - Tratamiento completado → (2137, 50)
+2026-05-08 18:34:24 - INFO - Variable objetivo creada
+2026-05-08 18:34:24 - INFO - Datos procesados guardados en data/processed/data_procesada.csv
+2026-05-08 18:34:24 - INFO - Ejecutando: 3. Notebook EDA
+2026-05-08 18:34:32 - INFO - Estructura de carpetas creada correctamente
+2026-05-08 18:34:32 - INFO - Iniciando EDA completo
+2026-05-08 18:34:32 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 18:34:32 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 18:35:00 - ERROR - Uncaught exception in ZMQStream callback
+Traceback (most recent call last):
+  File "/home/codespace/.local/lib/python3.12/site-packages/zmq/eventloop/zmqstream.py", line 565, in _log_error
+    f.result()
+  File "/home/codespace/.local/lib/python3.12/site-packages/ipykernel/kernelbase.py", line 348, in dispatch_control
+    await self.process_control(msg)
+  File "/home/codespace/.local/lib/python3.12/site-packages/ipykernel/kernelbase.py", line 385, in process_control
+    self._publish_status_and_flush("idle", "control", self.control_stream)
+  File "/home/codespace/.local/lib/python3.12/site-packages/ipykernel/kernelbase.py", line 661, in _publish_status_and_flush
+    self._publish_status(status, channel, parent)
+  File "/home/codespace/.local/lib/python3.12/site-packages/ipykernel/kernelbase.py", line 651, in _publish_status
+    self.session.send(
+  File "/home/codespace/.local/lib/python3.12/site-packages/jupyter_client/session.py", line 867, in send
+    stream.send_multipart(to_send, copy=copy)
+  File "/home/codespace/.local/lib/python3.12/site-packages/ipykernel/iostream.py", line 418, in send_multipart
+    return self.io_thread.send_multipart(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/ipykernel/iostream.py", line 348, in send_multipart
+    self.schedule(lambda: self._really_send(*args, **kwargs))
+  File "/home/codespace/.local/lib/python3.12/site-packages/ipykernel/iostream.py", line 341, in schedule
+    f()
+  File "/home/codespace/.local/lib/python3.12/site-packages/ipykernel/iostream.py", line 348, in <lambda>
+    self.schedule(lambda: self._really_send(*args, **kwargs))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/ipykernel/iostream.py", line 359, in _really_send
+    self.socket.send_multipart(msg, *args, **kwargs)
+  File "/home/codespace/.local/lib/python3.12/site-packages/zmq/sugar/socket.py", line 749, in send_multipart
+    self.send(msg, zmq.SNDMORE | flags, copy=copy, track=track)
+  File "/home/codespace/.local/lib/python3.12/site-packages/zmq/sugar/socket.py", line 698, in send
+    return super().send(data, flags=flags, copy=copy, track=track)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "zmq/backend/cython/_zmq.py", line 1152, in zmq.backend.cython._zmq.Socket.send
+    def send(self, data, flags=0, copy: bint = True, track: bint = False):
+    ^^^^^^^^^^^
+  File "zmq/backend/cython/_zmq.py", line 1194, in zmq.backend.cython._zmq.Socket.send
+    _check_closed(self)
+    ^^^^^^^^^^^
+  File "zmq/backend/cython/_zmq.py", line 1339, in zmq.backend.cython._zmq._check_closed
+    raise ZMQError(ENOTSOCK)
+    ^^^^^^^^^^^
+zmq.error.ZMQError: Socket operation on non-socket
+2026-05-08 18:35:01 - INFO - Ejecutando: 4. Modelos Baseline + Validación Cruzada
+2026-05-08 18:35:03 - INFO - Estructura de carpetas creada correctamente
+2026-05-08 18:35:04 - INFO - Iniciando Modelos Baseline...
+2026-05-08 18:35:04 - INFO - Train: 1709 | Test: 428
+2026-05-08 18:37:17 - INFO - Estructura de carpetas creada correctamente
+2026-05-08 18:37:17 - INFO - Ejecutando: 1. Ingesta de datos
+2026-05-08 18:37:17 - INFO - Estructura de carpetas creada correctamente
+2026-05-08 18:37:18 - INFO - Cargando dataset desde: data/raw/DataSet_final.csv
+2026-05-08 18:37:18 - INFO - Dataset cargado → 2137 filas, 51 columnas
+2026-05-08 18:37:18 - INFO - Archivo guardado en data/interim/
+2026-05-08 18:37:18 - INFO - Ejecutando: 2. Preprocesamiento y creación de target
+2026-05-08 18:37:18 - INFO - Estructura de carpetas creada correctamente
+2026-05-08 18:37:18 - INFO - Cargando dataset desde: data/raw/DataSet_final.csv
+2026-05-08 18:37:18 - INFO - Dataset cargado → 2137 filas, 51 columnas
+2026-05-08 18:37:18 - INFO - Archivo guardado en data/interim/
+2026-05-08 18:37:18 - INFO - Tratando valores censurados...
+2026-05-08 18:37:18 - INFO - Tratamiento completado → (2137, 50)
+2026-05-08 18:37:18 - INFO - Variable objetivo creada
+2026-05-08 18:37:18 - INFO - Datos procesados guardados en data/processed/data_procesada.csv
+2026-05-08 18:37:18 - INFO - Ejecutando: 3. Notebook EDA
+2026-05-08 18:37:25 - INFO - Estructura de carpetas creada correctamente
+2026-05-08 18:37:25 - INFO - Iniciando EDA completo
+2026-05-08 18:37:25 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 18:37:25 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 18:37:55 - INFO - Ejecutando: 4. Modelos Baseline + Validación Cruzada
+2026-05-08 18:37:57 - INFO - Estructura de carpetas creada correctamente
+2026-05-08 18:37:57 - INFO - Iniciando Modelos Baseline...
+2026-05-08 18:37:57 - INFO - Train: 1709 | Test: 428
+2026-05-08 18:38:04 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 18:38:04 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 18:38:05 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 18:38:05 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 18:38:07 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 18:38:07 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 18:38:08 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 18:38:08 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 18:38:09 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 18:38:09 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 18:38:11 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 18:38:11 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 18:38:12 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 18:38:12 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 18:38:14 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 18:38:14 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 18:38:15 - INFO - Generando gráficos de desempeño del baseline...
+2026-05-08 18:47:17 - INFO - Estructura de carpetas creada correctamente
+2026-05-08 18:47:17 - INFO - Ejecutando: 1. Ingesta de datos
+2026-05-08 18:47:17 - INFO - Estructura de carpetas creada correctamente
+2026-05-08 18:47:17 - INFO - Cargando dataset desde: data/raw/DataSet_final.csv
+2026-05-08 18:47:17 - INFO - Dataset cargado → 2137 filas, 51 columnas
+2026-05-08 18:47:17 - INFO - Archivo guardado en data/interim/
+2026-05-08 18:47:17 - INFO - Ejecutando: 2. Preprocesamiento y creación de target
+2026-05-08 18:47:18 - INFO - Estructura de carpetas creada correctamente
+2026-05-08 18:47:18 - INFO - Cargando dataset desde: data/raw/DataSet_final.csv
+2026-05-08 18:47:18 - INFO - Dataset cargado → 2137 filas, 51 columnas
+2026-05-08 18:47:18 - INFO - Archivo guardado en data/interim/
+2026-05-08 18:47:18 - INFO - Tratando valores censurados...
+2026-05-08 18:47:18 - INFO - Tratamiento completado → (2137, 50)
+2026-05-08 18:47:18 - INFO - Variable objetivo creada
+2026-05-08 18:47:18 - INFO - Datos procesados guardados en data/processed/data_procesada.csv
+2026-05-08 18:47:18 - INFO - Ejecutando: 3. Notebook EDA
+2026-05-08 18:47:24 - INFO - Estructura de carpetas creada correctamente
+2026-05-08 18:47:24 - INFO - Iniciando EDA completo
+2026-05-08 18:47:24 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 18:47:24 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 18:47:52 - INFO - Ejecutando: 4. Modelos Baseline + Validación Cruzada
+2026-05-08 18:47:54 - INFO - Estructura de carpetas creada correctamente
+2026-05-08 18:47:54 - INFO - Iniciando Modelos Baseline...
+2026-05-08 18:47:54 - INFO - Train: 1709 | Test: 428
+2026-05-08 18:48:00 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 18:48:00 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 18:48:02 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 18:48:02 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 18:48:03 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 18:48:03 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 18:48:05 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 18:48:05 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 18:48:06 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 18:48:06 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 18:48:07 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 18:48:07 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 18:48:09 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 18:48:09 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 18:48:10 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 18:48:10 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-08 18:48:12 - INFO - Generando gráficos de desempeño del baseline...

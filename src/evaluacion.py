@@ -3,10 +3,11 @@ Evaluación de los modelos
 """
 import pandas as pd
 from sklearn.model_selection import StratifiedKFold, cross_validate
-from sklearn.metrics import classification_report
+from sklearn.metrics import classification_report, mean_absolute_error, mean_squared_error, r2_score, root_mean_squared_error
 from src.config import logger
 import os
 from datetime import datetime
+import numpy as np
 
 RESULTS_DIR = "results"
 os.makedirs(RESULTS_DIR, exist_ok=True)
@@ -63,3 +64,23 @@ VALIDACIÓN CRUZADA (5-Fold) - {nombre_modelo}
         f.write(contenido + "\n\n")
     
     return cv_results
+
+def evaluar_regresion(modelo, X_test_scaled, y_test_real_ppm, nombre_modelo):
+    """Evaluación para modelos de regresión"""
+    y_pred_log = modelo.predict(X_test_scaled)
+    y_pred_ppm = np.expm1(y_pred_log)
+    
+    mae = mean_absolute_error(y_test_real_ppm, y_pred_ppm)
+    rmse = root_mean_squared_error(y_test_real_ppm, y_pred_ppm)
+    r2 = r2_score(y_test_real_ppm, y_pred_ppm)
+    
+    header = f"""
+{'='*80}
+RESULTADOS REGRESIÓN - {nombre_modelo}
+{'='*80}
+"""
+    report = f"MAE  (ppm): {mae:.4f}\nRMSE (ppm): {rmse:.4f}\nR²         : {r2:.4f}\n"
+    print(header + report)
+    with open(RESULT_FILE, "a", encoding="utf-8") as f:
+        f.write(header + report + "\n\n")
+    return mae, rmse, r2

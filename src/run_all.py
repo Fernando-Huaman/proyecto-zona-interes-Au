@@ -42,6 +42,8 @@ def ejecutar_pipeline_completo():
     print("¡PIPELINE COMPLETO FINALIZADO CON ÉXITO!")
     print("Archivos generados:")
     print("   • results/evaluacion_resultados.txt")
+    print("   • results/ranking_*.csv (probabilidad y concentración)")
+    print("   • results/top10_*.png y results/mapa_*.png")
     print("   • notebooks/EDA.ipynb (ejecutado con gráficos)")
     print("   • logs/pipeline.log")
     print("="*90)
