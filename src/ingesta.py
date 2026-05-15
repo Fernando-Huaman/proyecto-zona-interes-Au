@@ -2,7 +2,7 @@ from src.config import logger
 import pandas as pd
 
 def cargar_datos():
-    ruta = "data/raw/DataSet_final.csv"
+    ruta = "data/raw/DataSet.csv"
     logger.info(f"Cargando dataset desde: {ruta}")
     
     df = pd.read_csv(ruta)

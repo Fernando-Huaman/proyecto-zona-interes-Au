@@ -3,7 +3,6 @@ Modelos Baseline
 """
 import pandas as pd
 import numpy as np
-from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import KNeighborsClassifier, KNeighborsRegressor
 from sklearn.linear_model import LogisticRegression, Ridge
@@ -22,26 +21,35 @@ def ejecutar_baseline():
     limpiar_archivo_resultados()
     print("Archivo de resultados limpiado\n")
     
-    #Limpieza completa de results
+    # Limpieza completa de results
     limpiar_carpeta_results()
     print("Carpeta de resultados limpiado\n")
 
-    # Cargar datos procesados
-    df = pd.read_csv("data/processed/data_procesada.csv")
+    # Cargar datos
+    try:
+        df_train = pd.read_csv("data/interim/data_entrenamiento_balanceado.csv")
+        df_test = pd.read_csv("data/interim/data_prueba.csv")
+        logger.info("Cargados datos balanceados desde data/interim/")
+    except FileNotFoundError:
+        logger.error("No se encontraron archivos en data/interim/. Ejecuta primero preprocesamiento.py")
+        return
+
+    # Features (excluir columnas no químicas y el indicador sintético)
+    exclude_cols = ['Au_ppm', 'target_Au', 'East', 'North', 'Level', 'is_synthetic']
+    features = [col for col in df_train.columns if col not in exclude_cols]
     
-    features = [col for col in df.columns if col not in ['Au_ppm', 'target_Au', 'East', 'North', 'Level']]
-    X = df[features]
-    y = df['target_Au']
-    
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.20, stratify=y, random_state=42
-    )
-    
+    X_train = df_train[features]
+    y_train = df_train['target_Au']
+    X_test = df_test[features]
+    y_test = df_test['target_Au']
+
+    logger.info(f"Train balanceado: {X_train.shape[0]} filas | Test original: {X_test.shape[0]} filas")
+    logger.info(f"Distribución train: {y_train.value_counts().to_dict()}")
+
+    # Escalado (solo features químicas)
     scaler = StandardScaler()
     X_train_scaled = scaler.fit_transform(X_train)
     X_test_scaled = scaler.transform(X_test)
-    
-    logger.info(f"Train: {X_train.shape[0]} | Test: {X_test.shape[0]}")
     
     # MODELOS DE CLASIFICACIÓN
     print(f"\n{'#'*90}")
@@ -69,30 +77,37 @@ def ejecutar_baseline():
     print("ENTRENANDO MODELOS DE REGRESIÓN")
     print(f"{'#'*90}\n")
     
-    upper_limit = 22.424
-    df['Auppm'] = df['Au_ppm'].clip(upper=upper_limit)
+    # Solo usamos muestras ORIGINALES del train (is_synthetic == 0)
+    df_train_pos = df_train[
+        (df_train['target_Au'] == 1) & 
+        (df_train['is_synthetic'] == 0) & 
+        (df_train['Au_ppm'].notna())
+    ].copy()
 
-    df_pos = df[df['target_Au'] == 1].copy()
-    X_pos = df_pos[features]
-    y_pos = np.log1p(df_pos['Auppm'])
+    UPPER_LIMIT = 2.20  # Outliers
+
+    df_train_pos['Au_ppm_clipped'] = df_train_pos['Au_ppm'].clip(upper=UPPER_LIMIT)
+
+    X_pos = df_train_pos[features]
+    y_pos = np.log1p(df_train_pos['Au_ppm_clipped'])
     X_pos_scaled = scaler.transform(X_pos)
     
     modelos_reg = {
         'KNN_Regressor': KNeighborsRegressor(n_neighbors=5),
         'Ridge': Ridge(alpha=1.0),
-        'Arbol_Decision_Regressor': DecisionTreeRegressor(max_depth=6, random_state=42),
-        'Random_Forest_Regressor': RandomForestRegressor(n_estimators=100, random_state=42)
+        'Arbol_Decision_Regressor': DecisionTreeRegressor(max_depth=5, random_state=42),
+        'Random_Forest_Regressor': RandomForestRegressor(n_estimators=200, max_depth=6, random_state=42)
     }
     
     for nombre, modelo in modelos_reg.items():
         print(f"ENTRENANDO: {nombre}")
         modelo.fit(X_pos_scaled, y_pos)
-        evaluar_regresion(modelo, X_pos_scaled, df_pos['Auppm'], nombre)
+        evaluar_regresion(modelo, X_pos_scaled, df_train_pos['Au_ppm_clipped'], nombre)
 
     generar_graficos_desempeno(modelos_clf, X_test_scaled, y_test)
-    generar_graficos_regresion(modelos_reg, X_pos_scaled, df_pos['Auppm'])
+    generar_graficos_regresion(modelos_reg, X_pos_scaled, df_train_pos['Au_ppm_clipped'])
 
-    generar_mapas(modelos_clf, modelos_reg, df, scaler, features)
+    generar_mapas(modelos_clf, modelos_reg, df_test, scaler, features)
     
     print(f"\n{'#'*90}")
     print("BASELINE COMPLETO")

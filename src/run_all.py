@@ -36,7 +36,7 @@ def ejecutar_pipeline_completo():
     run_command(cmd_eda, "3. Notebook EDA")
     
     # 4. Baseline + Evaluación
-    run_command("python -m src.modelo_baseline", "4. Modelos Baseline + Validación Cruzada")
+    run_command("python -m src.modelo_baseline", "4. Modelos Baseline + Metricas + Mapa")
     
     print("\n" + "="*90)
     print("¡PIPELINE COMPLETO FINALIZADO CON ÉXITO!")

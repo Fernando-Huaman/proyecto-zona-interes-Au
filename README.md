@@ -12,7 +12,7 @@
 
 📊 **Dataset**
 - **Fuente**: DataSet_final.csv (muestreos geoquímicos)
-- **Registros**: 2,137 muestras
+- **Registros**: 2,132 muestras
 - **Variables**: Coordenadas (East, North, Level) + 47 elementos químicos (Au_ppm, Ag_ppm, Cu_ppm, etc.)
 - **Objetivo**: Clasificar zonas de interés de oro (`target_Au = 1` si Au > 0.10 ppm) según probabilidad y concentración predicha (Au_ppm)
 - **Versión usada**: Abril 2026
@@ -25,16 +25,16 @@
 data/
 ├── raw/                    # DataSet_final.csv (original)
 ├── processed/              # data_procesada.csv (limpio y target)
-├── interim/                # Archivos intermedios
+├── interim/                # data de entrenamiento y prueba
 notebooks/ 
 ├── EDA.ipynb               # Análisis exploratorio completo
 src/
 ├── config.py               # Configuración y logging
 ├── ingesta.py              # Carga del dataset original
-├── preprocesamiento.py     # Limpieza de censurados y creación de target
+├── preprocesamiento.py     # Limpieza, creación de target y balanceo
 ├── evaluacion.py           # Métricas, Hold-out y Validación Cruzada
 ├── graficos.py             # Generación de gráficos de desempeño
-├── mapas.py                # 16 mapas de probabilidad y predicción Au
+├── mapas.py                # 1 mapa de probabilidad y predicción Au
 ├── modelo_baseline.py      # Modelos, Entrenamiento y Evaluación
 └── run_all.py              # Ejecuta todo el pipeline
 results/                    # Evaluacion_resultados.txt, Gráficos y Mapas
@@ -83,7 +83,7 @@ Resultados en results/evaluacion_resultados.txt, Gráficos y Mapas.
 
 📈 **Resultados esperados**
 
-EDA completo con matriz de correlación, distribuciones normal y lognormal de todos los elementos.
+EDA completo con matriz de correlación, distribuciones de todos los elementos y distribución de la variable objetivo.
 
 Modelos Baseline: 
 * Clasificación (KNN, Regresión Logística, Árbol de Decisión y Random Forest)
@@ -93,7 +93,7 @@ Métricas, Validación Cruzada (5-Fold Stratified).
 Archivos generados:
 - results/evaluacion_resultados.txt
 - results/Comparacion*.png (Comparacion de los modelos)
-- results/mapa*.png (Mapas de probabilidad y predicción Au)
+- results/mapa*.png (Mapa de probabilidad y predicción Au)
 - notebooks/output/ (Imágenes y tablas)
 - logs/pipeline.log
 
@@ -101,8 +101,8 @@ Archivos generados:
 
 📌 **Roadmap**
 ```bash
-[x] Sprint 1 → Pipeline mínimo reproducible + EDA + Baseline + Mapas.
-[ ] Sprint 2 → Mejora de features, balanceo y modelos avanzados.
+[x] Sprint 1 → Pipeline mínimo reproducible + EDA + Baseline + Mapa.
+[X] Sprint 2 → Manejo de Outliers y Balanceo con BorderlineSMOTE.
 [ ] Sprint 3 → Optimización e interpretabilidad.
 [ ] Sprint 4 → Resultados finales y defensa.
 ```
