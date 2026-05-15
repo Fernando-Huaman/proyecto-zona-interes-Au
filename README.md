@@ -23,7 +23,7 @@
 
 ```bash
 data/
-├── raw/                    # DataSet_final.csv (original)
+├── raw/                    # DataSet.csv (original)
 ├── processed/              # data_procesada.csv (limpio y target)
 ├── interim/                # data de entrenamiento y prueba
 notebooks/ 
