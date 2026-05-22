@@ -1,8 +1,20 @@
-pandas>=2.2.0
-numpy>=1.26.0
-scikit-learn==1.5.2
-matplotlib>=3.8.0
-seaborn>=0.13.0
-nbconvert>=7.0.0
+# Requerimientos principales del proyecto - Zona de Interés Au
+pandas>=2.0.0
+numpy>=1.24.0
+scikit-learn>=1.3.0
+imbalanced-learn>=0.12.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
 jupyter>=1.0.0
-imbalanced-learn==0.13.0
+ipykernel>=6.0.0
+
+# Opcionales / visualización
+plotly>=5.0.0
+shap>=0.42.0   # Para interpretabilidad futura
+
+# Logging y utilidades
+python-dotenv>=1.0.0
+tqdm>=4.0.0
+
+# Para notebooks
+nbconvert>=7.0.0

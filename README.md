@@ -25,7 +25,7 @@
 data/
 ├── raw/                    # DataSet.csv (original)
 ├── processed/              # data_procesada.csv (limpio y target)
-├── interim/                # data de entrenamiento y prueba
+├── interim/                # data train y prueba (sin/con FE)
 notebooks/ 
 ├── EDA.ipynb               # Análisis exploratorio completo
 src/
@@ -36,8 +36,10 @@ src/
 ├── graficos.py             # Generación de gráficos de desempeño
 ├── mapas.py                # 1 mapa de probabilidad y predicción Au
 ├── modelo_baseline.py      # Modelos, Entrenamiento y Evaluación
+├── feature_engineering.py  # Creación de ratios y log
+├── experimentos_ab.py      # Baseline + Var1 + Var2
 └── run_all.py              # Ejecuta todo el pipeline
-results/                    # Evaluacion_resultados.txt, Gráficos y Mapas
+results/                    # Metricas, Gráficos y Mapas
 notebooks/output/           # Gráficos y tablas del EDA
 logs/                       # pipeline.log
 ```
@@ -66,6 +68,8 @@ python -m src.ingesta
 ```bash
 python -m src.preprocesamiento
 ```
+Genera archivos en data/interim y data/processed
+
 3. Análisis Exploratorio (EDA)
 ```bash
 jupyter nbconvert --execute --to notebook --inplace notebooks/EDA.ipynb
@@ -77,7 +81,14 @@ Los gráficos y tablas se guardan automáticamente en notebooks/output/
 python -m src.modelo_baseline
 ```
 Incluye Métricas, Hold-out y Validación Cruzada (5-Fold). 
-Resultados en results/evaluacion_resultados.txt, Gráficos y Mapas.
+Resultados en results/evaluacion_resultados.txt, Gráficos en results/Comparacion*.png y Mapas en results/mapa*.png.
+
+5. Feature Engineeting y Experimentos A/B
+```bash
+python -m src.experimentos_ab
+```
+Aplica Feature Engineering (ratios y transformaciones log).
+Ejecuta 3 experimentos: Baseline, Var1 (con FE) y Var2 (con FE + Tuning a Random Forest). Resultados en results/metrics_experimentos.csv y Graficos en results/feature_importance*.png
 
 ---
 
@@ -85,11 +96,10 @@ Resultados en results/evaluacion_resultados.txt, Gráficos y Mapas.
 
 EDA completo con matriz de correlación, distribuciones de todos los elementos y distribución de la variable objetivo.
 
-Modelos Baseline: 
+Modelo Baseline: 
 * Clasificación (KNN, Regresión Logística, Árbol de Decisión y Random Forest)
 * Regresión (KNN_Regresor, Ridge, Árbol de Decisión Regressor y Random Forest Regressor)
-
-Métricas, Validación Cruzada (5-Fold Stratified).
+Validación: Hold-out + Validación Cruzada (5-Fold Stratified).
 Archivos generados:
 - results/evaluacion_resultados.txt
 - results/Comparacion*.png (Comparacion de los modelos)
@@ -99,12 +109,52 @@ Archivos generados:
 
 ---
 
+🧪 **Feature Engineering + Experimentos A/B**
+
+*Feature Engineering*   
+Se aplicaron las siguientes técnicas:
+
+- Transformaciones logarítmica (log1p) para manejar distribuciones sesgadas
+- Rarios Pathfinder: Au_Sb_ratio, Au_Cu_ratio, Au_Ag_ratio, Au_As_ratio, etc.
+- Agregaciones: pathfinder_sum, pathfinder_mean, pathfinder_max
+
+Pathfinder son elementos quimicos asocioado al oro (As_ppm, Sb_ppm, Cu_ppm, Ag_ppm, Bi_ppm, Pb_ppm, Zn_ppm)
+
+*Experimentos A/B*  
+Se ejecutaron 3 variantes, realizando una modificación por experimento:
+
+| Experimento                  | Features                        | F1 Score   | PR-AUC     | Tiempo (s) |
+|------------------------------|---------------------------------|------------|------------|------------|
+| **Baseline**              | Datos Balanceados                | 0.6789     | 0.7204     | 1.34       |
+| **Var1_FE**               | + Feature Engineering           | 0.8478 | **0.9680** | 1.38       |
+| **Var2_FE_tuned**         | FE + Tuning (n=200, depth=15)                    | **0.8602** | 0.9645     | 2.55       |
+
+Conclusión principal:   
+El **Feature Engineering** generó una mejora muy importante en F1 Score (+0.1689) y PR-AUC (+0.2476).     
+El **Tuning** (n=200, depth=15) a Random Forest permitío una mejora adicional en F1 Score (+0.0124) pero disminución pequeña en PR-AUC (-0.0035)
+
+La **mejor** configuración actual es **Var2**.
+
+Para el Var2 se realizo las siguientes modificaciones:
+
+| Aspecto                  | Baseline y Var1_FE                        | Var2_FE_Tuned   |
+|------------------------------|---------------------------------|------------|
+| n_estimators             | 100 árboles                | 200 árboles     |
+| max_depth               | Ninguno (por defecto ilimitado)          | 15|
+| min_samples_leaf         | 1 (por defecto)                    | 2 |
+
+Archivos generados:
+- results/metrics_experimentos.csv
+- results/FE_*.png
+
+---
+
 📌 **Roadmap**
 ```bash
-[x] Sprint 1 → Pipeline mínimo reproducible + EDA + Baseline + Mapa.
-[X] Sprint 2 → Manejo de Outliers y Balanceo con BorderlineSMOTE.
-[ ] Sprint 3 → Optimización e interpretabilidad.
-[ ] Sprint 4 → Resultados finales y defensa.
+[X] Sprint 0 → Pipeline mínimo reproducible + Baseline.
+[X] Sprint 1 → EDA + Outliers y Balanceo con BorderlineSMOTE.
+[X] Sprint 2 → Feature Engineering + Experimentos A/B.
+[ ] Sprint 3 → Resultados finales y defensa.
 ```
 
 ---

@@ -37,11 +37,16 @@ def ejecutar_pipeline_completo():
     
     # 4. Baseline + Evaluación
     run_command("python -m src.modelo_baseline", "4. Modelos Baseline + Metricas + Mapa")
+
+    # 5. Feature Engineering + Experimentos A/B
+    run_command("python -m src.experimentos_ab", "5. Feature Engineering + Experimentos A/B")
     
     print("\n" + "="*90)
     print("¡PIPELINE COMPLETO FINALIZADO CON ÉXITO!")
     print("Archivos generados:")
     print("   • results/evaluacion_resultados.txt")
+    print("   • results/metrics_experimentos.csv")
+    print("   • results/feature_importance_*.png")
     print("   • results/mapa_*.png (probabilidad y concentración)")
     print("   • notebooks/EDA.ipynb (ejecutado con gráficos)")
     print("   • logs/pipeline.log")
