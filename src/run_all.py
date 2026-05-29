@@ -39,16 +39,22 @@ def ejecutar_pipeline_completo():
     run_command("python -m src.modelo_baseline", "4. Modelos Baseline + Metricas + Mapa")
 
     # 5. Feature Engineering + Experimentos A/B
-    run_command("python -m src.experimentos_ab", "5. Feature Engineering + Experimentos A/B")
-    
+    print("\nEjecutando Notebook de Sprint 2 (Feature Engineering + Experimentos A/B)...")
+    cmd_sprint2 = (
+        "cd /workspaces/proyecto-zona-interes-Au && "
+        "jupyter nbconvert --execute --to notebook --inplace "
+        "--ExecutePreprocessor.timeout=600 notebooks/sprint2.ipynb"
+    )
+    run_command(cmd_sprint2, "5. Notebook Sprint 2 - Feature Engineering + Experimentos")
+
     print("\n" + "="*90)
     print("¡PIPELINE COMPLETO FINALIZADO CON ÉXITO!")
     print("Archivos generados:")
     print("   • results/evaluacion_resultados.txt")
-    print("   • results/metrics_experimentos.csv")
-    print("   • results/feature_importance_*.png")
+    print("   • results/comparación*.csv (Comparacion de modelos baseline)")
     print("   • results/mapa_*.png (probabilidad y concentración)")
     print("   • notebooks/EDA.ipynb (ejecutado con gráficos)")
+    print("   • notebooks/sprint2.ipynb (FE + Experimentos A/B)")
     print("   • logs/pipeline.log")
     print("="*90)
 

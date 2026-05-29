@@ -1,4 +1,0 @@
-model,features,fe,f1,pr_auc,train_time_sec,experimento
-RandomForest,originales,False,0.6788990825688074,0.7203705987491775,1.33,Baseline_RF
-RandomForest,con_FE,True,0.8478260869565217,0.9680379765589214,1.19,Var1_FE_RF
-RandomForest_n200_depth15,con_FE,True,0.8602150537634409,0.9645329401819802,2.45,Var2_FE_RF_tuned

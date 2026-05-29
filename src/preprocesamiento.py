@@ -123,9 +123,6 @@ def guardar_datos_procesados(df: pd.DataFrame):
     return df
 
 
-# FEATURE ENGINEERING
-from src.feature_engineering import aplicar_feature_engineering
-
 def procesar_datos_completos():
     """Función principal que ejecuta todo el pipeline"""
     from src.ingesta import cargar_datos
@@ -138,13 +135,8 @@ def procesar_datos_completos():
     # Balanceo y división
     df_train_bal, df_test = balancear_y_dividir(df, random_state=42, ratio='auto')
     
-    # Feature Engineering
     if df_train_bal is not None and df_test is not None:
-        df_train_bal, df_test = aplicar_feature_engineering(df_train_bal, df_test)
-        
-        df_train_bal.to_csv(DATA_INTERIM / "data_entrenamiento_balanceado_fe.csv", index=False)
-        df_test.to_csv(DATA_INTERIM / "data_prueba_fe.csv", index=False)
-        logger.info("Feature Engineering aplicado y guardado correctamente.")
+        logger.info("Datos preprocesados y balanceados guardados correctamente.")
     
     return df_train_bal, df_test
 

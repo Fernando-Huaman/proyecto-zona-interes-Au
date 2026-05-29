@@ -1808,3 +1808,40 @@ zmq.error.ZMQError: Socket operation on non-socket
 2026-05-22 18:25:29 - INFO - FE completado: 52 → 109 columnas
 2026-05-22 18:25:31 - INFO - Var1_FE_RF → F1=0.8478 | PR-AUC=0.9680
 2026-05-22 18:25:34 - INFO - Var2_FE_RF_tuned → F1=0.8602 | PR-AUC=0.9645
+2026-05-29 22:49:36 - INFO - Estructura de carpetas creada correctamente
+2026-05-29 22:49:36 - INFO - Ejecutando: 1. Ingesta de datos
+2026-05-29 22:49:36 - INFO - Estructura de carpetas creada correctamente
+2026-05-29 22:49:39 - INFO - Cargando dataset desde: data/raw/DataSet.csv
+2026-05-29 22:49:39 - INFO - Dataset cargado → 2132 filas, 52 columnas
+2026-05-29 22:49:39 - INFO - Archivo guardado en data/interim/
+2026-05-29 22:49:39 - INFO - Ejecutando: 2. Preprocesamiento y creación de target
+2026-05-29 22:49:43 - INFO - Estructura de carpetas creada correctamente
+2026-05-29 22:49:43 - INFO - Cargando dataset desde: data/raw/DataSet.csv
+2026-05-29 22:49:43 - INFO - Dataset cargado → 2132 filas, 52 columnas
+2026-05-29 22:49:43 - INFO - Archivo guardado en data/interim/
+2026-05-29 22:49:43 - INFO - Tratando valores censurados...
+2026-05-29 22:49:44 - INFO - Tratamiento completado → (2132, 51)
+2026-05-29 22:49:44 - INFO - Variable objetivo creada → {0: 1872, 1: 260}
+2026-05-29 22:49:44 - INFO - Columna 'Unnamed: 4' eliminada correctamente
+2026-05-29 22:49:44 - INFO - Datos procesados completos guardados en /workspaces/proyecto-zona-interes-Au/data/processed/data_procesada.csv
+2026-05-29 22:49:44 - INFO - === Iniciando balanceo con datos sintéticos (solo train) ===
+2026-05-29 22:49:44 - INFO - Datos preprocesados y balanceados guardados correctamente.
+2026-05-29 22:49:44 - INFO - Ejecutando: 3. Notebook EDA
+2026-05-29 22:49:53 - INFO - Estructura de carpetas creada correctamente
+2026-05-29 22:49:53 - INFO - Iniciando EDA completo
+2026-05-29 22:49:54 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-29 22:49:54 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-29 22:49:54 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-29 22:49:54 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-29 22:50:26 - INFO - Ejecutando: 4. Modelos Baseline + Metricas + Mapa
+2026-05-29 22:50:29 - INFO - Estructura de carpetas creada correctamente
+2026-05-29 22:50:30 - INFO - Iniciando Modelos Baseline...
+2026-05-29 22:50:30 - INFO - Cargados datos balanceados desde data/interim/
+2026-05-29 22:50:30 - INFO - Train balanceado: 2994 filas | Test original: 427 filas
+2026-05-29 22:50:30 - INFO - Distribución train: {0: 1497, 1: 1497}
+2026-05-29 22:50:40 - INFO - Generando gráficos de desempeño del baseline...
+2026-05-29 22:50:44 - INFO - Generando gráficos de regresión...
+2026-05-29 22:50:50 - INFO - === Generando Mapa Final (Random Forest + Árbol de Decisión) ===
+2026-05-29 22:50:50 - INFO - Generando mapa con 57 puntos positivos
+2026-05-29 22:50:52 - INFO - Ejecutando: 5. Feature Engineering + Experimentos A/B
+2026-05-29 22:50:52 - INFO - Ejecutando: 5. Notebook Sprint 2 - Feature Engineering + Experimentos

@@ -28,6 +28,7 @@ data/
 ├── interim/                # data train y prueba (sin/con FE)
 notebooks/ 
 ├── EDA.ipynb               # Análisis exploratorio completo
+├── sprint2.ipynb           # Feature Engineering + Experimentos A/B
 src/
 ├── config.py               # Configuración y logging
 ├── ingesta.py              # Carga del dataset original
@@ -36,11 +37,10 @@ src/
 ├── graficos.py             # Generación de gráficos de desempeño
 ├── mapas.py                # 1 mapa de probabilidad y predicción Au
 ├── modelo_baseline.py      # Modelos, Entrenamiento y Evaluación
-├── feature_engineering.py  # Creación de ratios y log
-├── experimentos_ab.py      # Baseline + Var1 + Var2
 └── run_all.py              # Ejecuta todo el pipeline
 results/                    # Metricas, Gráficos y Mapas
 notebooks/output/           # Gráficos y tablas del EDA
+notebooks/outputs_sprint2/  # Gráficos y tablas del FE + Exp A/B
 logs/                       # pipeline.log
 ```
 
@@ -85,7 +85,7 @@ Resultados en results/evaluacion_resultados.txt, Gráficos en results/Comparacio
 
 5. Feature Engineeting y Experimentos A/B
 ```bash
-python -m src.experimentos_ab
+jupyter nbconvert --execute --to notebook --inplace notebooks/sprint2.ipynb
 ```
 Aplica Feature Engineering (ratios y transformaciones log).
 Ejecuta 3 experimentos: Baseline, Var1 (con FE) y Var2 (con FE + Tuning a Random Forest). Resultados en results/metrics_experimentos.csv y Graficos en results/feature_importance*.png
@@ -125,13 +125,13 @@ Se ejecutaron 3 variantes, realizando una modificación por experimento:
 
 | Experimento                  | Features                        | F1 Score   | PR-AUC     | Tiempo (s) |
 |------------------------------|---------------------------------|------------|------------|------------|
-| **Baseline**              | Datos Balanceados                | 0.6789     | 0.7204     | 1.34       |
-| **Var1_FE**               | + Feature Engineering           | 0.8478 | **0.9680** | 1.38       |
-| **Var2_FE_tuned**         | FE + Tuning (n=200, depth=15)                    | **0.8602** | 0.9645     | 2.55       |
+| **Baseline**              | Datos Balanceados                | 0.6789     | 0.7182     | 1.71       |
+| **Var1_FE**               | + Feature Engineering           | 0.8723 | 0.9792 | 1.10       |
+| **Var2_FE_tuned**         | FE + Tuning (n=200, depth=15)                    | **0.8936** | **0.9831**     | 0.59       |
 
 Conclusión principal:   
-El **Feature Engineering** generó una mejora muy importante en F1 Score (+0.1689) y PR-AUC (+0.2476).     
-El **Tuning** (n=200, depth=15) a Random Forest permitío una mejora adicional en F1 Score (+0.0124) pero disminución pequeña en PR-AUC (-0.0035)
+El **Feature Engineering** generó una mejora muy importante en F1 Score (+0.1934) y PR-AUC (+0.2610).     
+El **Tuning** (n=60, depth=13) a Random Forest permitío una mejora adicional en F1 Score (+0.0213) y un aumento pequeño en PR-AUC (+0.0039)
 
 La **mejor** configuración actual es **Var2**.
 
@@ -139,13 +139,15 @@ Para el Var2 se realizo las siguientes modificaciones:
 
 | Aspecto                  | Baseline y Var1_FE                        | Var2_FE_Tuned   |
 |------------------------------|---------------------------------|------------|
-| n_estimators             | 100 árboles                | 200 árboles     |
-| max_depth               | Ninguno (por defecto ilimitado)          | 15|
+| n_estimators             | 100 árboles                | 60 árboles     |
+| max_depth               | Ninguno (por defecto ilimitado)          | 13|
 | min_samples_leaf         | 1 (por defecto)                    | 2 |
 
 Archivos generados:
-- results/metrics_experimentos.csv
-- results/FE_*.png
+- notebooks/outputs_sprint2/metrics_experimentos.csv
+- notebooks/FE_*.png
+- notebooks/outputs_sprint2/tuning.csv
+- notebooks/tuning_*.png
 
 ---
 
