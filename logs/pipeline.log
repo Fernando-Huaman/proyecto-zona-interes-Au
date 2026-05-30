@@ -1988,3 +1988,9 @@ zmq.error.ZMQError: Socket operation on non-socket
 2026-05-29 23:57:19 - INFO - === Generando Mapa Final (Random Forest + Árbol de Decisión) ===
 2026-05-29 23:57:19 - INFO - Generando mapa con 57 puntos positivos
 2026-05-29 23:57:22 - INFO - Ejecutando: 5. Notebook Sprint 2 - Feature Engineering + Experimentos
+2026-05-30 00:22:58 - INFO - Estructura de carpetas creada correctamente
+2026-05-30 00:22:58 - INFO - Iniciando EDA completo
+2026-05-30 00:22:59 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-30 00:22:59 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-30 00:22:59 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-30 00:22:59 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
