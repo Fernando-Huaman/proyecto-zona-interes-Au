@@ -1911,3 +1911,80 @@ zmq.error.ZMQError: Socket operation on non-socket
 2026-05-29 23:12:30 - INFO - === Generando Mapa Final (Random Forest + Árbol de Decisión) ===
 2026-05-29 23:12:30 - INFO - Generando mapa con 57 puntos positivos
 2026-05-29 23:12:33 - INFO - Ejecutando: 5. Notebook Sprint 2 - Feature Engineering + Experimentos
+2026-05-29 23:56:19 - INFO - Estructura de carpetas creada correctamente
+2026-05-29 23:56:19 - INFO - Ejecutando: 1. Ingesta de datos
+2026-05-29 23:56:19 - INFO - Estructura de carpetas creada correctamente
+2026-05-29 23:56:20 - INFO - Cargando dataset desde: data/raw/DataSet.csv
+2026-05-29 23:56:20 - INFO - Dataset cargado → 2132 filas, 52 columnas
+2026-05-29 23:56:20 - INFO - Archivo guardado en data/interim/
+2026-05-29 23:56:20 - INFO - Ejecutando: 2. Preprocesamiento y creación de target
+2026-05-29 23:56:23 - INFO - Estructura de carpetas creada correctamente
+2026-05-29 23:56:23 - INFO - Cargando dataset desde: data/raw/DataSet.csv
+2026-05-29 23:56:23 - INFO - Dataset cargado → 2132 filas, 52 columnas
+2026-05-29 23:56:23 - INFO - Archivo guardado en data/interim/
+2026-05-29 23:56:23 - INFO - Tratando valores censurados...
+2026-05-29 23:56:23 - INFO - Tratamiento completado → (2132, 51)
+2026-05-29 23:56:23 - INFO - Variable objetivo creada → {0: 1872, 1: 260}
+2026-05-29 23:56:23 - INFO - Columna 'Unnamed: 4' eliminada correctamente
+2026-05-29 23:56:23 - INFO - Datos procesados completos guardados en /workspaces/proyecto-zona-interes-Au/data/processed/data_procesada.csv
+2026-05-29 23:56:23 - INFO - === Iniciando balanceo con datos sintéticos (solo train) ===
+2026-05-29 23:56:24 - INFO - Datos preprocesados y balanceados guardados correctamente.
+2026-05-29 23:56:24 - INFO - Ejecutando: 3. Notebook EDA
+2026-05-29 23:56:32 - INFO - Estructura de carpetas creada correctamente
+2026-05-29 23:56:32 - INFO - Iniciando EDA completo
+2026-05-29 23:56:32 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-29 23:56:32 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-29 23:56:32 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-29 23:56:32 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-29 23:56:55 - ERROR - Uncaught exception in ZMQStream callback
+Traceback (most recent call last):
+  File "/home/codespace/.local/lib/python3.12/site-packages/zmq/eventloop/zmqstream.py", line 565, in _log_error
+    f.result()
+  File "/home/codespace/.local/lib/python3.12/site-packages/ipykernel/kernelbase.py", line 348, in dispatch_control
+    await self.process_control(msg)
+  File "/home/codespace/.local/lib/python3.12/site-packages/ipykernel/kernelbase.py", line 385, in process_control
+    self._publish_status_and_flush("idle", "control", self.control_stream)
+  File "/home/codespace/.local/lib/python3.12/site-packages/ipykernel/kernelbase.py", line 661, in _publish_status_and_flush
+    self._publish_status(status, channel, parent)
+  File "/home/codespace/.local/lib/python3.12/site-packages/ipykernel/kernelbase.py", line 651, in _publish_status
+    self.session.send(
+  File "/home/codespace/.local/lib/python3.12/site-packages/jupyter_client/session.py", line 867, in send
+    stream.send_multipart(to_send, copy=copy)
+  File "/home/codespace/.local/lib/python3.12/site-packages/ipykernel/iostream.py", line 418, in send_multipart
+    return self.io_thread.send_multipart(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/ipykernel/iostream.py", line 348, in send_multipart
+    self.schedule(lambda: self._really_send(*args, **kwargs))
+  File "/home/codespace/.local/lib/python3.12/site-packages/ipykernel/iostream.py", line 341, in schedule
+    f()
+  File "/home/codespace/.local/lib/python3.12/site-packages/ipykernel/iostream.py", line 348, in <lambda>
+    self.schedule(lambda: self._really_send(*args, **kwargs))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/ipykernel/iostream.py", line 359, in _really_send
+    self.socket.send_multipart(msg, *args, **kwargs)
+  File "/home/codespace/.local/lib/python3.12/site-packages/zmq/sugar/socket.py", line 749, in send_multipart
+    self.send(msg, zmq.SNDMORE | flags, copy=copy, track=track)
+  File "/home/codespace/.local/lib/python3.12/site-packages/zmq/sugar/socket.py", line 698, in send
+    return super().send(data, flags=flags, copy=copy, track=track)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "zmq/backend/cython/_zmq.py", line 1152, in zmq.backend.cython._zmq.Socket.send
+    def send(self, data, flags=0, copy: bint = True, track: bint = False):
+    ^^^^^^^^^^^
+  File "zmq/backend/cython/_zmq.py", line 1194, in zmq.backend.cython._zmq.Socket.send
+    _check_closed(self)
+    ^^^^^^^^^^^
+  File "zmq/backend/cython/_zmq.py", line 1339, in zmq.backend.cython._zmq._check_closed
+    raise ZMQError(ENOTSOCK)
+    ^^^^^^^^^^^
+zmq.error.ZMQError: Socket operation on non-socket
+2026-05-29 23:56:56 - INFO - Ejecutando: 4. Modelos Baseline + Metricas + Mapa
+2026-05-29 23:56:58 - INFO - Estructura de carpetas creada correctamente
+2026-05-29 23:56:59 - INFO - Iniciando Modelos Baseline...
+2026-05-29 23:56:59 - INFO - Cargados datos balanceados desde data/interim/
+2026-05-29 23:56:59 - INFO - Train balanceado: 2994 filas | Test original: 427 filas
+2026-05-29 23:56:59 - INFO - Distribución train: {0: 1497, 1: 1497}
+2026-05-29 23:57:10 - INFO - Generando gráficos de desempeño del baseline...
+2026-05-29 23:57:14 - INFO - Generando gráficos de regresión...
+2026-05-29 23:57:19 - INFO - === Generando Mapa Final (Random Forest + Árbol de Decisión) ===
+2026-05-29 23:57:19 - INFO - Generando mapa con 57 puntos positivos
+2026-05-29 23:57:22 - INFO - Ejecutando: 5. Notebook Sprint 2 - Feature Engineering + Experimentos

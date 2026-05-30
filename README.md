@@ -40,7 +40,7 @@ src/
 └── run_all.py              # Ejecuta todo el pipeline
 results/                    # Metricas, Gráficos y Mapas
 notebooks/output/           # Gráficos y tablas del EDA
-notebooks/outputs_sprint2/  # Gráficos y tablas del FE + Exp A/B
+notebooks/outputs_sprint2/  # Gráficos y tablas del FE + Exp A/B + Shap + Learning + Calibración
 logs/                       # pipeline.log
 ```
 
@@ -88,7 +88,8 @@ Resultados en results/evaluacion_resultados.txt, Gráficos en results/Comparacio
 jupyter nbconvert --execute --to notebook --inplace notebooks/sprint2.ipynb
 ```
 Aplica Feature Engineering (ratios y transformaciones log).
-Ejecuta 3 experimentos: Baseline, Var1 (con FE) y Var2 (con FE + Tuning a Random Forest). Resultados en results/metrics_experimentos.csv y Graficos en results/feature_importance*.png
+Ejecuta 3 experimentos: Baseline, Var1 (con FE) y Var2 (con FE + Tuning a Random Forest). Resultados en notebooks/outputs_sprint2/metrics_experimentos.csv y Graficos en notebooks/outputs_sprint2/feature_importance*.png      
+SHAP, Learning y Calibración. Graficos en notebooks/outputs_sprint2
 
 ---
 
@@ -148,6 +149,7 @@ Archivos generados:
 - notebooks/FE_*.png
 - notebooks/outputs_sprint2/tuning.csv
 - notebooks/tuning_*.png
+- notebooks/outputs_sprint2/feature_importance.csv
 
 ---
 
