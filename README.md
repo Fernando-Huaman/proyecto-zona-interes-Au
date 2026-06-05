@@ -129,7 +129,7 @@ Se ejecutaron 4 variantes, realizando una modificación por experimento:
 | **Baseline**              | Datos Balanceados                | 0.6789     | 0.7182     | 1.71       |
 | **Var1_FE**               | + Feature Engineering           | 0.8723 | 0.9792 | 1.10       |
 | **Var2_FE_tuned RF**         | FE + Tuning                    | 0.9072 | 0.9757     | 0.38       |
-| **Var3_FE_optuna XGBoost**         | FE + Optuna                    | **0.9608** | **0.9909**     | 0.38       |
+| **Var3_FE_optuna XGBoost**         | FE + Optuna                    | **0.9608** | **0.9909**     | 0.58       |
 
 Conclusión principal:   
 El **Feature Engineering** generó una mejora muy importante en F1 Score (+0.1934) y PR-AUC (+0.2610).     
