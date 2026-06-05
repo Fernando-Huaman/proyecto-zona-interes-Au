@@ -128,11 +128,11 @@ Se ejecutaron 3 variantes, realizando una modificación por experimento:
 |------------------------------|---------------------------------|------------|------------|------------|
 | **Baseline**              | Datos Balanceados                | 0.6789     | 0.7182     | 1.71       |
 | **Var1_FE**               | + Feature Engineering           | 0.8723 | 0.9792 | 1.10       |
-| **Var2_FE_tuned**         | FE + Tuning (n=200, depth=15)                    | **0.8936** | **0.9831**     | 0.59       |
+| **Var2_FE_tuned**         | FE + Tuning (n=200, depth=15)                    | **0.9072** | **0.9757**     | 0.38       |
 
 Conclusión principal:   
 El **Feature Engineering** generó una mejora muy importante en F1 Score (+0.1934) y PR-AUC (+0.2610).     
-El **Tuning** (n=60, depth=13) a Random Forest permitío una mejora adicional en F1 Score (+0.0213) y un aumento pequeño en PR-AUC (+0.0039)
+El **Tuning** (n=60, depth=13) a Random Forest permitío una mejora adicional en F1 Score (+0.0349) y una disminución pequeña en PR-AUC (-0.0035)
 
 La **mejor** configuración actual es **Var2**.
 
@@ -140,8 +140,8 @@ Para el Var2 se realizo las siguientes modificaciones:
 
 | Aspecto                  | Baseline y Var1_FE                        | Var2_FE_Tuned   |
 |------------------------------|---------------------------------|------------|
-| n_estimators             | 100 árboles                | 60 árboles     |
-| max_depth               | Ninguno (por defecto ilimitado)          | 13|
+| n_estimators             | 100 árboles                | 40 árboles     |
+| max_depth               | Ninguno (por defecto ilimitado)          | 11|
 | min_samples_leaf         | 1 (por defecto)                    | 2 |
 
 Archivos generados:
