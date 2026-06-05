@@ -116,25 +116,27 @@ Archivos generados:
 Se aplicaron las siguientes técnicas:
 
 - Transformaciones logarítmica (log1p) para manejar distribuciones sesgadas
-- Rarios Pathfinder: Au_Sb_ratio, Au_Cu_ratio, Au_Ag_ratio, Au_As_ratio, etc.
+- Ratios Pathfinder: Au_Sb_ratio, Au_Cu_ratio, Au_Ag_ratio, Au_As_ratio, etc.
 - Agregaciones: pathfinder_sum, pathfinder_mean, pathfinder_max
 
 Pathfinder son elementos quimicos asocioado al oro (As_ppm, Sb_ppm, Cu_ppm, Ag_ppm, Bi_ppm, Pb_ppm, Zn_ppm)
 
 *Experimentos A/B*  
-Se ejecutaron 3 variantes, realizando una modificación por experimento:
+Se ejecutaron 4 variantes, realizando una modificación por experimento:
 
 | Experimento                  | Features                        | F1 Score   | PR-AUC     | Tiempo (s) |
 |------------------------------|---------------------------------|------------|------------|------------|
 | **Baseline**              | Datos Balanceados                | 0.6789     | 0.7182     | 1.71       |
 | **Var1_FE**               | + Feature Engineering           | 0.8723 | 0.9792 | 1.10       |
-| **Var2_FE_tuned**         | FE + Tuning (n=200, depth=15)                    | **0.9072** | **0.9757**     | 0.38       |
+| **Var2_FE_tuned RF**         | FE + Tuning                    | 0.9072 | 0.9757     | 0.38       |
+| **Var3_FE_optuna XGBoost**         | FE + Optuna                    | **0.9608** | **0.9909**     | 0.38       |
 
 Conclusión principal:   
 El **Feature Engineering** generó una mejora muy importante en F1 Score (+0.1934) y PR-AUC (+0.2610).     
-El **Tuning** (n=60, depth=13) a Random Forest permitío una mejora adicional en F1 Score (+0.0349) y una disminución pequeña en PR-AUC (-0.0035)
+El **Tuning** (n=40, depth=11) a Random Forest permitío una mejora adicional en F1 Score (+0.0349) y una disminución pequeña en PR-AUC (-0.0035)    
+El **Optuna** a XGBoost (Gradient Boosting) permitío una mejora adicional en F1 Score (+0.0608) y una aumento en PR-AUC (+0.0152)
 
-La **mejor** configuración actual es **Var2**.
+La **mejor** configuración actual es **Var3**.
 
 Para el Var2 se realizo las siguientes modificaciones:
 
@@ -149,6 +151,7 @@ Archivos generados:
 - notebooks/FE_*.png
 - notebooks/outputs_sprint2/tuning.csv
 - notebooks/tuning_*.png
+- - notebooks/optuna_*.png
 - notebooks/outputs_sprint2/feature_importance.csv
 
 ---

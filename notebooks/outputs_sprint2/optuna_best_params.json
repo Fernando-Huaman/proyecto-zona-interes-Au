@@ -1,0 +1,10 @@
+{
+    "n_estimators": 146,
+    "max_depth": 8,
+    "learning_rate": 0.07867551507581554,
+    "subsample": 0.7623066987879481,
+    "colsample_bytree": 0.7918429450902186,
+    "min_child_weight": 2.8029096026360136,
+    "random_state": 42,
+    "eval_metric": "aucpr"
+}
