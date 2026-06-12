@@ -1,0 +1,23 @@
+artifact_path: /workspaces/proyecto-zona-interes-Au/notebooks/mlruns/1/models/m-aba1ef179bd04e1e9afb06dc0413b35a/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.12.1
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.9.0
+    skops_trusted_types: null
+mlflow_version: 3.13.0
+model_id: m-aba1ef179bd04e1e9afb06dc0413b35a
+model_size_bytes: 830280
+model_uuid: m-aba1ef179bd04e1e9afb06dc0413b35a
+prompts: null
+run_id: 1faa8f81ace645a2b2500d98255fd9f5
+utc_time_created: '2026-06-12 19:23:02.348293'

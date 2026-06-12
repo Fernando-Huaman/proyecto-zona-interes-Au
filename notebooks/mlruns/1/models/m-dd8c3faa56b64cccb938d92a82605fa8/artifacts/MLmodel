@@ -1,0 +1,15 @@
+artifact_path: /workspaces/proyecto-zona-interes-Au/notebooks/mlruns/1/models/m-dd8c3faa56b64cccb938d92a82605fa8/artifacts
+flavors:
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.9.0
+    skops_trusted_types: null
+mlflow_version: 3.13.0
+model_id: m-dd8c3faa56b64cccb938d92a82605fa8
+model_size_bytes: 2451
+model_uuid: m-dd8c3faa56b64cccb938d92a82605fa8
+prompts: null
+run_id: 2f63a093b92441639287140a6a702c28
+utc_time_created: '2026-06-12 19:23:25.716335'
