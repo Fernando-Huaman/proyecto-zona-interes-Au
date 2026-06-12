@@ -1,4 +1,4 @@
-artifact_path: /workspaces/proyecto-zona-interes-Au/notebooks/mlruns/1/models/m-9db3d12e2ebe4cb7a212eaae273cc582/artifacts
+artifact_path: /workspaces/proyecto-zona-interes-Au/notebooks/mlruns/1/models/m-e3aaa6eed3804ce0bfb0e68770e34620/artifacts
 flavors:
   python_function:
     env:
@@ -15,9 +15,9 @@ flavors:
     sklearn_version: 1.9.0
     skops_trusted_types: null
 mlflow_version: 3.13.0
-model_id: m-9db3d12e2ebe4cb7a212eaae273cc582
-model_size_bytes: 307331
-model_uuid: m-9db3d12e2ebe4cb7a212eaae273cc582
+model_id: m-e3aaa6eed3804ce0bfb0e68770e34620
+model_size_bytes: 377445
+model_uuid: m-e3aaa6eed3804ce0bfb0e68770e34620
 prompts: null
-run_id: 2f63a093b92441639287140a6a702c28
-utc_time_created: '2026-06-12 19:23:22.149564'
+run_id: 846b87a80fb443fc9ae11838bdf37676
+utc_time_created: '2026-06-12 20:04:56.095529'
