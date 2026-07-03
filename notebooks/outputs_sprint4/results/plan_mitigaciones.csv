@@ -1,0 +1,3 @@
+Slice,F1,Precision,Recall,Diagnostico,Mitigacion_Primaria,Mitigacion_Secundaria
+Bajo_Ag,0.0,0.0,0.0,Bajo recall (muchos FN) | Baja precision (muchos FP),Reducir umbral de clasificacion,Aumentar umbral de clasificacion
+Medio_Ag,0.0,0.0,0.0,Bajo recall (muchos FN) | Baja precision (muchos FP),Reducir umbral de clasificacion,Aumentar umbral de clasificacion
