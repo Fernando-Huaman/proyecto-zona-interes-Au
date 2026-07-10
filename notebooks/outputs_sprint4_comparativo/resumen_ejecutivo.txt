@@ -1,0 +1,9 @@
+RESUMEN EJECUTIVO - COMPARATIVO BASELINE vs MODELO FINAL
+Baseline: RF Baseline (FE) | Final: XGB Optuna + Mit. A
+F1: 0.8723 -> 0.9505 (Delta=+0.0782)
+Precision: 0.9762 -> 0.9796
+Recall: 0.7885 -> 0.9231
+IC 95% F1 Baseline: [0.7907, 0.9383]
+IC 95% F1 Final   : [0.9011, 0.9890]
+PR-AUC: 0.9717 -> 0.9874
+Mejora significativa (IC no solapan): False

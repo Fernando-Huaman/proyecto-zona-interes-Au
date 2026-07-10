@@ -22,26 +22,42 @@
 🗂️ **Estructura del repositorio**
 
 ```bash
-data/
-├── raw/                    # DataSet.csv (original)
-├── processed/              # data_procesada.csv (limpio y target)
-├── interim/                # data train y prueba (sin/con FE)
-notebooks/ 
-├── EDA.ipynb               # Análisis exploratorio completo
-├── sprint2.ipynb           # Feature Engineering + Experimentos A/B
-src/
-├── config.py               # Configuración y logging
-├── ingesta.py              # Carga del dataset original
-├── preprocesamiento.py     # Limpieza, creación de target y balanceo
-├── evaluacion.py           # Métricas, Hold-out y Validación Cruzada
-├── graficos.py             # Generación de gráficos de desempeño
-├── mapas.py                # 1 mapa de probabilidad y predicción Au
-├── modelo_baseline.py      # Modelos, Entrenamiento y Evaluación
-└── run_all.py              # Ejecuta todo el pipeline
-results/                    # Metricas, Gráficos y Mapas
-notebooks/output/           # Gráficos y tablas del EDA
-notebooks/outputs_sprint2/  # Gráficos y tablas del FE + Exp A/B + Shap + Learning + Calibración
-logs/                       # pipeline.log
+proyecto-zona-interes-Au/
+├── configs/
+│   └── config.yaml                 # Configuración centralizada (rutas, params, mitigación)
+├── data/
+│   ├── raw/DataSet.csv             # Dataset original
+│   ├── processed/data_procesada.csv
+│   └── interim/                    # Train/test con y sin FE
+├── src/
+│   ├── config.py                   # Configuración, rutas y constantes globales
+│   ├── ingesta.py                  # Carga del dataset original
+│   ├── preprocesamiento.py         # Limpieza, target, balanceo (BorderlineSMOTE)
+│   ├── evaluacion.py               # Métricas, Hold-out, CV, Bootstrap IC 95%, Slicing
+│   ├── modelo_baseline.py          # Baseline de regresión (guarda mejor_regresor.pkl)
+│   ├── modelo_final.py             # XGBoost Optuna + Mitigación A
+│   ├── graficos.py                 # Gráficos de desempeño
+│   ├── mapas.py                    # Mapa final (XGBoost: probabilidad + regresor: ley ppm)
+│   └── run_all.py                  # Orquestador del pipeline completo
+├── notebooks/
+│   ├── EDA.ipynb                   # Sprint 1: Análisis exploratorio
+│   ├── sprint2.ipynb               # Sprint 2: Feature Engineering + Experimentos A/B
+│   ├── sprint3.ipynb               # Sprint 3: MLOps (MLflow) + Control de Overfitting
+│   ├── sprint4.ipynb               # Sprint 4: Análisis de Errores + Mitigaciones
+│   ├── sprint4_comparativo.ipynb   # Sprint 4: Comparativo baseline vs actual + IC 95%
+│   ├── sprint4_latencia.ipynb      # Sprint 4: Informe de latencia + ONNX
+│   ├── DEMO.ipynb                  # Notebook de defensa/presentación
+│   ├── output/                     # Gráficos EDA
+│   ├── outputs_sprint2/            # Métricas A/B, tuning, SHAP, calibración
+│   ├── outputs_sprint3/            # MLflow, modelos .pkl, tablero de corridas
+│   │   └── models/                 # Modelos serializados (XGBoost, RF, scalers)
+│   ├── outputs_sprint4/            # Slicing, mitigaciones, dashboards
+│   ├── outputs_sprint4_comparativo/ # Tablas y gráficos del comparativo
+│   └── outputs_sprint4_latencia/   # Benchmark de latencia, ONNX
+├── results/                        # Métricas finales, gráficos, mapas
+├── logs/                           # pipeline.log, benchmark_latencia.log
+├── requirements.txt
+└── README.md
 ```
 
 ---
@@ -52,120 +68,111 @@ logs/                       # pipeline.log
 pip install -r requirements.txt
 ```
 
+Dependencias principales: `pandas`, `numpy`, `scikit-learn`, `xgboost`, `optuna`, `shap`, `mlflow`, `onnxruntime`, `skl2onnx`, `imbalanced-learn`, `matplotlib`, `seaborn`.
+
 ---
 
-🚀 **Cómo ejecutar el pipeline**
-Opción recomendada (todo de una vez):
+🚀 **Cómo ejecutar**
+
+#### Opción 1: Pipeline completo (scripts)
 ```bash
 python src/run_all.py
 ```
-Ejecución paso a paso:
-1. Ingesta de datos
-```bash
-python -m src.ingesta
-```
-2. Preprocesamiento
-```bash
-python -m src.preprocesamiento
-```
-Genera archivos en data/interim y data/processed
+Ejecuta: ingesta → preprocesamiento → baseline de regresión (guarda el mejor
+regresor) → modelo final (métricas + gráficos de clasificación) → mapa final.
 
-3. Análisis Exploratorio (EDA)
+> **Nota:** Los notebooks (EDA, sprint2, sprint3, sprint4) se ejecutan de forma
+> independiente y NO forman parte de `run_all.py`. El modelo final requiere los
+> archivos `*_fe.csv` que genera `notebooks/sprint2.ipynb` (Feature Engineering).
+
+#### Opción 2: Paso a paso
+
+```bash
+# 1. Ingesta de datos
+python -m src.ingesta
+
+# 2. Preprocesamiento y balanceo
+python -m src.preprocesamiento
+
+# 3. Baseline de REGRESIÓN (guarda mejor_regresor.pkl para el mapa)
+python -m src.modelo_baseline
+
+# 4. Modelo Final de CLASIFICACIÓN (XGBoost Optuna + Mitigación A)
+#    Genera métricas con IC 95% y gráficos: matriz de confusión, ROC, PR
+#    (requiere *_fe.csv de notebooks/sprint2.ipynb)
+python -m src.modelo_final
+
+# 5. Mapa final (XGBoost → probabilidad/color + Mejor Regresor → ley ppm/tamaño)
+python -m src.mapas
+```
+
+#### Notebooks (ejecución independiente)
 ```bash
 jupyter nbconvert --execute --to notebook --inplace notebooks/EDA.ipynb
+jupyter nbconvert --execute --to notebook --inplace notebooks/sprint2.ipynb   # genera *_fe.csv
+jupyter nbconvert --execute --to notebook --inplace notebooks/sprint3.ipynb
+jupyter nbconvert --execute --to notebook --inplace notebooks/sprint4.ipynb
 ```
-Los gráficos y tablas se guardan automáticamente en notebooks/output/
-
-4. Modelos y Evaluación
-```bash
-python -m src.modelo_baseline
-```
-Incluye Métricas, Hold-out y Validación Cruzada (5-Fold). 
-Resultados en results/evaluacion_resultados.txt, Gráficos en results/Comparacion*.png y Mapas en results/mapa*.png.
-
-5. Feature Engineeting y Experimentos A/B
-```bash
-jupyter nbconvert --execute --to notebook --inplace notebooks/sprint2.ipynb
-```
-Aplica Feature Engineering (ratios y transformaciones log).
-Ejecuta 3 experimentos: Baseline, Var1 (con FE) y Var2 (con FE + Tuning a Random Forest). Resultados en notebooks/outputs_sprint2/metrics_experimentos.csv y Graficos en notebooks/outputs_sprint2/feature_importance*.png      
-SHAP, Learning y Calibración. Graficos en notebooks/outputs_sprint2
 
 ---
 
-📈 **Resultados esperados**
+📈 **Resultados**
 
-EDA completo con matriz de correlación, distribuciones de todos los elementos y distribución de la variable objetivo.
+### Evolución del modelo
 
-Modelo Baseline: 
-* Clasificación (KNN, Regresión Logística, Árbol de Decisión y Random Forest)
-* Regresión (KNN_Regresor, Ridge, Árbol de Decisión Regressor y Random Forest Regressor)
-Validación: Hold-out + Validación Cruzada (5-Fold Stratified).
-Archivos generados:
-- results/evaluacion_resultados.txt
-- results/Comparacion*.png (Comparacion de los modelos)
-- results/mapa*.png (Mapa de probabilidad y predicción Au)
-- notebooks/output/ (Imágenes y tablas)
-- logs/pipeline.log
+| Sprint | Modelo | F1 (Hold-Out) | PR-AUC | Mejora |
+|--------|--------|---------------|--------|--------|
+| Sprint 0-1 | Random Forest Baseline | 0.6789 | 0.7182 | — |
+| Sprint 2 | + Feature Engineering | 0.8723 | 0.9792 | +0.1934 |
+| Sprint 2 | + Tuning RF | 0.9072 | 0.9757 | +0.0349 |
+| Sprint 2 | + Optuna XGBoost | 0.9608 | 0.9909 | +0.0536 |
+| Sprint 4 | + Mitigación A (Umbral por Slice) | **0.9808** | **0.9932** | **+0.0293** |
 
----
+### Modelo Final — XGBoost Optuna + Mitigación A
 
-🧪 **Feature Engineering + Experimentos A/B**
+| Métrica | Valor |
+|---------|-------|
+| **F1-Score** | **0.9808** |
+| Accuracy | 0.9953 |
+| Precision | 0.9808 |
+| Recall | 0.9808 |
+| PR-AUC | 0.9932 |
+| ROC-AUC | 0.9988 |
+| Brier Score | 0.0087 |
 
-*Feature Engineering*   
-Se aplicaron las siguientes técnicas:
+**Validación Cruzada (5-Fold):** F1 = 0.9896 ± 0.0052
 
-- Transformaciones logarítmica (log1p) para manejar distribuciones sesgadas
-- Ratios Pathfinder: Au_Sb_ratio, Au_Cu_ratio, Au_Ag_ratio, Au_As_ratio, etc.
-- Agregaciones: pathfinder_sum, pathfinder_mean, pathfinder_max
+### Feature Engineering
+Técnicas aplicadas:
+- **Ratios pathfinder**: Au/Cu, Au/Ag, Au/As, Au/Sb, As/Sb, Cu/Ag, Pb/Zn, Bi/As
+- **Agregaciones**: pathfinder_sum, pathfinder_mean, pathfinder_max
+- **Impacto**: +0.1934 en F1-Score (mejora más significativa del proyecto)
 
-Pathfinder son elementos quimicos asocioado al oro (As_ppm, Sb_ppm, Cu_ppm, Ag_ppm, Bi_ppm, Pb_ppm, Zn_ppm)
+### Mitigación A — Umbral por Slice
+Optimización de umbrales de decisión por subpoblación:
+- **Profundo** (profundidad > Q66): F1 mejoró de 0.857 → 0.952 (+0.095)
+- **NE** (cuadrante noreste): F1 mejoró de 0.889 → 1.000 (+0.111)
 
-*Experimentos A/B*  
-Se ejecutaron 4 variantes, realizando una modificación por experimento:
-
-| Experimento                  | Features                        | F1 Score   | PR-AUC     | Tiempo (s) |
-|------------------------------|---------------------------------|------------|------------|------------|
-| **Baseline**              | Datos Balanceados                | 0.6789     | 0.7182     | 1.71       |
-| **Var1_FE**               | + Feature Engineering           | 0.8723 | 0.9792 | 1.10       |
-| **Var2_FE_tuned RF**         | FE + Tuning                    | 0.9072 | 0.9757     | 0.38       |
-| **Var3_FE_optuna XGBoost**         | FE + Optuna                    | **0.9608** | **0.9909**     | 0.58       |
-
-Conclusión principal:   
-El **Feature Engineering** generó una mejora muy importante en F1 Score (+0.1934) y PR-AUC (+0.2610).     
-El **Tuning** (n=40, depth=11) a Random Forest permitío una mejora adicional en F1 Score (+0.0349) y una disminución pequeña en PR-AUC (-0.0035)    
-El **Optuna** a XGBoost (Gradient Boosting) permitío una mejora adicional en F1 Score (+0.0608) y una aumento en PR-AUC (+0.0152)
-
-La **mejor** configuración actual es **Var3**.
-
-Para el Var2 se realizo las siguientes modificaciones:
-
-| Aspecto                  | Baseline y Var1_FE                        | Var2_FE_Tuned   |
-|------------------------------|---------------------------------|------------|
-| n_estimators             | 100 árboles                | 40 árboles     |
-| max_depth               | Ninguno (por defecto ilimitado)          | 11|
-| min_samples_leaf         | 1 (por defecto)                    | 2 |
-
-Archivos generados:
-- notebooks/outputs_sprint2/metrics_experimentos.csv
-- notebooks/FE_*.png
-- notebooks/outputs_sprint2/tuning.csv
-- notebooks/tuning_*.png
-- - notebooks/optuna_*.png
-- notebooks/outputs_sprint2/feature_importance.csv
+### MLOps
+- Tracking con **MLflow** (SQLite): parámetros, métricas por fold, artefactos
+- 6 corridas registradas con comparación automática
+- Modelos serializados (.pkl) + scalers versionados
 
 ---
 
 📌 **Roadmap**
-```bash
-[X] Sprint 0 → Pipeline mínimo reproducible + Baseline.
-[X] Sprint 1 → EDA + Outliers y Balanceo con BorderlineSMOTE.
-[X] Sprint 2 → Feature Engineering + Experimentos A/B.
-[ ] Sprint 3 → Resultados finales y defensa.
+```
+[✓] Sprint 0 → Pipeline mínimo reproducible + Baseline
+[✓] Sprint 1 → EDA + Outliers y Balanceo con BorderlineSMOTE
+[✓] Sprint 2 → Feature Engineering + Experimentos A/B + Optuna
+[✓] Sprint 3 → MLOps (MLflow) + Control de Overfitting
+[✓] Sprint 4 → Análisis de Errores + Mitigaciones → F1 = 0.9808
+[✓] Sprint 4 → Comparativo baseline vs actual (IC 95%)
+[✓] Sprint 4 → Informe de latencia + optimización ONNX
 ```
 
 ---
 
 📜 **Licencia**
-Uso académico – Universidad Nacional de Ingeniería (UNI).
+Uso académico — Universidad Nacional de Ingeniería (UNI).
 Proyecto desarrollado como parte de la Maestría en Inteligencia Artificial.

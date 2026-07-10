@@ -200,3 +200,88 @@ def generar_graficos_regresion(modelos_reg, X_test_scaled, y_test_real_ppm):
     plt.close()
 
     print("Gráficos de regresión generados")
+
+
+def generar_graficos_modelo_final(y_test, y_prob, y_pred,
+                                  nombre="XGBoost_Optuna_MitigacionA",
+                                  output_dir="results"):
+    """
+    Genera los gráficos de clasificación del MODELO FINAL
+    (matriz de confusión, curva ROC, curva Precision-Recall y barras de métricas).
+
+    Recibe directamente las predicciones (y_pred) y probabilidades (y_prob)
+    para respetar los umbrales de la Mitigación A.
+    """
+    from sklearn.metrics import precision_score, recall_score
+    os.makedirs(output_dir, exist_ok=True)
+    logger.info(f"Generando gráficos de clasificación del modelo final ({nombre})...")
+
+    y_test = np.asarray(y_test)
+    y_prob = np.asarray(y_prob)
+    y_pred = np.asarray(y_pred)
+
+    # --- 1. Matriz de confusión ---
+    fig, ax = plt.subplots(figsize=(7, 6))
+    cm = confusion_matrix(y_test, y_pred)
+    disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=['Target=0', 'Target=1'])
+    disp.plot(ax=ax, cmap='Blues')
+    ax.set_title(f'Matriz de Confusión — Modelo Final\n{nombre}')
+    plt.tight_layout()
+    plt.savefig(os.path.join(output_dir, 'ModeloFinal_matriz_confusion.png'),
+                dpi=300, bbox_inches='tight')
+    plt.close()
+
+    # --- 2. Curva ROC ---
+    fpr, tpr, _ = roc_curve(y_test, y_prob)
+    roc_auc = auc(fpr, tpr)
+    plt.figure(figsize=(9, 7))
+    plt.plot(fpr, tpr, color='#d62728', lw=2, label=f'{nombre} (AUC = {roc_auc:.3f})')
+    plt.plot([0, 1], [0, 1], 'k--')
+    plt.xlabel('False Positive Rate')
+    plt.ylabel('True Positive Rate')
+    plt.title('Curva ROC — Modelo Final')
+    plt.legend()
+    plt.grid(True, alpha=0.3)
+    plt.savefig(os.path.join(output_dir, 'ModeloFinal_roc_curve.png'),
+                dpi=300, bbox_inches='tight')
+    plt.close()
+
+    # --- 3. Curva Precision-Recall ---
+    precision, recall, _ = precision_recall_curve(y_test, y_prob)
+    ap = average_precision_score(y_test, y_prob)
+    plt.figure(figsize=(9, 7))
+    plt.plot(recall, precision, color='#2ca02c', lw=2, label=f'{nombre} (AP = {ap:.3f})')
+    plt.xlabel('Recall')
+    plt.ylabel('Precision')
+    plt.title('Curva Precision-Recall — Modelo Final')
+    plt.legend()
+    plt.grid(True, alpha=0.3)
+    plt.savefig(os.path.join(output_dir, 'ModeloFinal_precision_recall_curve.png'),
+                dpi=300, bbox_inches='tight')
+    plt.close()
+
+    # --- 4. Barras de métricas ---
+    metricas = {
+        'Accuracy':  accuracy_score(y_test, y_pred),
+        'Precision': precision_score(y_test, y_pred, zero_division=0),
+        'Recall':    recall_score(y_test, y_pred, zero_division=0),
+        'F1-Score':  f1_score(y_test, y_pred),
+        'ROC-AUC':   roc_auc,
+        'PR-AUC':    ap,
+    }
+    plt.figure(figsize=(10, 6))
+    colores = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b']
+    bars = plt.bar(list(metricas.keys()), list(metricas.values()), color=colores)
+    for bar, valor in zip(bars, metricas.values()):
+        plt.text(bar.get_x() + bar.get_width() / 2, valor + 0.005,
+                 f'{valor:.4f}', ha='center', fontweight='bold')
+    plt.ylim(0, 1.05)
+    plt.ylabel('Métrica')
+    plt.title(f'Métricas de Clasificación — Modelo Final\n{nombre}')
+    plt.grid(True, alpha=0.3, axis='y')
+    plt.tight_layout()
+    plt.savefig(os.path.join(output_dir, 'ModeloFinal_metricas.png'),
+                dpi=300, bbox_inches='tight')
+    plt.close()
+
+    print("Gráficos de clasificación del modelo final generados en results/")

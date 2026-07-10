@@ -1,0 +1,149 @@
+2026-07-10 21:57:44 | INFO | ============================================================
+2026-07-10 21:57:44 | INFO | INICIO BENCHMARK DE LATENCIA
+2026-07-10 21:57:44 | INFO | Fecha: 2026-07-10 21:57:44
+2026-07-10 21:58:13 | INFO | SISTEMA | OS: Linux-6.8.0-1052-azure-x86_64-with-glibc2.39
+2026-07-10 21:58:13 | INFO | SISTEMA | Python: 3.12.1
+2026-07-10 21:58:13 | INFO | SISTEMA | CPU: x86_64
+2026-07-10 21:58:13 | INFO | SISTEMA | CPU cores (logicos): 2
+2026-07-10 21:58:13 | INFO | SISTEMA | CPU cores (fisicos): 1
+2026-07-10 21:58:13 | INFO | SISTEMA | RAM total (GB): 7.8
+2026-07-10 21:58:13 | INFO | SISTEMA | RAM disponible (GB): 3.5
+2026-07-10 21:58:13 | INFO | SISTEMA | GPU: No disponible
+2026-07-10 21:58:49 | INFO | DATOS | Test: (427, 57), Features: 57
+2026-07-10 21:58:49 | INFO | MODELO | XGBoost: n_est=300, depth=8
+2026-07-10 22:00:43 | INFO | LATENCIA | XGBoost_sklearn_CPU | batch=1 | p50=0.366ms | p95=1.820ms | throughput=1791 req/s
+2026-07-10 22:00:43 | INFO | LATENCIA | XGBoost_sklearn_CPU | batch=8 | p50=0.406ms | p95=0.855ms | throughput=15276 req/s
+2026-07-10 22:00:44 | INFO | LATENCIA | XGBoost_sklearn_CPU | batch=32 | p50=0.501ms | p95=0.725ms | throughput=57063 req/s
+2026-07-10 22:00:45 | INFO | LATENCIA | XGBoost_sklearn_CPU | batch=128 | p50=0.665ms | p95=1.682ms | throughput=161911 req/s
+2026-07-10 22:00:47 | INFO | LATENCIA | XGBoost_sklearn_CPU | batch=427 | p50=1.494ms | p95=6.188ms | throughput=187228 req/s
+2026-07-10 22:00:47 | INFO | MEMORIA | XGBoost sklearn | RSS: 288.5 -> 291.2 MB
+2026-07-10 22:00:55 | INFO | LATENCIA | RF_sklearn_CPU | batch=1 | p50=5.206ms | p95=14.046ms | throughput=138 req/s
+2026-07-10 22:01:03 | INFO | LATENCIA | RF_sklearn_CPU | batch=8 | p50=5.318ms | p95=15.340ms | throughput=1040 req/s
+2026-07-10 22:01:10 | INFO | LATENCIA | RF_sklearn_CPU | batch=32 | p50=5.320ms | p95=11.988ms | throughput=4615 req/s
+2026-07-10 22:01:18 | INFO | LATENCIA | RF_sklearn_CPU | batch=128 | p50=5.801ms | p95=14.276ms | throughput=16184 req/s
+2026-07-10 22:01:28 | INFO | LATENCIA | RF_sklearn_CPU | batch=427 | p50=6.973ms | p95=15.033ms | throughput=48243 req/s
+2026-07-10 22:01:28 | INFO | MEMORIA | RF sklearn | RSS: 291.2 -> 291.3 MB
+2026-07-10 22:06:11 | INFO | ============================================================
+2026-07-10 22:06:11 | INFO | INICIO BENCHMARK DE LATENCIA
+2026-07-10 22:06:11 | INFO | Fecha: 2026-07-10 22:06:11
+2026-07-10 22:06:11 | INFO | SISTEMA | OS: Linux-6.8.0-1052-azure-x86_64-with-glibc2.39
+2026-07-10 22:06:11 | INFO | SISTEMA | Python: 3.12.1
+2026-07-10 22:06:11 | INFO | SISTEMA | CPU: x86_64
+2026-07-10 22:06:11 | INFO | SISTEMA | CPU cores (logicos): 2
+2026-07-10 22:06:11 | INFO | SISTEMA | CPU cores (fisicos): 1
+2026-07-10 22:06:11 | INFO | SISTEMA | RAM total (GB): 7.8
+2026-07-10 22:06:11 | INFO | SISTEMA | RAM disponible (GB): 3.3
+2026-07-10 22:06:11 | INFO | SISTEMA | GPU: No disponible
+2026-07-10 22:06:12 | INFO | DATOS | Test: (427, 57), Features: 57
+2026-07-10 22:06:12 | INFO | MODELO | XGBoost: n_est=300, depth=8
+2026-07-10 22:06:13 | INFO | LATENCIA | XGBoost_sklearn_CPU | batch=1 | p50=0.374ms | p95=2.682ms | throughput=1313 req/s
+2026-07-10 22:06:13 | INFO | LATENCIA | XGBoost_sklearn_CPU | batch=8 | p50=0.413ms | p95=0.940ms | throughput=14948 req/s
+2026-07-10 22:06:14 | INFO | LATENCIA | XGBoost_sklearn_CPU | batch=32 | p50=0.509ms | p95=1.060ms | throughput=50516 req/s
+2026-07-10 22:06:15 | INFO | LATENCIA | XGBoost_sklearn_CPU | batch=128 | p50=0.666ms | p95=0.893ms | throughput=175097 req/s
+2026-07-10 22:06:17 | INFO | LATENCIA | XGBoost_sklearn_CPU | batch=427 | p50=1.498ms | p95=6.611ms | throughput=174498 req/s
+2026-07-10 22:06:17 | INFO | MEMORIA | XGBoost sklearn | RSS: 282.9 -> 285.6 MB
+2026-07-10 22:06:24 | INFO | LATENCIA | RF_sklearn_CPU | batch=1 | p50=5.106ms | p95=10.954ms | throughput=158 req/s
+2026-07-10 22:06:37 | INFO | LATENCIA | RF_sklearn_CPU | batch=8 | p50=10.273ms | p95=21.095ms | throughput=671 req/s
+2026-07-10 22:07:04 | INFO | LATENCIA | RF_sklearn_CPU | batch=32 | p50=14.217ms | p95=85.953ms | throughput=1189 req/s
+2026-07-10 22:07:16 | INFO | LATENCIA | RF_sklearn_CPU | batch=128 | p50=6.107ms | p95=29.242ms | throughput=12279 req/s
+2026-07-10 22:07:36 | INFO | LATENCIA | RF_sklearn_CPU | batch=427 | p50=14.428ms | p95=50.507ms | throughput=21145 req/s
+2026-07-10 22:07:36 | INFO | MEMORIA | RF sklearn | RSS: 285.6 -> 285.7 MB
+2026-07-10 22:07:44 | INFO | ONNX | XGBoost convertido: 300.1KB -> 97.1KB
+2026-07-10 22:07:44 | INFO | ONNX | Verificacion equivalencia: max_diff=0.00000006
+2026-07-10 22:07:44 | INFO | LATENCIA | XGBoost_ONNX_CPU | batch=1 | p50=0.010ms | p95=0.016ms | throughput=70955 req/s
+2026-07-10 22:07:44 | INFO | LATENCIA | XGBoost_ONNX_CPU | batch=8 | p50=0.055ms | p95=0.070ms | throughput=157893 req/s
+2026-07-10 22:07:44 | INFO | LATENCIA | XGBoost_ONNX_CPU | batch=32 | p50=0.104ms | p95=0.203ms | throughput=244695 req/s
+2026-07-10 22:07:46 | INFO | LATENCIA | XGBoost_ONNX_CPU | batch=128 | p50=1.018ms | p95=3.057ms | throughput=102524 req/s
+2026-07-10 22:07:54 | INFO | LATENCIA | XGBoost_ONNX_CPU | batch=427 | p50=6.300ms | p95=17.821ms | throughput=56190 req/s
+2026-07-10 22:07:54 | INFO | MEMORIA | ONNX Runtime | RSS: 318.5 -> 318.5 MB
+2026-07-10 22:07:54 | INFO | LATENCIA | XGBoost_ONNX_CPU_2t | batch=1 | p50=0.013ms | p95=0.014ms | throughput=75234 req/s
+2026-07-10 22:07:54 | INFO | LATENCIA | XGBoost_ONNX_CPU_2t | batch=8 | p50=0.055ms | p95=0.069ms | throughput=132148 req/s
+2026-07-10 22:07:54 | INFO | LATENCIA | XGBoost_ONNX_CPU_2t | batch=32 | p50=0.104ms | p95=0.208ms | throughput=238989 req/s
+2026-07-10 22:07:55 | INFO | LATENCIA | XGBoost_ONNX_CPU_2t | batch=128 | p50=0.549ms | p95=2.317ms | throughput=169960 req/s
+2026-07-10 22:07:57 | INFO | LATENCIA | XGBoost_ONNX_CPU_2t | batch=427 | p50=1.984ms | p95=6.439ms | throughput=160574 req/s
+2026-07-10 22:08:50 | INFO | LATENCIA | RF_ONNX_CPU | batch=1 | p50=0.014ms | p95=0.016ms | throughput=22179 req/s
+2026-07-10 22:08:51 | INFO | LATENCIA | RF_ONNX_CPU | batch=8 | p50=0.038ms | p95=0.071ms | throughput=50260 req/s
+2026-07-10 22:08:51 | INFO | LATENCIA | RF_ONNX_CPU | batch=32 | p50=0.117ms | p95=0.671ms | throughput=114651 req/s
+2026-07-10 22:08:51 | INFO | LATENCIA | RF_ONNX_CPU | batch=128 | p50=0.251ms | p95=0.489ms | throughput=430240 req/s
+2026-07-10 22:08:53 | INFO | LATENCIA | RF_ONNX_CPU | batch=427 | p50=1.986ms | p95=2.599ms | throughput=209705 req/s
+2026-07-10 22:08:53 | INFO | ONNX | RF convertido: 912.4KB -> 389.9KB
+2026-07-10 22:10:57 | INFO | SPEEDUP | batch=1 | sklearn=0.374ms -> ONNX=0.010ms | 38.46x
+2026-07-10 22:10:57 | INFO | SPEEDUP | batch=8 | sklearn=0.413ms -> ONNX=0.055ms | 7.50x
+2026-07-10 22:10:57 | INFO | SPEEDUP | batch=32 | sklearn=0.509ms -> ONNX=0.104ms | 4.89x
+2026-07-10 22:10:57 | INFO | SPEEDUP | batch=128 | sklearn=0.666ms -> ONNX=1.018ms | 0.65x
+2026-07-10 22:10:57 | INFO | SPEEDUP | batch=427 | sklearn=1.498ms -> ONNX=6.300ms | 0.24x
+2026-07-10 22:12:14 | INFO | ROBUSTEZ | Normal | errores=0/427 (0.00%) | OK
+2026-07-10 22:12:14 | INFO | ROBUSTEZ | Con NaN (5%) | errores=0/427 (0.00%) | OK
+2026-07-10 22:12:14 | INFO | ROBUSTEZ | Con NaN (20%) | errores=0/427 (0.00%) | OK
+2026-07-10 22:12:14 | INFO | ROBUSTEZ | Con Inf | errores=0/427 (0.00%) | OK
+2026-07-10 22:12:14 | INFO | ROBUSTEZ | Valores extremos (x100) | errores=0/427 (0.00%) | OK
+2026-07-10 22:12:14 | INFO | ROBUSTEZ | Todo ceros | errores=0/427 (0.00%) | OK
+2026-07-10 22:14:15 | INFO | CONSUMO | XGBoost sklearn CPU | 1428 inf/3s | CPU=38.8% | MEM=328.4MB
+2026-07-10 22:14:18 | INFO | CONSUMO | XGBoost ONNX CPU | 942 inf/3s | CPU=38.3% | MEM=328.4MB
+2026-07-10 22:14:21 | INFO | CONSUMO | RF sklearn CPU | 327 inf/3s | CPU=66.4% | MEM=330.6MB
+2026-07-10 22:16:49 | INFO | ============================================================
+2026-07-10 22:16:49 | INFO | FIN BENCHMARK DE LATENCIA
+2026-07-10 22:16:49 | INFO | Artefactos guardados en: /workspaces/proyecto-zona-interes-Au/notebooks/outputs_sprint4_latencia
+2026-07-10 22:16:49 | INFO | ============================================================
+2026-07-10 22:42:05 | INFO | ============================================================
+2026-07-10 22:42:05 | INFO | INICIO BENCHMARK DE LATENCIA
+2026-07-10 22:42:05 | INFO | Fecha: 2026-07-10 22:42:05
+2026-07-10 22:42:05 | INFO | SISTEMA | OS: Linux-6.8.0-1052-azure-x86_64-with-glibc2.39
+2026-07-10 22:42:05 | INFO | SISTEMA | Python: 3.12.1
+2026-07-10 22:42:05 | INFO | SISTEMA | CPU: x86_64
+2026-07-10 22:42:05 | INFO | SISTEMA | CPU cores (logicos): 2
+2026-07-10 22:42:05 | INFO | SISTEMA | CPU cores (fisicos): 1
+2026-07-10 22:42:05 | INFO | SISTEMA | RAM total (GB): 7.8
+2026-07-10 22:42:05 | INFO | SISTEMA | RAM disponible (GB): 1.8
+2026-07-10 22:42:05 | INFO | SISTEMA | GPU: No disponible
+2026-07-10 22:42:06 | INFO | DATOS | Test: (427, 57), Features: 57
+2026-07-10 22:42:06 | INFO | MODELO | XGBoost: n_est=300, depth=8
+2026-07-10 22:42:07 | INFO | LATENCIA | XGBoost_sklearn_CPU | batch=1 | p50=0.369ms | p95=0.736ms | throughput=1979 req/s
+2026-07-10 22:42:07 | INFO | LATENCIA | XGBoost_sklearn_CPU | batch=8 | p50=0.422ms | p95=3.305ms | throughput=9742 req/s
+2026-07-10 22:42:08 | INFO | LATENCIA | XGBoost_sklearn_CPU | batch=32 | p50=0.506ms | p95=2.122ms | throughput=44083 req/s
+2026-07-10 22:42:09 | INFO | LATENCIA | XGBoost_sklearn_CPU | batch=128 | p50=0.672ms | p95=1.005ms | throughput=170646 req/s
+2026-07-10 22:42:11 | INFO | LATENCIA | XGBoost_sklearn_CPU | batch=427 | p50=1.509ms | p95=6.720ms | throughput=180322 req/s
+2026-07-10 22:42:11 | INFO | MEMORIA | XGBoost sklearn | RSS: 274.9 -> 277.5 MB
+2026-07-10 22:42:19 | INFO | LATENCIA | RF_sklearn_CPU | batch=1 | p50=5.181ms | p95=12.824ms | throughput=146 req/s
+2026-07-10 22:42:26 | INFO | LATENCIA | RF_sklearn_CPU | batch=8 | p50=5.264ms | p95=12.083ms | throughput=1181 req/s
+2026-07-10 22:42:33 | INFO | LATENCIA | RF_sklearn_CPU | batch=32 | p50=5.373ms | p95=14.461ms | throughput=4529 req/s
+2026-07-10 22:42:41 | INFO | LATENCIA | RF_sklearn_CPU | batch=128 | p50=5.901ms | p95=14.550ms | throughput=16842 req/s
+2026-07-10 22:42:50 | INFO | LATENCIA | RF_sklearn_CPU | batch=427 | p50=7.166ms | p95=17.128ms | throughput=46846 req/s
+2026-07-10 22:42:50 | INFO | MEMORIA | RF sklearn | RSS: 277.5 -> 277.6 MB
+2026-07-10 22:42:51 | INFO | ONNX | XGBoost convertido: 300.1KB -> 97.1KB
+2026-07-10 22:42:51 | INFO | ONNX | Verificacion equivalencia: max_diff=0.00000006
+2026-07-10 22:42:51 | INFO | LATENCIA | XGBoost_ONNX_CPU | batch=1 | p50=0.014ms | p95=0.018ms | throughput=76925 req/s
+2026-07-10 22:42:51 | INFO | LATENCIA | XGBoost_ONNX_CPU | batch=8 | p50=0.033ms | p95=0.060ms | throughput=184701 req/s
+2026-07-10 22:42:51 | INFO | LATENCIA | XGBoost_ONNX_CPU | batch=32 | p50=0.104ms | p95=0.196ms | throughput=264204 req/s
+2026-07-10 22:42:52 | INFO | LATENCIA | XGBoost_ONNX_CPU | batch=128 | p50=0.634ms | p95=1.128ms | throughput=153729 req/s
+2026-07-10 22:42:55 | INFO | LATENCIA | XGBoost_ONNX_CPU | batch=427 | p50=2.395ms | p95=3.861ms | throughput=143335 req/s
+2026-07-10 22:42:55 | INFO | MEMORIA | ONNX Runtime | RSS: 309.9 -> 309.9 MB
+2026-07-10 22:42:55 | INFO | LATENCIA | XGBoost_ONNX_CPU_2t | batch=1 | p50=0.013ms | p95=0.013ms | throughput=76392 req/s
+2026-07-10 22:42:55 | INFO | LATENCIA | XGBoost_ONNX_CPU_2t | batch=8 | p50=0.055ms | p95=0.068ms | throughput=130158 req/s
+2026-07-10 22:42:55 | INFO | LATENCIA | XGBoost_ONNX_CPU_2t | batch=32 | p50=0.147ms | p95=0.258ms | throughput=176652 req/s
+2026-07-10 22:42:56 | INFO | LATENCIA | XGBoost_ONNX_CPU_2t | batch=128 | p50=0.559ms | p95=2.893ms | throughput=125955 req/s
+2026-07-10 22:43:00 | INFO | LATENCIA | XGBoost_ONNX_CPU_2t | batch=427 | p50=2.005ms | p95=7.790ms | throughput=138414 req/s
+2026-07-10 22:43:00 | INFO | LATENCIA | RF_ONNX_CPU | batch=1 | p50=0.010ms | p95=0.015ms | throughput=90562 req/s
+2026-07-10 22:43:00 | INFO | LATENCIA | RF_ONNX_CPU | batch=8 | p50=0.039ms | p95=0.051ms | throughput=209697 req/s
+2026-07-10 22:43:00 | INFO | LATENCIA | RF_ONNX_CPU | batch=32 | p50=0.115ms | p95=0.149ms | throughput=254963 req/s
+2026-07-10 22:43:01 | INFO | LATENCIA | RF_ONNX_CPU | batch=128 | p50=0.256ms | p95=0.573ms | throughput=380898 req/s
+2026-07-10 22:43:03 | INFO | LATENCIA | RF_ONNX_CPU | batch=427 | p50=1.694ms | p95=2.539ms | throughput=216255 req/s
+2026-07-10 22:43:03 | INFO | ONNX | RF convertido: 912.4KB -> 389.9KB
+2026-07-10 22:43:03 | INFO | SPEEDUP | batch=1 | sklearn=0.369ms -> ONNX=0.014ms | 26.70x
+2026-07-10 22:43:03 | INFO | SPEEDUP | batch=8 | sklearn=0.422ms -> ONNX=0.033ms | 12.81x
+2026-07-10 22:43:03 | INFO | SPEEDUP | batch=32 | sklearn=0.506ms -> ONNX=0.104ms | 4.87x
+2026-07-10 22:43:03 | INFO | SPEEDUP | batch=128 | sklearn=0.672ms -> ONNX=0.634ms | 1.06x
+2026-07-10 22:43:03 | INFO | SPEEDUP | batch=427 | sklearn=1.509ms -> ONNX=2.395ms | 0.63x
+2026-07-10 22:43:03 | INFO | ROBUSTEZ | Normal | errores=0/427 (0.00%) | OK
+2026-07-10 22:43:03 | INFO | ROBUSTEZ | Con NaN (5%) | errores=0/427 (0.00%) | OK
+2026-07-10 22:43:03 | INFO | ROBUSTEZ | Con NaN (20%) | errores=0/427 (0.00%) | OK
+2026-07-10 22:43:03 | INFO | ROBUSTEZ | Con Inf | errores=0/427 (0.00%) | OK
+2026-07-10 22:43:03 | INFO | ROBUSTEZ | Valores extremos (x100) | errores=0/427 (0.00%) | OK
+2026-07-10 22:43:03 | INFO | ROBUSTEZ | Todo ceros | errores=0/427 (0.00%) | OK
+2026-07-10 22:43:18 | INFO | CONSUMO | XGBoost sklearn CPU | 5125 inf/10s | CPU=36.1% | MEM=381.6MB
+2026-07-10 22:43:28 | INFO | CONSUMO | XGBoost ONNX CPU | 3544 inf/10s | CPU=32.9% | MEM=381.6MB
+2026-07-10 22:43:38 | INFO | CONSUMO | RF sklearn CPU | 1148 inf/10s | CPU=64.4% | MEM=381.6MB
+2026-07-10 22:43:43 | INFO | ============================================================
+2026-07-10 22:43:43 | INFO | FIN BENCHMARK DE LATENCIA
+2026-07-10 22:43:43 | INFO | Artefactos guardados en: /workspaces/proyecto-zona-interes-Au/notebooks/outputs_sprint4_latencia
+2026-07-10 22:43:43 | INFO | ============================================================

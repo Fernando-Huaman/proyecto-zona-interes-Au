@@ -1,17 +1,63 @@
-data:
-  train_path: "/workspaces/proyecto-zona-interes-Au/data/interim/data_entrenamiento_balanceado_fe.csv"
-  test_path: "/workspaces/proyecto-zona-interes-Au/data/interim/data_prueba_fe.csv"
-  target: "target_Au"
+# ============================================================
+# Configuración del proyecto — Zona de Interés Au
+# ============================================================
 
-features:
-  active: []
+data:
+  # Datos sin Feature Engineering (baseline)
+  train_path: "data/interim/data_entrenamiento_balanceado.csv"
+  test_path: "data/interim/data_prueba.csv"
+  # Datos con Feature Engineering (modelo final)
+  train_fe_path: "data/interim/data_entrenamiento_balanceado_fe.csv"
+  test_fe_path: "data/interim/data_prueba_fe.csv"
+  target: "target_Au"
+  exclude_cols:
+    - "Au_ppm"
+    - "target_Au"
+    - "East"
+    - "North"
+    - "Level"
+    - "is_synthetic"
 
 model:
   seed: 42
   n_folds: 5
+  metric: "f1"
 
-metric: "f1"
+  # Parámetros del modelo final — XGBoost Optuna (Sprint 3)
+  xgboost_optuna:
+    n_estimators: 300
+    max_depth: 8
+    learning_rate: 0.05
+    subsample: 0.8
+    colsample_bytree: 0.8
+    min_child_weight: 3
+    eval_metric: "logloss"
+
+# Mitigación A — Umbral óptimo por slice (Sprint 4)
+# Los umbrales se calculan dinámicamente, estos son los slices objetivo
+mitigacion_a:
+  slices_problematicos:
+    - slice_col: "slice_profundidad"
+      categoria: "Profundo"
+    - slice_col: "slice_cuadrante"
+      categoria: "NE"
+  umbral_default: 0.5
+
+# Resultados del modelo final (Sprint 4)
+# F1 baseline (sin mitigación): 0.9515
+# F1 con Mitigación A:          0.9808 (+0.0293)
+resultados:
+  f1_baseline_sprint4: 0.9515
+  f1_mitigacion_a: 0.9808
+  accuracy_mitigacion_a: 0.9953
+  precision_mitigacion_a: 0.9808
+  recall_mitigacion_a: 0.9808
 
 mlflow:
-  tracking_uri: "sqlite:////workspaces/proyecto-zona-interes-Au/notebooks/outputs_sprint3/mlflow.db"
+  tracking_uri: "sqlite:///notebooks/outputs_sprint3/mlflow.db"
   experiment_name: "Sprint3_ZonaInteresAu"
+
+paths:
+  models: "notebooks/outputs_sprint3/models"
+  results: "results"
+  logs: "logs"

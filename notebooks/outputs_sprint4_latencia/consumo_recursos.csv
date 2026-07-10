@@ -1,0 +1,4 @@
+Motor,Inferencias en 10s,Throughput (inf/s),CPU% medio,Memoria RSS (MB),Delta Memoria (MB)
+XGBoost sklearn CPU,5125,512,36.1,381.6,+0.1
+XGBoost ONNX CPU,3544,354,32.9,381.6,+0.0
+RF sklearn CPU,1148,115,64.4,381.6,+0.1

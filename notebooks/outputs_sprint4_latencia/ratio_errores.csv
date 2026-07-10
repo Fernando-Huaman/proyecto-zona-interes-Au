@@ -1,0 +1,7 @@
+Caso,Total,Exitosos,Errores,Ratio Error (%),Status
+Normal,427,427,0,0.00%,OK
+Con NaN (5%),427,427,0,0.00%,OK
+Con NaN (20%),427,427,0,0.00%,OK
+Con Inf,427,427,0,0.00%,OK
+Valores extremos (x100),427,427,0,0.00%,OK
+Todo ceros,427,427,0,0.00%,OK
