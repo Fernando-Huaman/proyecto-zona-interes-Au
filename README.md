@@ -125,7 +125,7 @@ jupyter nbconvert --execute --to notebook --inplace notebooks/sprint4.ipynb
 | Sprint 0-1 | Random Forest Baseline | 0.6789 | 0.7182 | — |
 | Sprint 2 | + Feature Engineering | 0.8723 | 0.9792 | +0.1934 |
 | Sprint 2 | + Tuning RF | 0.9072 | 0.9757 | +0.0349 |
-| Sprint 2 | + Optuna XGBoost | 0.9608 | 0.9909 | +0.0536 |
+| Sprint 3 | + Optuna XGBoost | 0.9608 | 0.9909 | +0.0536 |
 | Sprint 4 | + Mitigación A (Umbral por Slice) | **0.9808** | **0.9932** | **+0.0293** |
 
 ### Modelo Final — XGBoost Optuna + Mitigación A
