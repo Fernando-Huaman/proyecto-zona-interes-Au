@@ -1,0 +1,5 @@
+Bloque,PSI_max,Feature_PSI_max,n_features_PSI>0.20,Alerta_PSI,n_features_KS_p<0.05,Alerta_KS,Top10_comunes_con_global,Alerta_SHAP,n_alertas,Requiere_reentrenar
+NE,0.25765224904702594,Zr_ppm,3,True,45,True,9,False,2,True
+NO,0.826598732977692,Ca_per,30,True,53,True,9,False,2,True
+SO,0.8684228855100374,Au_Sb_ratio,17,True,52,True,9,False,2,True
+SE,0.43423585898295963,Mn_ppm,12,True,52,True,8,False,2,True

@@ -1,0 +1,32 @@
+
+================================================================
+RESUMEN EJECUTIVO - VALIDACION GEOGRAFICA LOBO
+================================================================
+Dataset: 2132 muestras | 57 features | K=4 bloques (grilla por medianas East/North)
+Pipeline por fold: imputacion mediana -> log1p -> BorderlineSMOTE (solo train) -> StandardScaler -> XGBoost Optuna (seed=42)
+
+1) VALIDACION INTERNA (CV 5-fold estratificada, mismo pipeline):
+   F1 = 0.9474 ± 0.0213 | PR-AUC = 0.9935 | Brier = 0.0087
+
+2) VALIDACION EXTERNA-GEOGRAFICA (LOBO):
+   F1 medio = 0.9418 ± 0.0218
+   PR-AUC medio = 0.9903 ± 0.0052
+   Brier medio = 0.0103 ± 0.0073
+   Mejor bloque : NO (F1 = 0.9733)
+   Peor bloque  : SE (F1 = 0.9231, IC95 [0.828, 0.982])
+
+3) CONTRASTE H3 (caida F1 <= 0.05 vs CV 5-fold):
+   Delta F1 medio = 0.0055 -> CUMPLE
+   Bloques que cumplen individualmente: 4/4
+
+4) MONITOREO DE SHIFT:
+Bloque  PSI_max  n_features_PSI>0.20  n_features_KS_p<0.05  Top10_comunes_con_global  n_alertas  Requiere_reentrenar
+    NE    0.258                    3                    45                         9          2                 True
+    NO    0.827                   30                    53                         9          2                 True
+    SO    0.868                   17                    52                         9          2                 True
+    SE    0.434                   12                    52                         8          2                 True
+
+5) LIMITACION (trabajo futuro):
+   El LOBO opera dentro del dataset disponible (Ancash). La transferibilidad a
+   yacimientos de otras regiones requiere datasets adicionales.
+================================================================
