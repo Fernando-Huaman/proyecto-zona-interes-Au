@@ -1,0 +1,5 @@
+,Random Forest,XGBoost
+E1 Baseline,0.7241,0.7523
+E2 +FE,0.7288,0.7429
+E3 +Cluster,0.713,0.7568
+E4 +FE+Clu,0.7179,0.7048

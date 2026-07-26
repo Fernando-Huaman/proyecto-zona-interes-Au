@@ -1,0 +1,11 @@
+Modelo,Config final,Métrica,Antes (E1),Después,Δ
+Random Forest,Mejor experimento [E2 +FE],F1,0.7241,0.7288,0.0047
+Random Forest,Mejor experimento [E2 +FE],Accuracy,0.9251,0.9251,0.0
+Random Forest,Mejor experimento [E2 +FE],Precision,0.6562,0.6515,-0.0047
+Random Forest,Mejor experimento [E2 +FE],Recall,0.8077,0.8269,0.0192
+Random Forest,Mejor experimento [E2 +FE],AUC-ROC,0.9506,0.9613,0.0107
+XGBoost,+ Optuna [E3 +Cluster],F1,0.7523,0.8036,0.0513
+XGBoost,+ Optuna [E3 +Cluster],Accuracy,0.9368,0.9485,0.0117
+XGBoost,+ Optuna [E3 +Cluster],Precision,0.7193,0.75,0.0307
+XGBoost,+ Optuna [E3 +Cluster],Recall,0.7885,0.8654,0.0769
+XGBoost,+ Optuna [E3 +Cluster],AUC-ROC,0.9636,0.9596,-0.0039

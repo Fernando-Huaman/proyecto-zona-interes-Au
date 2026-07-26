@@ -1,0 +1,21 @@
+Modelo,Escenario,Rank,n_comp,F1
+KNN,PCA sin balanceo,1,5,0.4524
+KNN,PCA sin balanceo,2,7,0.4304
+KNN,PCA sin balanceo,3,8,0.425
+KNN,PCA sin balanceo,4,6,0.425
+KNN,PCA sin balanceo,5,3,0.4198
+Reg. Logística,PCA sin balanceo,1,41,0.6265
+Reg. Logística,PCA sin balanceo,2,44,0.619
+Reg. Logística,PCA sin balanceo,3,45,0.619
+Reg. Logística,PCA sin balanceo,4,43,0.619
+Reg. Logística,PCA sin balanceo,5,46,0.6118
+Árbol de Decisión,PCA sin balanceo,1,40,0.5094
+Árbol de Decisión,PCA sin balanceo,2,33,0.5
+Árbol de Decisión,PCA sin balanceo,3,3,0.4906
+Árbol de Decisión,PCA sin balanceo,4,11,0.4821
+Árbol de Decisión,PCA sin balanceo,5,7,0.4771
+Random Forest,PCA sin balanceo,1,19,0.5263
+Random Forest,PCA sin balanceo,2,33,0.5135
+Random Forest,PCA sin balanceo,3,21,0.5067
+Random Forest,PCA sin balanceo,4,38,0.5067
+Random Forest,PCA sin balanceo,5,44,0.5

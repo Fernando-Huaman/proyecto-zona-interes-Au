@@ -1,0 +1,16 @@
+{
+  "ganador": "XGBoost (Mejor set  + params XGB + cluster)",
+  "mejor_set_features": "Top-26 + cluster XGB",
+  "n_features": 31,
+  "calibracion": "Isot\u00f3nica",
+  "umbral": 0.39000000000000007,
+  "f1_final": 0.7429,
+  "f1_sprint2": 0.8035714285714286,
+  "metricas_finales": {
+    "F1": 0.7429,
+    "Accuracy": 0.9368,
+    "Precision": 0.7358,
+    "Recall": 0.75,
+    "AUC-ROC": 0.9625
+  }
+}

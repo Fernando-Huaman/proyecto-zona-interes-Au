@@ -1,0 +1,4 @@
+Variante,F1 global,F1 medio slices prob.,Δ slices vs baseline,No degrada global (≤0.01),Cumple criterio
+Mit A (umbral/slice),0.7308,0.4422,-0.0264,False,False
+Mit B (sample weight),0.7652,0.5662,0.0976,True,True
+Mit C (umbral global),0.7429,0.4686,0.0,True,False

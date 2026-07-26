@@ -1,0 +1,21 @@
+Modelo,Mejor config,Métrica,Antes (baseline),Después,Δ
+KNN,Balanceo,F1,0.3243,0.5161,0.1918
+KNN,Balanceo,Accuracy,0.8829,0.8244,-0.0585
+KNN,Balanceo,Precision,0.5455,0.3883,-0.1571
+KNN,Balanceo,Recall,0.2308,0.7692,0.5385
+KNN,Balanceo,AUC-ROC,0.839,0.8751,0.0361
+Reg. Logística,PCA,F1,0.6118,0.6265,0.0147
+Reg. Logística,PCA,Accuracy,0.9227,0.9274,0.0047
+Reg. Logística,PCA,Precision,0.7879,0.8387,0.0508
+Reg. Logística,PCA,Recall,0.5,0.5,0.0
+Reg. Logística,PCA,AUC-ROC,0.9369,0.9344,-0.0025
+Árbol de Decisión,Balanceo,F1,0.6393,0.6724,0.0331
+Árbol de Decisión,Balanceo,Accuracy,0.897,0.911,0.0141
+Árbol de Decisión,Balanceo,Precision,0.5571,0.6094,0.0522
+Árbol de Decisión,Balanceo,Recall,0.75,0.75,0.0
+Árbol de Decisión,Balanceo,AUC-ROC,0.8337,0.8417,0.008
+Random Forest,Balanceo,F1,0.6437,0.713,0.0694
+Random Forest,Balanceo,Accuracy,0.9274,0.9227,-0.0047
+Random Forest,Balanceo,Precision,0.8,0.6508,-0.1492
+Random Forest,Balanceo,Recall,0.5385,0.7885,0.25
+Random Forest,Balanceo,AUC-ROC,0.9547,0.9506,-0.0041

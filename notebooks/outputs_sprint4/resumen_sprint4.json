@@ -1,0 +1,18 @@
+{
+  "modelo_base": "XGBoost (Mejor set  + params XGB + cluster)",
+  "f1_global_baseline": 0.7429,
+  "n_slices_evaluados": 30,
+  "slices_problematicos": [
+    "profundidad=Superficial (F1=0.4667, significativo)",
+    "cuadrante=SE (F1=0.4706, significativo)"
+  ],
+  "mitigacion_seleccionada": "Mit B (sample weight)",
+  "metricas_finales": {
+    "F1": 0.7652,
+    "Accuracy": 0.9368,
+    "Precision": 0.6984,
+    "Recall": 0.8462,
+    "AUC-ROC": 0.9634,
+    "Brier": 0.0431
+  }
+}

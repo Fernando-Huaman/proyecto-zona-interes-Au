@@ -1,0 +1,39 @@
+Feature,VIF,Tipo,Decisión
+pathfinder_sum,inf,Agregado,EXCLUIR (VIF>10)
+pathfinder_mean,inf,Agregado,EXCLUIR (VIF>10)
+pathfinder_max,13.21562313762223,Agregado,EXCLUIR (VIF>10)
+log_Co_ppm,7.422122035692963,Log,Mantener
+log_Cd_ppm,7.150240996834939,Log,Mantener
+log_Zn_ppm,7.011153303896743,Log,Mantener
+log_Sr_ppm,6.556306085407212,Log,Mantener
+log_Ni_ppm,5.796518037555743,Log,Mantener
+log_As_ppm,4.812093715480678,Log,Mantener
+log_Ca_per,4.739730486263356,Log,Mantener
+log_Pb_ppm,4.28797733565732,Log,Mantener
+log_Fe_per,4.263086066347267,Log,Mantener
+log_Te_ppm,3.875876719870291,Log,Mantener
+log_Mn_ppm,3.5840799304525026,Log,Mantener
+log_Ba_ppm,3.5657071155981876,Log,Mantener
+log_Bi_ppm,3.5605917331869854,Log,Mantener
+log_Mg_per,3.222043332441412,Log,Mantener
+log_Sb_ppm,3.0880509664520917,Log,Mantener
+log_Tl_ppm,2.91521190887369,Log,Mantener
+log_U_ppm,2.853430077798244,Log,Mantener
+log_Ag_ppm,2.8145356461754774,Log,Mantener
+log_Mo_ppm,2.814201077066713,Log,Mantener
+log_Cr_ppm,2.5634133948108326,Log,Mantener
+log_Sn_ppm,2.4735309422172933,Log,Mantener
+log_Cu_ppm,2.390301045195902,Log,Mantener
+log_Cs_ppm,2.237270786027665,Log,Mantener
+As_Sb_ratio,2.222108218346083,Ratio,Mantener
+log_W_ppm,2.0954600994853556,Log,Mantener
+Cd_Zn_ratio,2.0488051546937207,Ratio,Mantener
+Mo_W_ratio,2.01555503430553,Ratio,Mantener
+log_S_per,1.9440769017958717,Log,Mantener
+log_Se_ppm,1.8095909089682454,Log,Mantener
+Pb_Zn_ratio,1.7566279531070952,Ratio,Mantener
+log_Ge_ppm,1.7525044261289227,Log,Mantener
+Te_Se_ratio,1.6741160002112507,Ratio,Mantener
+Bi_As_ratio,1.2452364768554633,Ratio,Mantener
+log_Re_ppm,1.1882845862066116,Log,Mantener
+Cu_Ag_ratio,1.1066560720866183,Ratio,Mantener

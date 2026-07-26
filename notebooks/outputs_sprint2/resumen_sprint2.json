@@ -1,12 +1,11 @@
 {
-  "Random Forest": {
-    "n_estimators": 433,
-    "max_depth": 17,
-    "min_samples_split": 4,
-    "min_samples_leaf": 2,
-    "max_features": "sqrt"
-  },
-  "XGBoost": {
+  "mejor_modelo": "XGBoost",
+  "mejor_set": "E3 +Cluster",
+  "config_final": "+ Optuna",
+  "f1_final": 0.8036,
+  "f1_sprint1": 0.713,
+  "mejora_vs_sprint1": 0.0906,
+  "best_params_optuna": {
     "n_estimators": 621,
     "max_depth": 8,
     "learning_rate": 0.1541185187401039,

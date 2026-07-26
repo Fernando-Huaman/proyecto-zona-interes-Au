@@ -1,0 +1,7 @@
+,KNN,Reg. Logística,Árbol de Decisión,Random Forest
+Sin balanceo,0.3243,0.6118,0.6393,0.6437
+RandomOverSampler,0.4895,0.5455,0.6724,0.6667
+SMOTE,0.5093,0.586,0.5481,0.713
+BorderlineSMOTE,0.5161,0.5526,0.6269,0.7069
+ADASYN,0.515,0.5696,0.5625,0.7027
+SMOTETomek,0.5093,0.586,0.5693,0.7069

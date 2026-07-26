@@ -1,0 +1,15 @@
+,n,% Neg,% Pos
+ref_kmeans_label=0,314,0.981,0.019
+ref_kmeans_label=1,826,0.798,0.202
+ref_kmeans_label=2,528,0.983,0.017
+ref_kmeans_label=3,37,0.297,0.703
+ref_gmm_label=0,363,0.738,0.262
+ref_gmm_label=1,517,0.988,0.012
+ref_gmm_label=2,2,0.0,1.0
+ref_gmm_label=3,148,0.581,0.419
+ref_gmm_label=4,331,0.982,0.018
+ref_gmm_label=5,314,0.93,0.07
+ref_gmm_label=6,15,0.133,0.867
+ref_gmm_label=7,15,0.867,0.133
+ref_dbscan_outlier=0,1590,0.892,0.108
+ref_dbscan_outlier=1,115,0.678,0.322

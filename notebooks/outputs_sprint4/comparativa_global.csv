@@ -1,0 +1,5 @@
+,F1,Accuracy,Precision,Recall,AUC-ROC,Brier,Δ F1 vs baseline
+Baseline,0.7429,0.9368,0.7358,0.75,0.9625,0.0443,0.0
+Mit A (umbral/slice),0.7308,0.9344,0.7308,0.7308,0.9625,0.0443,-0.0121
+Mit B (sample weight),0.7652,0.9368,0.6984,0.8462,0.9634,0.0431,0.0223
+Mit C (umbral global),0.7429,0.9368,0.7358,0.75,0.9625,0.0443,0.0
