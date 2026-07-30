@@ -9,6 +9,16 @@ Reg. Logística,PCA sin balanceo,2,44,0.619
 Reg. Logística,PCA sin balanceo,3,45,0.619
 Reg. Logística,PCA sin balanceo,4,43,0.619
 Reg. Logística,PCA sin balanceo,5,46,0.6118
+SVM (RBF),PCA sin balanceo,1,18,0.2667
+SVM (RBF),PCA sin balanceo,2,16,0.2623
+SVM (RBF),PCA sin balanceo,3,17,0.2623
+SVM (RBF),PCA sin balanceo,4,15,0.2581
+SVM (RBF),PCA sin balanceo,5,14,0.2581
+MLP,PCA sin balanceo,1,39,0.7525
+MLP,PCA sin balanceo,2,42,0.7379
+MLP,PCA sin balanceo,3,38,0.7292
+MLP,PCA sin balanceo,4,41,0.72
+MLP,PCA sin balanceo,5,43,0.717
 Árbol de Decisión,PCA sin balanceo,1,40,0.5094
 Árbol de Decisión,PCA sin balanceo,2,33,0.5
 Árbol de Decisión,PCA sin balanceo,3,3,0.4906
@@ -19,3 +29,28 @@ Random Forest,PCA sin balanceo,2,33,0.5135
 Random Forest,PCA sin balanceo,3,21,0.5067
 Random Forest,PCA sin balanceo,4,38,0.5067
 Random Forest,PCA sin balanceo,5,44,0.5
+ExtraTrees,PCA sin balanceo,1,10,0.5067
+ExtraTrees,PCA sin balanceo,2,8,0.48
+ExtraTrees,PCA sin balanceo,3,15,0.4789
+ExtraTrees,PCA sin balanceo,4,7,0.4737
+ExtraTrees,PCA sin balanceo,5,3,0.4675
+HistGradientBoosting,PCA sin balanceo,1,41,0.619
+HistGradientBoosting,PCA sin balanceo,2,40,0.6047
+HistGradientBoosting,PCA sin balanceo,3,17,0.6024
+HistGradientBoosting,PCA sin balanceo,4,44,0.5952
+HistGradientBoosting,PCA sin balanceo,5,9,0.5934
+XGBoost,PCA sin balanceo,1,43,0.6136
+XGBoost,PCA sin balanceo,2,37,0.5682
+XGBoost,PCA sin balanceo,3,26,0.5647
+XGBoost,PCA sin balanceo,4,28,0.561
+XGBoost,PCA sin balanceo,5,44,0.5542
+LightGBM,PCA sin balanceo,1,38,0.5977
+LightGBM,PCA sin balanceo,2,26,0.5952
+LightGBM,PCA sin balanceo,3,32,0.5952
+LightGBM,PCA sin balanceo,4,36,0.5926
+LightGBM,PCA sin balanceo,5,21,0.5882
+CatBoost,PCA sin balanceo,1,40,0.5526
+CatBoost,PCA sin balanceo,2,39,0.55
+CatBoost,PCA sin balanceo,3,45,0.5455
+CatBoost,PCA sin balanceo,4,41,0.5455
+CatBoost,PCA sin balanceo,5,25,0.5385

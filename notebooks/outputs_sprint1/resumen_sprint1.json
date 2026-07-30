@@ -1,0 +1,43 @@
+{
+  "mejor_modelo": "LightGBM",
+  "mejor_config": "Balanceo",
+  "metodo_balanceo": "RandomOverSampler",
+  "f1_final": 0.7736,
+  "f1_sprint0": 0.7629,
+  "mejora_vs_sprint0": 0.0107,
+  "metricas_finales": {
+    "F1": 0.7736,
+    "Accuracy": 0.9438,
+    "Precision": 0.7593,
+    "Recall": 0.7885,
+    "AUC-ROC": 0.9662
+  },
+  "f1_por_modelo": {
+    "KNN": 0.5161,
+    "Reg. Logística": 0.6265,
+    "SVM (RBF)": 0.4908,
+    "MLP": 0.7551,
+    "Árbol de Decisión": 0.6724,
+    "Random Forest": 0.713,
+    "ExtraTrees": 0.6667,
+    "HistGradientBoosting": 0.7664,
+    "XGBoost": 0.7629,
+    "LightGBM": 0.7736,
+    "CatBoost": 0.7304
+  },
+  "config_por_modelo": {
+    "KNN": "Balanceo",
+    "Reg. Logística": "PCA",
+    "SVM (RBF)": "Bal+PCA",
+    "MLP": "Baseline",
+    "Árbol de Decisión": "Balanceo",
+    "Random Forest": "Balanceo",
+    "ExtraTrees": "Balanceo",
+    "HistGradientBoosting": "Balanceo",
+    "XGBoost": "Baseline",
+    "LightGBM": "Balanceo",
+    "CatBoost": "Balanceo"
+  },
+  "n_modelos": 11,
+  "n_features": 46
+}

@@ -1,7 +1,0 @@
-{
-  "hidden_layer_sizes": "(64, 64, 64)",
-  "alpha": "1.3731894683166336e-05",
-  "learning_rate_init": "0.008095374290609527",
-  "activation": "relu",
-  "batch_size": "64"
-}

@@ -3,4 +3,4 @@ Sin balanceo,13,14,22,28
 BorderlineSMOTE,12,13,21,27
 RandomOverSampler,12,13,20,26
 SMOTE,11,13,21,27
-Sin balanceo,13,14,22,28
+SMOTETomek,11,13,21,27

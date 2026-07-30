@@ -1,11 +1,56 @@
 Modelo,Config final,Métrica,Antes (E1),Después,Δ
-Random Forest,Mejor experimento [E2 +FE],F1,0.7241,0.7288,0.0047
-Random Forest,Mejor experimento [E2 +FE],Accuracy,0.9251,0.9251,0.0
-Random Forest,Mejor experimento [E2 +FE],Precision,0.6562,0.6515,-0.0047
-Random Forest,Mejor experimento [E2 +FE],Recall,0.8077,0.8269,0.0192
-Random Forest,Mejor experimento [E2 +FE],AUC-ROC,0.9506,0.9613,0.0107
-XGBoost,+ Optuna [E3 +Cluster],F1,0.7523,0.8036,0.0513
-XGBoost,+ Optuna [E3 +Cluster],Accuracy,0.9368,0.9485,0.0117
-XGBoost,+ Optuna [E3 +Cluster],Precision,0.7193,0.75,0.0307
-XGBoost,+ Optuna [E3 +Cluster],Recall,0.7885,0.8654,0.0769
-XGBoost,+ Optuna [E3 +Cluster],AUC-ROC,0.9636,0.9596,-0.0039
+KNN,+ Optuna [E4 +FE+Clu],F1,0.5161,0.5797,0.0636
+KNN,+ Optuna [E4 +FE+Clu],Accuracy,0.8244,0.8642,0.0398
+KNN,+ Optuna [E4 +FE+Clu],Precision,0.3883,0.4651,0.0768
+KNN,+ Optuna [E4 +FE+Clu],Recall,0.7692,0.7692,0.0
+KNN,+ Optuna [E4 +FE+Clu],AUC-ROC,0.8751,0.858,-0.0171
+Reg. Logística,Mejor experimento [E4 +FE+Clu],F1,0.6118,0.7347,0.1229
+Reg. Logística,Mejor experimento [E4 +FE+Clu],Accuracy,0.9227,0.9391,0.0164
+Reg. Logística,Mejor experimento [E4 +FE+Clu],Precision,0.7879,0.7826,-0.0053
+Reg. Logística,Mejor experimento [E4 +FE+Clu],Recall,0.5,0.6923,0.1923
+Reg. Logística,Mejor experimento [E4 +FE+Clu],AUC-ROC,0.9369,0.9621,0.0252
+SVM (RBF),Mejor experimento [E4 +FE+Clu],F1,0.4848,0.6777,0.1928
+SVM (RBF),Mejor experimento [E4 +FE+Clu],Accuracy,0.8009,0.9087,0.1077
+SVM (RBF),Mejor experimento [E4 +FE+Clu],Precision,0.354,0.5942,0.2402
+SVM (RBF),Mejor experimento [E4 +FE+Clu],Recall,0.7692,0.7885,0.0192
+SVM (RBF),Mejor experimento [E4 +FE+Clu],AUC-ROC,0.8914,0.9407,0.0493
+MLP,Mejor experimento [E1 Baseline],F1,0.7551,0.7551,0.0
+MLP,Mejor experimento [E1 Baseline],Accuracy,0.9438,0.9438,0.0
+MLP,Mejor experimento [E1 Baseline],Precision,0.8043,0.8043,0.0
+MLP,Mejor experimento [E1 Baseline],Recall,0.7115,0.7115,0.0
+MLP,Mejor experimento [E1 Baseline],AUC-ROC,0.9395,0.9395,0.0
+Árbol de Decisión,+ Optuna [E3 +Cluster],F1,0.6724,0.6829,0.0105
+Árbol de Decisión,+ Optuna [E3 +Cluster],Accuracy,0.911,0.9087,-0.0023
+Árbol de Decisión,+ Optuna [E3 +Cluster],Precision,0.6094,0.5915,-0.0178
+Árbol de Decisión,+ Optuna [E3 +Cluster],Recall,0.75,0.8077,0.0577
+Árbol de Decisión,+ Optuna [E3 +Cluster],AUC-ROC,0.8417,0.8987,0.0571
+Random Forest,+ Optuna [E4 +FE+Clu],F1,0.713,0.7434,0.0303
+Random Forest,+ Optuna [E4 +FE+Clu],Accuracy,0.9227,0.9321,0.0094
+Random Forest,+ Optuna [E4 +FE+Clu],Precision,0.6508,0.6885,0.0377
+Random Forest,+ Optuna [E4 +FE+Clu],Recall,0.7885,0.8077,0.0192
+Random Forest,+ Optuna [E4 +FE+Clu],AUC-ROC,0.9506,0.9583,0.0077
+ExtraTrees,+ Optuna [E4 +FE+Clu],F1,0.6667,0.7257,0.059
+ExtraTrees,+ Optuna [E4 +FE+Clu],Accuracy,0.9063,0.9274,0.0211
+ExtraTrees,+ Optuna [E4 +FE+Clu],Precision,0.5882,0.6721,0.0839
+ExtraTrees,+ Optuna [E4 +FE+Clu],Recall,0.7692,0.7885,0.0192
+ExtraTrees,+ Optuna [E4 +FE+Clu],AUC-ROC,0.9386,0.9524,0.0138
+HistGradientBoosting,Mejor experimento [E3 +Cluster],F1,0.7664,0.8224,0.0561
+HistGradientBoosting,Mejor experimento [E3 +Cluster],Accuracy,0.9415,0.9555,0.0141
+HistGradientBoosting,Mejor experimento [E3 +Cluster],Precision,0.7455,0.8,0.0545
+HistGradientBoosting,Mejor experimento [E3 +Cluster],Recall,0.7885,0.8462,0.0577
+HistGradientBoosting,Mejor experimento [E3 +Cluster],AUC-ROC,0.9705,0.9721,0.0016
+XGBoost,+ Optuna [E4 +FE+Clu],F1,0.7629,0.7931,0.0302
+XGBoost,+ Optuna [E4 +FE+Clu],Accuracy,0.9461,0.9438,-0.0023
+XGBoost,+ Optuna [E4 +FE+Clu],Precision,0.8222,0.7188,-0.1035
+XGBoost,+ Optuna [E4 +FE+Clu],Recall,0.7115,0.8846,0.1731
+XGBoost,+ Optuna [E4 +FE+Clu],AUC-ROC,0.9648,0.9613,-0.0035
+LightGBM,Mejor experimento [E4 +FE+Clu],F1,0.7736,0.8113,0.0377
+LightGBM,Mejor experimento [E4 +FE+Clu],Accuracy,0.9438,0.9532,0.0094
+LightGBM,Mejor experimento [E4 +FE+Clu],Precision,0.7593,0.7963,0.037
+LightGBM,Mejor experimento [E4 +FE+Clu],Recall,0.7885,0.8269,0.0385
+LightGBM,Mejor experimento [E4 +FE+Clu],AUC-ROC,0.9662,0.9696,0.0035
+CatBoost,Mejor experimento [E2 +FE],F1,0.7304,0.7611,0.0306
+CatBoost,Mejor experimento [E2 +FE],Accuracy,0.9274,0.9368,0.0094
+CatBoost,Mejor experimento [E2 +FE],Precision,0.6667,0.7049,0.0383
+CatBoost,Mejor experimento [E2 +FE],Recall,0.8077,0.8269,0.0192
+CatBoost,Mejor experimento [E2 +FE],AUC-ROC,0.957,0.9597,0.0027

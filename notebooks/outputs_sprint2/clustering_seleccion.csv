@@ -1,0 +1,3 @@
+Espacio,k KMeans,Silhouette,k GMM,eps DBSCAN
+Sin FE,4,0.3202,5,4.541
+Con FE,2,0.2421,6,7.11

@@ -1,6 +1,0 @@
-Etapa,Config,n_features,F1 CV (train),F1 (hold-out),Accuracy (hold-out),Precision (hold-out),Recall (hold-out),AUC-ROC (hold-out)
-S0 Referencia,Ganador Sprint 2 (XGB + Cluster),51,0.7413,0.8036,0.9485,0.75,0.8654,0.9596
-XGB + Cluster + refinado,Top-26 + cluster + refinado,31,0.7238,0.7736,0.9438,0.7593,0.7885,0.9673
-Top-N,Top-26 elementos + cluster,31,0.7423,0.7664,0.9415,0.7455,0.7885,0.9613
-Overfitting,XGB Optuna CV-repetida (mejor set),31,0.7336,0.7451,0.9391,0.76,0.7308,0.9642
-MLP,Optuna (mismas features que mejor XGB),31,0.6612,0.6549,0.9087,0.6066,0.7115,0.9206

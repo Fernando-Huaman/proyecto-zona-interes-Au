@@ -1,16 +1,152 @@
 {
-  "ganador": "XGBoost (Mejor set  + params XGB + cluster)",
-  "mejor_set_features": "Top-26 + cluster XGB",
-  "n_features": 31,
-  "calibracion": "Isot\u00f3nica",
-  "umbral": 0.39000000000000007,
-  "f1_final": 0.7429,
-  "f1_sprint2": 0.8035714285714286,
+  "modelo_base": "HistGradientBoosting",
+  "set_final_features": [
+    "Ag_ppm",
+    "Sb_ppm",
+    "Sr_ppm",
+    "U_ppm",
+    "As_ppm",
+    "Te_ppm",
+    "Cs_ppm",
+    "Ta_ppm",
+    "Mg_per",
+    "Sn_ppm",
+    "Rb_ppm",
+    "Cu_ppm",
+    "Na_per",
+    "Y_ppm",
+    "Th_ppm",
+    "Be_ppm",
+    "Mo_ppm",
+    "Ni_ppm",
+    "Cr_ppm",
+    "La_ppm",
+    "Mn_ppm",
+    "kmeans_dist",
+    "Fe_per"
+  ],
+  "n_features": 23,
+  "paso1_cluster_shap": {
+    "ejecutado": true,
+    "elementos_materia_prima": [
+      "Sb_ppm",
+      "Sr_ppm",
+      "U_ppm",
+      "As_ppm",
+      "Te_ppm",
+      "Cs_ppm",
+      "Ta_ppm",
+      "Mg_per",
+      "Sn_ppm",
+      "Rb_ppm"
+    ],
+    "k_kmeans": 7,
+    "f1_cv": 0.7105,
+    "mejoro": false,
+    "set_base_resultante": "S2"
+  },
+  "paso2_seleccion_shap": {
+    "n_opt": 23,
+    "f1_cv": 0.7407,
+    "mejoro": true,
+    "features": [
+      "Ag_ppm",
+      "Sb_ppm",
+      "Sr_ppm",
+      "U_ppm",
+      "As_ppm",
+      "Te_ppm",
+      "Cs_ppm",
+      "Ta_ppm",
+      "Mg_per",
+      "Sn_ppm",
+      "Rb_ppm",
+      "Cu_ppm",
+      "Na_per",
+      "Y_ppm",
+      "Th_ppm",
+      "Be_ppm",
+      "Mo_ppm",
+      "Ni_ppm",
+      "Cr_ppm",
+      "La_ppm",
+      "Mn_ppm",
+      "kmeans_dist",
+      "Fe_per"
+    ]
+  },
+  "paso3_optuna": {
+    "n_trials": 100,
+    "f1_cv_optuna": 0.755,
+    "params_optuna": {
+      "max_iter": 289,
+      "learning_rate": 0.18175581564163837,
+      "max_leaf_nodes": 16,
+      "min_samples_leaf": 33,
+      "l2_regularization": 0.33524616125194756
+    },
+    "config_elegida": "Optuna"
+  },
+  "params_finales": {
+    "max_iter": 289,
+    "learning_rate": 0.18175581564163837,
+    "max_leaf_nodes": 16,
+    "min_samples_leaf": 33,
+    "l2_regularization": 0.33524616125194756
+  },
+  "balanceo": "RandomOverSampler",
+  "calibracion": "Sigmoid (Platt)",
+  "umbral": 0.38000000000000006,
+  "f1_final": 0.8,
+  "f1_sprint2": 0.8224,
+  "mejora_vs_sprint2": -0.0224,
   "metricas_finales": {
-    "F1": 0.7429,
-    "Accuracy": 0.9368,
-    "Precision": 0.7358,
-    "Recall": 0.75,
-    "AUC-ROC": 0.9625
+    "F1": 0.8,
+    "Accuracy": 0.9485,
+    "Precision": 0.7586,
+    "Recall": 0.8462,
+    "AUC-ROC": 0.9643
+  },
+  "ratios_sprint2": {
+    "Sb_U_ratio": [
+      "Sb_ppm",
+      "U_ppm"
+    ],
+    "Al_per_Te_ratio": [
+      "Al_per",
+      "Te_ppm"
+    ],
+    "Rb_U_ratio": [
+      "Rb_ppm",
+      "U_ppm"
+    ],
+    "Sb_Ce_ratio": [
+      "Sb_ppm",
+      "Ce_ppm"
+    ],
+    "Te_U_ratio": [
+      "Te_ppm",
+      "U_ppm"
+    ],
+    "Be_Te_ratio": [
+      "Be_ppm",
+      "Te_ppm"
+    ],
+    "Sb_Be_ratio": [
+      "Sb_ppm",
+      "Be_ppm"
+    ],
+    "Rb_Ce_ratio": [
+      "Rb_ppm",
+      "Ce_ppm"
+    ],
+    "Be_U_ratio": [
+      "Be_ppm",
+      "U_ppm"
+    ],
+    "Cs_U_ratio": [
+      "Cs_ppm",
+      "U_ppm"
+    ]
   }
 }

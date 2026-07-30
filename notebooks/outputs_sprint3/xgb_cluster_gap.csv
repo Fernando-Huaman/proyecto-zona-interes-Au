@@ -1,4 +1,0 @@
-Conjunto,F1,Gap vs train
-Train (mismos datos de ajuste),0.9952,-0.0
-CV 5-fold (train),0.7413,-0.2539
-Hold-out (20%),0.8036,-0.1916

@@ -1,0 +1,4 @@
+Conjunto,F1,Gap vs train
+Train (resustitución),1.0,0.0
+CV 5-fold (train),0.7278,-0.2722
+Hold-out (20%),0.8224,-0.1776

@@ -1,6 +1,6 @@
 Hito,F1 (hold-out),Δ vs Sprint 2
-Sprint 1 (RF + SMOTE),0.713,-0.0906
-Sprint 2 (ganador),0.8036,0.0
-Sprint 3 — mejor XGBoost,0.7664,-0.0372
-Sprint 3 — MLP,0.6549,-0.1487
-"Sprint 3 — FINAL (+Isotónica, umbral 0.39)",0.7429,-0.0607
+Sprint 0 (baseline),0.7629,-0.0595
+Sprint 1 (ganador),0.7736,-0.0488
+Sprint 2 (ganador),0.8224,0.0
+Sprint 3 — pre-calibración,0.8037,-0.0187
+"Sprint 3 — FINAL (+Sigmoid (Platt), umbral 0.38)",0.8,-0.0224
