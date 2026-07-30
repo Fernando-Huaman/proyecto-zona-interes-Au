@@ -1,0 +1,12 @@
+,F1_CV (media),F1_CV (std),Tiempo (s)
+KNN,0.4357,0.0857,9.7374
+Reg. Logística,0.5493,0.0939,0.0982
+SVM (RBF),0.1895,0.033,0.9135
+MLP,0.6413,0.0524,10.0019
+Árbol de Decisión,0.5448,0.0426,0.1695
+Random Forest,0.6501,0.0306,1.8938
+ExtraTrees,0.5881,0.0871,1.5317
+HistGradientBoosting,0.7034,0.0352,2.3492
+XGBoost,0.709,0.0322,2.075
+LightGBM,0.6937,0.0507,8.9787
+CatBoost,0.6671,0.031,5.6226
