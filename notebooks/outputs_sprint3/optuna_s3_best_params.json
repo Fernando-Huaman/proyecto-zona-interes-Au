@@ -1,7 +1,24 @@
 {
-  "max_iter": 289,
-  "learning_rate": 0.18175581564163837,
-  "max_leaf_nodes": 16,
-  "min_samples_leaf": 33,
-  "l2_regularization": 0.33524616125194756
+  "best_params": {
+    "n_estimators": 232,
+    "num_leaves": 59,
+    "learning_rate": 0.04415508827314991,
+    "subsample": 0.7316763198578394,
+    "colsample_bytree": 0.9539086384084597,
+    "min_child_samples": 11,
+    "reg_lambda": 0.8960901541288493
+  },
+  "f1_cv_optuna": 0.7706,
+  "f1_cv_params_fijos_s2": 0.7634,
+  "params_elegidos": {
+    "n_estimators": 232,
+    "num_leaves": 59,
+    "learning_rate": 0.04415508827314991,
+    "subsample": 0.7316763198578394,
+    "colsample_bytree": 0.9539086384084597,
+    "min_child_samples": 11,
+    "reg_lambda": 0.8960901541288493,
+    "subsample_freq": 1
+  },
+  "origen": "Optuna S3"
 }

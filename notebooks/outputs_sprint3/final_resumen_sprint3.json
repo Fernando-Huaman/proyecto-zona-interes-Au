@@ -1,152 +1,105 @@
 {
-  "modelo_base": "HistGradientBoosting",
-  "set_final_features": [
+  "sprint": 3,
+  "nombre": "SHAP + selección (1-SE), curvas de aprendizaje, re-Optuna y calibración",
+  "protocolo": "Decisión por F1_CV/OOF; hold-out una sola vez (informativo).",
+  "modelo_base": "LightGBM",
+  "balanceo": "SMOTETomek",
+  "set_partida_s2": "E5 +FE +Cluster LOG",
+  "n_features_s2": 144,
+  "criterio_shap_acumulado": 0.95,
+  "n_features_95shap": 101,
+  "regla_seleccion": "1-SE sobre barrido CV",
+  "n_features_s3": 47,
+  "set_s3_features": [
     "Ag_ppm",
-    "Sb_ppm",
-    "Sr_ppm",
-    "U_ppm",
-    "As_ppm",
     "Te_ppm",
-    "Cs_ppm",
-    "Ta_ppm",
-    "Mg_per",
-    "Sn_ppm",
-    "Rb_ppm",
-    "Cu_ppm",
-    "Na_per",
-    "Y_ppm",
-    "Th_ppm",
-    "Be_ppm",
-    "Mo_ppm",
-    "Ni_ppm",
-    "Cr_ppm",
+    "Se_ppm",
+    "Sb_ppm",
+    "Cr_ppm__over__Mg_per",
+    "Ba_ppm__over__Sb_ppm",
+    "Be_ppm__over__Zr_ppm",
+    "Mn_ppm__over__Sb_ppm",
+    "kmeans_dist_log",
+    "Al_per__over__Sc_ppm",
+    "Ce_ppm__over__Fe_per",
+    "Fe_per__over__Sn_ppm",
+    "Al_per__over__Th_ppm",
+    "Ba_ppm__over__Na_per",
     "La_ppm",
-    "Mn_ppm",
-    "kmeans_dist",
-    "Fe_per"
+    "Cu_ppm",
+    "Sn_ppm__over__V_ppm",
+    "Ti_per__over__Zr_ppm",
+    "Ta_ppm",
+    "Sr_ppm",
+    "Ba_ppm__over__Rb_ppm",
+    "gmm_prob_max_log",
+    "S_per",
+    "Be_ppm__over__Ni_ppm",
+    "Ti_per__over__V_ppm",
+    "Cs_ppm",
+    "Rb_ppm",
+    "Nb_ppm__over__Tl_ppm",
+    "Th_ppm__over__W_ppm",
+    "Mg_per",
+    "Y_ppm",
+    "K_per__over__Rb_ppm",
+    "Cs_ppm__over__Ni_ppm",
+    "Bi_ppm__over__U_ppm",
+    "Na_per",
+    "Mg_per__over__Sb_ppm",
+    "Ga_ppm",
+    "Be_ppm__over__Co_ppm",
+    "Ba_ppm__over__Cd_ppm",
+    "Sn_ppm__over__Sr_ppm",
+    "Mg_per__over__Mo_ppm",
+    "As_ppm",
+    "Pb_ppm",
+    "Ga_ppm__over__U_ppm",
+    "Ca_per__over__Cr_ppm",
+    "As_ppm__over__Fe_per",
+    "Hf_ppm__over__W_ppm"
   ],
-  "n_features": 23,
-  "paso1_cluster_shap": {
-    "ejecutado": true,
-    "elementos_materia_prima": [
-      "Sb_ppm",
-      "Sr_ppm",
-      "U_ppm",
-      "As_ppm",
-      "Te_ppm",
-      "Cs_ppm",
-      "Ta_ppm",
-      "Mg_per",
-      "Sn_ppm",
-      "Rb_ppm"
-    ],
-    "k_kmeans": 7,
-    "f1_cv": 0.7105,
-    "mejoro": false,
-    "set_base_resultante": "S2"
+  "f1_cv_s3_params_fijos": 0.7634,
+  "params_s2": {
+    "learning_rate": 0.1287222365527861,
+    "n_estimators": 167,
+    "num_leaves": 48,
+    "min_child_samples": 27
   },
-  "paso2_seleccion_shap": {
-    "n_opt": 23,
-    "f1_cv": 0.7407,
-    "mejoro": true,
-    "features": [
-      "Ag_ppm",
-      "Sb_ppm",
-      "Sr_ppm",
-      "U_ppm",
-      "As_ppm",
-      "Te_ppm",
-      "Cs_ppm",
-      "Ta_ppm",
-      "Mg_per",
-      "Sn_ppm",
-      "Rb_ppm",
-      "Cu_ppm",
-      "Na_per",
-      "Y_ppm",
-      "Th_ppm",
-      "Be_ppm",
-      "Mo_ppm",
-      "Ni_ppm",
-      "Cr_ppm",
-      "La_ppm",
-      "Mn_ppm",
-      "kmeans_dist",
-      "Fe_per"
-    ]
+  "params_s3": {
+    "n_estimators": 232,
+    "num_leaves": 59,
+    "learning_rate": 0.04415508827314991,
+    "subsample": 0.7316763198578394,
+    "colsample_bytree": 0.9539086384084597,
+    "min_child_samples": 11,
+    "reg_lambda": 0.8960901541288493,
+    "subsample_freq": 1
   },
-  "paso3_optuna": {
-    "n_trials": 100,
-    "f1_cv_optuna": 0.755,
-    "params_optuna": {
-      "max_iter": 289,
-      "learning_rate": 0.18175581564163837,
-      "max_leaf_nodes": 16,
-      "min_samples_leaf": 33,
-      "l2_regularization": 0.33524616125194756
-    },
-    "config_elegida": "Optuna"
+  "origen_params_s3": "Optuna S3",
+  "f1_cv_optuna_s3": 0.7706,
+  "gap_train_val": {
+    "paso2_params_fijos_s2": 0.2553,
+    "paso3b_params_optuna_s3": 0.2722,
+    "reduccion_gap": -0.0169
   },
-  "params_finales": {
-    "max_iter": 289,
-    "learning_rate": 0.18175581564163837,
-    "max_leaf_nodes": 16,
-    "min_samples_leaf": 33,
-    "l2_regularization": 0.33524616125194756
+  "calibracion": "isotonic",
+  "brier_oof": {
+    "sin_calibrar": 0.04919,
+    "sigmoid": 0.04834,
+    "isotonic": 0.04795
   },
-  "balanceo": "RandomOverSampler",
-  "calibracion": "Sigmoid (Platt)",
-  "umbral": 0.38000000000000006,
-  "f1_final": 0.8,
-  "f1_sprint2": 0.8224,
-  "mejora_vs_sprint2": -0.0224,
+  "umbral": 0.4683,
+  "f1_oof_umbral": 0.7437,
+  "f1_final": 0.7706,
+  "f1_sprint2": 0.754,
+  "mejora_vs_sprint2": 0.0166,
   "metricas_finales": {
-    "F1": 0.8,
-    "Accuracy": 0.9485,
-    "Precision": 0.7586,
-    "Recall": 0.8462,
-    "AUC-ROC": 0.9643
-  },
-  "ratios_sprint2": {
-    "Sb_U_ratio": [
-      "Sb_ppm",
-      "U_ppm"
-    ],
-    "Al_per_Te_ratio": [
-      "Al_per",
-      "Te_ppm"
-    ],
-    "Rb_U_ratio": [
-      "Rb_ppm",
-      "U_ppm"
-    ],
-    "Sb_Ce_ratio": [
-      "Sb_ppm",
-      "Ce_ppm"
-    ],
-    "Te_U_ratio": [
-      "Te_ppm",
-      "U_ppm"
-    ],
-    "Be_Te_ratio": [
-      "Be_ppm",
-      "Te_ppm"
-    ],
-    "Sb_Be_ratio": [
-      "Sb_ppm",
-      "Be_ppm"
-    ],
-    "Rb_Ce_ratio": [
-      "Rb_ppm",
-      "Ce_ppm"
-    ],
-    "Be_U_ratio": [
-      "Be_ppm",
-      "U_ppm"
-    ],
-    "Cs_U_ratio": [
-      "Cs_ppm",
-      "U_ppm"
-    ]
+    "F1": 0.7619,
+    "Precision": 0.7547,
+    "Recall": 0.7692,
+    "AUC-ROC": 0.9607,
+    "AUC-PR": 0.8274,
+    "Brier": 0.0452
   }
 }
