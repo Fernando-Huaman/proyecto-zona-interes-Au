@@ -1,3 +1,0 @@
-Slice,F1,Diagnóstico,Mitigación sugerida
-profundidad = Superficial,0.4667,Bajo recall (0.583) | Baja precisión (0.389),Umbral menor / sample weight + Umbral mayor
-cuadrante = SE,0.4706,Bajo recall (0.667) | Baja precisión (0.364),Umbral menor / sample weight + Umbral mayor

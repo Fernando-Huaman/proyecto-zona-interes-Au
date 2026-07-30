@@ -1,9 +1,0 @@
-Slice,Variante,F1,Recall,Precision
-profundidad=Superficial,Baseline,0.4667,0.5833,0.3889
-profundidad=Superficial,Mit A (umbral/slice),0.4138,0.5,0.3529
-profundidad=Superficial,Mit B (sample weight),0.6061,0.8333,0.4762
-profundidad=Superficial,Mit C (umbral global),0.4667,0.5833,0.3889
-cuadrante=SE,Baseline,0.4706,0.6667,0.3636
-cuadrante=SE,Mit A (umbral/slice),0.4706,0.6667,0.3636
-cuadrante=SE,Mit B (sample weight),0.5263,0.8333,0.3846
-cuadrante=SE,Mit C (umbral global),0.4706,0.6667,0.3636

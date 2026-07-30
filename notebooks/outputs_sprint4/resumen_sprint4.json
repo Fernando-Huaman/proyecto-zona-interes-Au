@@ -1,18 +1,146 @@
 {
-  "modelo_base": "XGBoost (Mejor set  + params XGB + cluster)",
-  "f1_global_baseline": 0.7429,
-  "n_slices_evaluados": 30,
-  "slices_problematicos": [
-    "profundidad=Superficial (F1=0.4667, significativo)",
-    "cuadrante=SE (F1=0.4706, significativo)"
+  "sprint": 4,
+  "nombre": "Estrategias finales de mitigación (cierre): Fase A individual + Fase B forward",
+  "protocolo": "Igual peso por estrategia; decisión por F1_CV/OOF; hold-out una sola vez.",
+  "modelo_base": "LightGBM (S3: 47 features, calibración isotónica, umbral OOF)",
+  "balanceo": "SMOTETomek",
+  "f1_cv_s3": 0.7706,
+  "f1_holdout_s3": 0.7619,
+  "f1_base_oof_s3": 0.7707,
+  "umbral_base_oof": 0.5069,
+  "elementos_base_shap": [
+    "Ag_ppm",
+    "Te_ppm",
+    "Se_ppm",
+    "Sb_ppm",
+    "La_ppm",
+    "Cu_ppm"
   ],
-  "mitigacion_seleccionada": "Mit B (sample weight)",
+  "slices_decisorios": [
+    "geoq_Ag_ppm",
+    "geoq_Sb_ppm",
+    "geoq_La_ppm",
+    "geoq_Cu_ppm",
+    "cuadrante_XY",
+    "franja_Z",
+    "concordancia_S2S3"
+  ],
+  "slices_observacion": [
+    "dbscan_outlier"
+  ],
+  "n_slices_problematicos": 5,
+  "slices_problematicos": [
+    {
+      "slice": "concordancia_S2S3",
+      "categoria": "ambos_neg",
+      "n": 1479,
+      "F1": 0.0,
+      "IC95_sup": 0.0
+    },
+    {
+      "slice": "geoq_Ag_ppm",
+      "categoria": "medio",
+      "n": 572,
+      "F1": 0.16,
+      "IC95_sup": 0.353
+    },
+    {
+      "slice": "geoq_Sb_ppm",
+      "categoria": "bajo",
+      "n": 568,
+      "F1": 0.2222,
+      "IC95_sup": 0.5885
+    },
+    {
+      "slice": "concordancia_S2S3",
+      "categoria": "discrepan",
+      "n": 37,
+      "F1": 0.5641,
+      "IC95_sup": 0.718
+    },
+    {
+      "slice": "geoq_Sb_ppm",
+      "categoria": "medio",
+      "n": 567,
+      "F1": 0.6301,
+      "IC95_sup": 0.7467
+    }
+  ],
+  "fase_a": [
+    {
+      "estrategia": "A3_umbral_slice",
+      "detalle": "cuadrante_XY",
+      "metrica": "F1_OOF",
+      "valor": 0.792,
+      "delta": 0.0213,
+      "mejora": true
+    },
+    {
+      "estrategia": "A4_calib_slice",
+      "detalle": "cuadrante_XY",
+      "metrica": "F1_OOF",
+      "valor": 0.7719,
+      "delta": 0.0012,
+      "mejora": true
+    },
+    {
+      "estrategia": "A2_reinclusion",
+      "detalle": "k=47",
+      "metrica": "F1_CV",
+      "valor": 0.7706,
+      "delta": 0.0,
+      "mejora": false
+    },
+    {
+      "estrategia": "A1_ensamble",
+      "detalle": "ponderada_w=0.90",
+      "metrica": "F1_OOF",
+      "valor": 0.7707,
+      "delta": 0.0,
+      "mejora": true
+    }
+  ],
+  "A1_mejor_variante": "ponderada_w=0.90",
+  "A2_mejor_k": 47,
+  "A3_mejor_particion": "cuadrante_XY",
+  "A4_modo": "por_slice",
+  "A4_aporta": true,
+  "combo_ganadora": [
+    "A3_umbral_slice"
+  ],
+  "f1_combo_oof": 0.792,
+  "mejora_oof_vs_s3": 0.0213,
+  "forward_traza": [
+    {
+      "paso": 1,
+      "anade": "A3_umbral_slice",
+      "combo": "A3_umbral_slice",
+      "F1_OOF": 0.792,
+      "delta_acum": 0.0213,
+      "aceptada": true
+    },
+    {
+      "paso": 2,
+      "anade": "A4_calib_slice",
+      "combo": "A3_umbral_slice+A4_calib_slice",
+      "F1_OOF": 0.7839,
+      "delta_acum": 0.0132,
+      "aceptada": false
+    }
+  ],
   "metricas_finales": {
-    "F1": 0.7652,
-    "Accuracy": 0.9368,
-    "Precision": 0.6984,
-    "Recall": 0.8462,
-    "AUC-ROC": 0.9634,
-    "Brier": 0.0431
+    "F1": 0.6593,
+    "Precision": 0.7692,
+    "Recall": 0.5769,
+    "AUC_ROC": 0.9607,
+    "AUC_PR": 0.8274,
+    "Brier": 0.0452
+  },
+  "mejora_holdout_vs_s3": -0.1026,
+  "evolucion_f1_cv": {
+    "sprint0": 0.709,
+    "sprint1": 0.7277,
+    "sprint2": 0.754,
+    "sprint3": 0.7706
   }
 }

@@ -1,0 +1,5 @@
+estrategia,detalle,metrica,valor,delta,mejora
+A3_umbral_slice,cuadrante_XY,F1_OOF,0.792,0.0213,True
+A4_calib_slice,cuadrante_XY,F1_OOF,0.7719,0.0012,True
+A2_reinclusion,k=47,F1_CV,0.7706,0.0,False
+A1_ensamble,ponderada_w=0.90,F1_OOF,0.7707,0.0,True
