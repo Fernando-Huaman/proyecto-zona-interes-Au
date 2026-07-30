@@ -1,56 +1,56 @@
-Modelo,Escenario,Rank,n_comp,F1
-KNN,PCA sin balanceo,1,5,0.4524
-KNN,PCA sin balanceo,2,7,0.4304
-KNN,PCA sin balanceo,3,8,0.425
-KNN,PCA sin balanceo,4,6,0.425
-KNN,PCA sin balanceo,5,3,0.4198
-Reg. Logística,PCA sin balanceo,1,41,0.6265
-Reg. Logística,PCA sin balanceo,2,44,0.619
-Reg. Logística,PCA sin balanceo,3,45,0.619
-Reg. Logística,PCA sin balanceo,4,43,0.619
-Reg. Logística,PCA sin balanceo,5,46,0.6118
-SVM (RBF),PCA sin balanceo,1,18,0.2667
-SVM (RBF),PCA sin balanceo,2,16,0.2623
-SVM (RBF),PCA sin balanceo,3,17,0.2623
-SVM (RBF),PCA sin balanceo,4,15,0.2581
-SVM (RBF),PCA sin balanceo,5,14,0.2581
-MLP,PCA sin balanceo,1,39,0.7525
-MLP,PCA sin balanceo,2,42,0.7379
-MLP,PCA sin balanceo,3,38,0.7292
-MLP,PCA sin balanceo,4,41,0.72
-MLP,PCA sin balanceo,5,43,0.717
-Árbol de Decisión,PCA sin balanceo,1,40,0.5094
-Árbol de Decisión,PCA sin balanceo,2,33,0.5
-Árbol de Decisión,PCA sin balanceo,3,3,0.4906
-Árbol de Decisión,PCA sin balanceo,4,11,0.4821
-Árbol de Decisión,PCA sin balanceo,5,7,0.4771
-Random Forest,PCA sin balanceo,1,19,0.5263
-Random Forest,PCA sin balanceo,2,33,0.5135
-Random Forest,PCA sin balanceo,3,21,0.5067
-Random Forest,PCA sin balanceo,4,38,0.5067
-Random Forest,PCA sin balanceo,5,44,0.5
-ExtraTrees,PCA sin balanceo,1,10,0.5067
-ExtraTrees,PCA sin balanceo,2,8,0.48
-ExtraTrees,PCA sin balanceo,3,15,0.4789
-ExtraTrees,PCA sin balanceo,4,7,0.4737
-ExtraTrees,PCA sin balanceo,5,3,0.4675
-HistGradientBoosting,PCA sin balanceo,1,41,0.619
-HistGradientBoosting,PCA sin balanceo,2,40,0.6047
-HistGradientBoosting,PCA sin balanceo,3,17,0.6024
-HistGradientBoosting,PCA sin balanceo,4,44,0.5952
-HistGradientBoosting,PCA sin balanceo,5,9,0.5934
-XGBoost,PCA sin balanceo,1,43,0.6136
-XGBoost,PCA sin balanceo,2,37,0.5682
-XGBoost,PCA sin balanceo,3,26,0.5647
-XGBoost,PCA sin balanceo,4,28,0.561
-XGBoost,PCA sin balanceo,5,44,0.5542
-LightGBM,PCA sin balanceo,1,38,0.5977
-LightGBM,PCA sin balanceo,2,26,0.5952
-LightGBM,PCA sin balanceo,3,32,0.5952
-LightGBM,PCA sin balanceo,4,36,0.5926
-LightGBM,PCA sin balanceo,5,21,0.5882
-CatBoost,PCA sin balanceo,1,40,0.5526
-CatBoost,PCA sin balanceo,2,39,0.55
-CatBoost,PCA sin balanceo,3,45,0.5455
-CatBoost,PCA sin balanceo,4,41,0.5455
-CatBoost,PCA sin balanceo,5,25,0.5385
+Modelo,Escenario,Rank,n_comp,F1_CV
+KNN,PCA sin balanceo,1,42,0.4454
+KNN,PCA sin balanceo,2,26,0.4426
+KNN,PCA sin balanceo,3,41,0.4417
+KNN,PCA sin balanceo,4,36,0.4417
+KNN,PCA sin balanceo,5,40,0.4405
+Reg. Logística,PCA sin balanceo,1,40,0.5649
+Reg. Logística,PCA sin balanceo,2,42,0.5633
+Reg. Logística,PCA sin balanceo,3,39,0.5599
+Reg. Logística,PCA sin balanceo,4,38,0.5597
+Reg. Logística,PCA sin balanceo,5,41,0.5576
+SVM (RBF),PCA sin balanceo,1,4,0.2362
+SVM (RBF),PCA sin balanceo,2,8,0.2261
+SVM (RBF),PCA sin balanceo,3,10,0.2173
+SVM (RBF),PCA sin balanceo,4,3,0.2148
+SVM (RBF),PCA sin balanceo,5,7,0.2117
+MLP,PCA sin balanceo,1,33,0.6383
+MLP,PCA sin balanceo,2,38,0.6306
+MLP,PCA sin balanceo,3,37,0.6274
+MLP,PCA sin balanceo,4,43,0.6265
+MLP,PCA sin balanceo,5,40,0.6262
+Árbol de Decisión,PCA sin balanceo,1,14,0.4622
+Árbol de Decisión,PCA sin balanceo,2,18,0.4599
+Árbol de Decisión,PCA sin balanceo,3,20,0.4582
+Árbol de Decisión,PCA sin balanceo,4,15,0.4572
+Árbol de Decisión,PCA sin balanceo,5,9,0.4554
+Random Forest,PCA sin balanceo,1,9,0.492
+Random Forest,PCA sin balanceo,2,11,0.476
+Random Forest,PCA sin balanceo,3,8,0.4646
+Random Forest,PCA sin balanceo,4,12,0.4523
+Random Forest,PCA sin balanceo,5,7,0.4521
+ExtraTrees,PCA sin balanceo,1,9,0.4862
+ExtraTrees,PCA sin balanceo,2,10,0.483
+ExtraTrees,PCA sin balanceo,3,8,0.4494
+ExtraTrees,PCA sin balanceo,4,11,0.4474
+ExtraTrees,PCA sin balanceo,5,7,0.4261
+HistGradientBoosting,PCA sin balanceo,1,17,0.5682
+HistGradientBoosting,PCA sin balanceo,2,19,0.5627
+HistGradientBoosting,PCA sin balanceo,3,16,0.5466
+HistGradientBoosting,PCA sin balanceo,4,23,0.5456
+HistGradientBoosting,PCA sin balanceo,5,21,0.541
+XGBoost,PCA sin balanceo,1,18,0.5522
+XGBoost,PCA sin balanceo,2,26,0.5462
+XGBoost,PCA sin balanceo,3,24,0.5433
+XGBoost,PCA sin balanceo,4,31,0.5416
+XGBoost,PCA sin balanceo,5,22,0.5407
+LightGBM,PCA sin balanceo,1,21,0.5374
+LightGBM,PCA sin balanceo,2,17,0.5363
+LightGBM,PCA sin balanceo,3,16,0.5361
+LightGBM,PCA sin balanceo,4,18,0.5326
+LightGBM,PCA sin balanceo,5,22,0.5313
+CatBoost,PCA sin balanceo,1,20,0.4954
+CatBoost,PCA sin balanceo,2,37,0.4943
+CatBoost,PCA sin balanceo,3,45,0.4912
+CatBoost,PCA sin balanceo,4,42,0.4896
+CatBoost,PCA sin balanceo,5,29,0.4891
