@@ -1,0 +1,12 @@
+,Mejor set,F1_CV (mejor),F1_CV (E0),Δ F1_CV
+KNN,E1 +FE,0.5695,0.4876,0.0819
+Reg. Logística,E5 +FE+Cluster LOG,0.6642,0.5493,0.1149
+SVM (RBF),E5 +FE+Cluster LOG,0.673,0.45,0.223
+MLP,E2 +Cluster RAW,0.7052,0.6436,0.0616
+Árbol de Decisión,E0 Base,0.5701,0.5701,0.0
+Random Forest,E0 Base,0.6831,0.6831,0.0
+ExtraTrees,E2 +Cluster RAW,0.6957,0.6498,0.0459
+HistGradientBoosting,E2 +Cluster RAW,0.7307,0.7226,0.0081
+XGBoost,E3 +FE+Cluster RAW,0.7295,0.7201,0.0094
+LightGBM,E5 +FE+Cluster LOG,0.7402,0.7245,0.0157
+CatBoost,E0 Base,0.7277,0.7277,0.0
