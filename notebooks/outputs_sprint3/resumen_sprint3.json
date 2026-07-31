@@ -1,206 +1,315 @@
 {
   "sprint": 3,
-  "nombre": "SHAP + selección de features + Re-Optuna + calibración + umbral — top-3",
-  "fecha": "2026-07-31 08:14",
-  "protocolo": "Pipeline completo a top-3; decisión por F1_CV; hold-out una sola vez (informativo).",
+  "nombre": "SHAP + selección de features + Re-Optuna + calibración + umbral anidado",
+  "fecha": "2026-07-31 17:42",
+  "protocolo": "Pipeline completo a top-3 por familia; decisión por F2_CV; umbral optimizado dentro de cada fold (anidado, criterio max F2); Re-Optuna 50 trials; hold-out una sola vez (informativo).",
+  "metrica_decision": "f2",
   "campeon": "XGBoost",
-  "f1_cv_final": 0.7598,
-  "f1_oof_final": 0.7212,
-  "f1_holdout": 0.7961,
-  "f1_sprint2": 0.7493,
-  "mejora_vs_sprint2": 0.0105,
+  "campeon_familia": "Boosting",
+  "f2_cv_final": 0.7308,
+  "f2_oof_final": 0.7103,
+  "f2_holdout": 0.6891,
+  "f2_sprint2": 0.7258,
+  "mejora_vs_sprint2": 0.005,
   "metricas_holdout": {
-    "F1": 0.7961,
-    "Accuracy": 0.9508,
-    "Precision": 0.8039,
-    "Recall": 0.7885,
-    "AUC-ROC": 0.9607,
-    "AUC-PR": 0.837,
-    "Brier": 0.0427
+    "F2": 0.6891,
+    "Recall": 0.8269,
+    "Precision": 0.4135,
+    "F1": 0.5513,
+    "Accuracy": 0.8361,
+    "AUC-ROC": 0.9258,
+    "AUC-PR": 0.6876,
+    "Brier": 0.0626
   },
-  "top_3_pipeline": {
-    "CatBoost": {
-      "set_s2": "E0 Base",
-      "n_features_s2": 46,
-      "n_features_95_shap": 36,
-      "n_features_seleccion": 29,
-      "features_s3": [
-        "Ag_ppm",
-        "Sb_ppm",
-        "Te_ppm",
-        "As_ppm",
-        "Rb_ppm",
-        "Sn_ppm",
-        "La_ppm",
-        "Mo_ppm",
-        "Cu_ppm",
-        "Mg_per",
-        "Cs_ppm",
-        "Cr_ppm",
-        "Ta_ppm",
-        "Th_ppm",
-        "U_ppm",
-        "Ni_ppm",
-        "Mn_ppm",
-        "Ga_ppm",
-        "Sr_ppm",
-        "Nb_ppm",
-        "Fe_per",
-        "Be_ppm",
-        "P_ppm",
-        "S_per",
-        "Y_ppm",
-        "Ca_per",
-        "Na_per",
-        "Co_ppm",
-        "Al_per"
-      ],
-      "f1_cv_s2": 0.7493,
-      "f1_cv_seleccion": 0.7563,
-      "f1_cv_optuna_s3": 0.7547,
-      "f1_cv_s3": 0.7563,
-      "params_s3": {
-        "iterations": 192,
-        "depth": 5,
-        "learning_rate": 0.09652506867857727
-      },
-      "origen_params": "Params S2 (Optuna no mejoró)",
-      "calibracion": "isotonic",
-      "brier_oof": {
-        "sin_calibrar": 0.04902,
-        "sigmoid": 0.05017,
-        "isotonic": 0.04981
-      },
-      "umbral": 0.3697,
-      "f1_oof": 0.7143,
-      "gap_pre": 0.2961,
-      "gap_post": 0.2961
+  "umbral": 0.1632789816086491,
+  "umbral_std": 0.04224181279230366,
+  "calibracion": "Isotónica",
+  "top_3": [
+    "XGBoost",
+    "Random Forest",
+    "SVM (RBF)"
+  ],
+  "top3_comparativa": [
+    {
+      "Modelo": "XGBoost",
+      "Familia": "Boosting",
+      "Set S2": "E2 +Cluster",
+      "Features S2": 45,
+      "Features S3 (1-SE)": 28,
+      "F2_CV S2": 0.7258,
+      "F2_CV S3 (re-Optuna)": 0.7307839596835138,
+      "Origen params": "Optuna S3",
+      "Calibración": "Isotónica",
+      "Umbral": 0.1632789816086491,
+      "F2_OOF": 0.7102952913008779
     },
+    {
+      "Modelo": "Random Forest",
+      "Familia": "Bagging/Árbol",
+      "Set S2": "E3 +Índ+Clust+Inter",
+      "Features S2": 63,
+      "Features S3 (1-SE)": 39,
+      "F2_CV S2": 0.6858,
+      "F2_CV S3 (re-Optuna)": 0.7025773605723713,
+      "Origen params": "Optuna S3",
+      "Calibración": "Isotónica",
+      "Umbral": 0.18768253383173036,
+      "F2_OOF": 0.6935215946843853
+    },
+    {
+      "Modelo": "SVM (RBF)",
+      "Familia": "Lineal/Kernel",
+      "Set S2": "E3 +Índ+Clust+Inter",
+      "Features S2": 63,
+      "Features S3 (1-SE)": 8,
+      "F2_CV S2": 0.6797,
+      "F2_CV S3 (re-Optuna)": 0.6763956797579046,
+      "Origen params": "Optuna S3",
+      "Calibración": "Sigmoide",
+      "Umbral": 0.16359210498565296,
+      "F2_OOF": 0.666156202143951
+    }
+  ],
+  "seleccion_features": {
     "XGBoost": {
-      "set_s2": "E0 Base",
-      "n_features_s2": 46,
-      "n_features_95_shap": 35,
-      "n_features_seleccion": 32,
-      "features_s3": [
-        "Ag_ppm",
+      "n_s2": 45,
+      "n_s3": 28,
+      "features": [
         "Sb_ppm",
-        "Rb_ppm",
-        "As_ppm",
         "Te_ppm",
-        "U_ppm",
-        "Cr_ppm",
-        "Sn_ppm",
-        "La_ppm",
-        "Cu_ppm",
-        "Cs_ppm",
-        "Mn_ppm",
-        "Be_ppm",
-        "Fe_per",
-        "Ba_ppm",
+        "Se_ppm",
+        "As_ppm",
         "Mo_ppm",
-        "Ca_per",
-        "Ni_ppm",
+        "Sn_ppm",
         "Na_per",
-        "Mg_per",
-        "Ga_ppm",
-        "Zr_ppm",
-        "S_per",
-        "V_ppm",
-        "Ta_ppm",
-        "Th_ppm",
-        "W_ppm",
-        "P_ppm",
-        "Sr_ppm",
-        "Pb_ppm",
-        "Y_ppm",
-        "Al_per"
-      ],
-      "f1_cv_s2": 0.744,
-      "f1_cv_seleccion": 0.7386,
-      "f1_cv_optuna_s3": 0.7598,
-      "f1_cv_s3": 0.7598,
-      "params_s3": {
-        "n_estimators": 246,
-        "max_depth": 5,
-        "learning_rate": 0.162988104109129,
-        "subsample": 0.6836400677015656,
-        "colsample_bytree": 0.5323238821718723,
-        "reg_lambda": 4.872818624363775,
-        "reg_alpha": 0.5335753294623411,
-        "min_child_weight": 1
-      },
-      "origen_params": "Optuna S3",
-      "calibracion": "isotonic",
-      "brier_oof": {
-        "sin_calibrar": 0.04781,
-        "sigmoid": 0.04972,
-        "isotonic": 0.04952
-      },
-      "umbral": 0.4214,
-      "f1_oof": 0.7212,
-      "gap_pre": 0.2735,
-      "gap_post": 0.2626
-    },
-    "HistGradientBoosting": {
-      "set_s2": "E2 +Cluster RAW",
-      "n_features_s2": 51,
-      "n_features_95_shap": 37,
-      "n_features_seleccion": 25,
-      "features_s3": [
-        "Ag_ppm",
-        "Sb_ppm",
         "Rb_ppm",
-        "Te_ppm",
-        "As_ppm",
-        "Cu_ppm",
-        "Cs_ppm",
-        "U_ppm",
-        "Ni_ppm",
         "Mg_per",
-        "Sn_ppm",
-        "Mo_ppm",
-        "Cr_ppm",
         "Sr_ppm",
-        "kmeans_dist_raw",
-        "Be_ppm",
-        "Ba_ppm",
-        "S_per",
-        "La_ppm",
-        "Ta_ppm",
-        "Ce_ppm",
-        "gmm_prob_max_raw",
+        "Cs_ppm",
         "Mn_ppm",
+        "S_per",
+        "U_ppm",
+        "Cd_ppm",
+        "P_ppm",
+        "Be_ppm",
+        "Co_ppm",
+        "La_ppm",
+        "Cr_ppm",
         "Fe_per",
-        "Se_ppm"
-      ],
-      "f1_cv_s2": 0.7428,
-      "f1_cv_seleccion": 0.7434,
-      "f1_cv_optuna_s3": 0.7394,
-      "f1_cv_s3": 0.7434,
-      "params_s3": {
-        "learning_rate": 0.16696280609109398,
-        "max_iter": 150,
-        "max_leaf_nodes": 39,
-        "min_samples_leaf": 48,
-        "l2_regularization": 0.7845804474565208
-      },
-      "origen_params": "Params S2 (Optuna no mejoró)",
-      "calibracion": "sigmoid",
-      "brier_oof": {
-        "sin_calibrar": 0.05172,
-        "sigmoid": 0.04847,
-        "isotonic": 0.0486
-      },
-      "umbral": 0.4334,
-      "f1_oof": 0.7239,
-      "gap_pre": 0.2894,
-      "gap_post": 0.2894
+        "Zr_ppm",
+        "Ni_ppm",
+        "cluster_litho_prob",
+        "Ce_ppm",
+        "Ba_ppm",
+        "Ge_ppm",
+        "Ta_ppm"
+      ]
+    },
+    "Random Forest": {
+      "n_s2": 63,
+      "n_s3": 39,
+      "features": [
+        "Sb_ppm",
+        "Se_ppm",
+        "Te_ppm",
+        "suma_path_AsSbTl",
+        "Sb_pctile_litho",
+        "log_Te_Se",
+        "log_Sb_Tl",
+        "Y_ppm",
+        "Na_Al_molar",
+        "Ce_ppm",
+        "Mo_ppm",
+        "Al_per",
+        "Nb_ppm",
+        "Mg_per",
+        "Ta_ppm",
+        "La_ppm",
+        "S_per",
+        "Na_per",
+        "Mn_ppm",
+        "log_As_Sb",
+        "K_Al_molar",
+        "Cd_ppm",
+        "As_ppm",
+        "cluster_litho_prob",
+        "Zr_ppm",
+        "Sr_ppm",
+        "Bi_ppm",
+        "Ti_per",
+        "Ga_ppm",
+        "Sc_ppm",
+        "Mo_pctile_litho",
+        "Th_ppm",
+        "Sn_ppm",
+        "U_ppm",
+        "V_ppm",
+        "Be_ppm",
+        "Co_ppm",
+        "As_pctile_litho",
+        "Fe_per"
+      ]
+    },
+    "SVM (RBF)": {
+      "n_s2": 63,
+      "n_s3": 8,
+      "features": [
+        "Sb_pctile_litho",
+        "log_Sb_Tl",
+        "Mo_pctile_litho",
+        "Se_detectado",
+        "log_Te_Se",
+        "Bi_pctile_litho",
+        "Ce_ppm",
+        "Be_ppm"
+      ]
     }
   },
-  "ablacion": {
-    "f1_completo": 0.7598,
-    "f1_sin_ag": 0.5756,
-    "f1_sin_economicos": 0.592
+  "optuna_s3": {
+    "XGBoost": {
+      "f2_cv_s2_fijos": 0.7296,
+      "f2_cv_optuna": 0.7308,
+      "origen": "Optuna S3",
+      "params": {
+        "use_class_weight": true,
+        "n_estimators": 52,
+        "max_depth": 9,
+        "learning_rate": 0.11069143219393454,
+        "subsample": 0.8645035840204937,
+        "colsample_bytree": 0.8856351733429728,
+        "reg_alpha": 0.7404465173409036,
+        "reg_lambda": 3.5846572854427263,
+        "min_child_weight": 2
+      }
+    },
+    "Random Forest": {
+      "f2_cv_s2_fijos": 0.6916,
+      "f2_cv_optuna": 0.7026,
+      "origen": "Optuna S3",
+      "params": {
+        "use_class_weight": true,
+        "n_estimators": 88,
+        "max_depth": 9,
+        "min_samples_leaf": 9,
+        "min_samples_split": 9,
+        "max_features": "log2"
+      }
+    },
+    "SVM (RBF)": {
+      "f2_cv_s2_fijos": 0.6718,
+      "f2_cv_optuna": 0.6764,
+      "origen": "Optuna S3",
+      "params": {
+        "use_class_weight": true,
+        "C": 0.24440852706811342,
+        "gamma": "scale"
+      }
+    }
+  },
+  "calibracion_detalle": {
+    "XGBoost": {
+      "metodo": "Isotónica",
+      "brier_uncal": 0.0978,
+      "brier_sig": 0.0652,
+      "brier_iso": 0.0635,
+      "umbral": 0.1633,
+      "umbral_std": 0.0422
+    },
+    "Random Forest": {
+      "metodo": "Isotónica",
+      "brier_uncal": 0.0887,
+      "brier_sig": 0.066,
+      "brier_iso": 0.0658,
+      "umbral": 0.1877,
+      "umbral_std": 0.0632
+    },
+    "SVM (RBF)": {
+      "metodo": "Sigmoide",
+      "brier_uncal": 0.1324,
+      "brier_sig": 0.0771,
+      "brier_iso": 0.0779,
+      "umbral": 0.1636,
+      "umbral_std": 0.029
+    }
+  },
+  "learning_curves": {
+    "XGBoost": {
+      "gap_pre": 0.2749,
+      "gap_post": 0.242
+    },
+    "Random Forest": {
+      "gap_pre": 0.2383,
+      "gap_post": 0.1926
+    },
+    "SVM (RBF)": {
+      "gap_pre": 0.04,
+      "gap_post": 0.0292
+    }
+  },
+  "ablacion_pathfinders": [
+    {
+      "Elemento": "Baseline (todos)",
+      "Removidas": 0,
+      "Detalle": "-",
+      "F2_CV": 0.7308,
+      "ΔF2": 0.0
+    },
+    {
+      "Elemento": "−As",
+      "Removidas": 1,
+      "Detalle": "As_ppm",
+      "F2_CV": 0.7277,
+      "ΔF2": -0.0031
+    },
+    {
+      "Elemento": "−Sb",
+      "Removidas": 1,
+      "Detalle": "Sb_ppm",
+      "F2_CV": 0.6862,
+      "ΔF2": -0.0446
+    },
+    {
+      "Elemento": "−Te",
+      "Removidas": 1,
+      "Detalle": "Te_ppm",
+      "F2_CV": 0.6861,
+      "ΔF2": -0.0447
+    },
+    {
+      "Elemento": "−Mo",
+      "Removidas": 1,
+      "Detalle": "Mo_ppm",
+      "F2_CV": 0.7397,
+      "ΔF2": 0.0089
+    }
+  ],
+  "shap_top5": {
+    "XGBoost": [
+      "Sb_ppm",
+      "Te_ppm",
+      "Se_ppm",
+      "As_ppm",
+      "Mo_ppm"
+    ],
+    "Random Forest": [
+      "Sb_ppm",
+      "Se_ppm",
+      "Te_ppm",
+      "suma_path_AsSbTl",
+      "Sb_pctile_litho"
+    ],
+    "SVM (RBF)": [
+      "Sb_pctile_litho",
+      "log_Sb_Tl",
+      "Mo_pctile_litho",
+      "Se_detectado",
+      "log_Te_Se"
+    ]
+  },
+  "modelos_guardados": {
+    "XGBoost": "outputs_sprint3/models/modelo_calibrado_xgboost.pkl",
+    "Random Forest": "outputs_sprint3/models/modelo_calibrado_random_forest.pkl",
+    "SVM (RBF)": "outputs_sprint3/models/modelo_calibrado_svm_rbf.pkl"
   },
   "versiones_librerias": {
     "python": "3.12.1",
@@ -209,12 +318,18 @@
     "scikit-learn": "1.9.0",
     "imbalanced-learn": "0.14.2",
     "xgboost": "3.3.0",
-    "lightgbm": "4.6.0",
     "matplotlib": "3.11.0",
     "seaborn": "0.13.2",
     "shap": "0.52.0",
     "optuna": "4.9.0",
     "joblib": "1.5.3",
-    "catboost": "1.2.10"
+    "catboost": "1.2.10",
+    "lightgbm": "4.6.0"
+  },
+  "rutas": {
+    "data": "outputs_sprint3/data",
+    "models": "outputs_sprint3/models",
+    "figures": "outputs_sprint3/figures",
+    "tables": "outputs_sprint3/tables"
   }
 }
