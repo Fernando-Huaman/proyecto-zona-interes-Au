@@ -1,2 +1,3 @@
-combo,f1_oof,delta_vs_ant,p_boot,adoptada
-A2_reinclusion,0.7575757575757576,0.03634813609238163,0.0025,True
+paso,combo,f2_oof,delta,p_boot,accion
+1,A2_reinclusion,0.7512520868113522,0.040956795510474375,0.0,añadir
+2,A2_reinclusion+A3_umbral_slice,0.7593856655290102,0.008134,0.0935,rechazar
