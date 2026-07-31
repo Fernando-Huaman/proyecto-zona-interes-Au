@@ -20,7 +20,15 @@
     "Ga_ppm",
     "Sr_ppm",
     "Nb_ppm",
-    "Fe_per"
+    "Fe_per",
+    "Be_ppm",
+    "P_ppm",
+    "S_per",
+    "Y_ppm",
+    "Ca_per",
+    "Na_per",
+    "Co_ppm",
+    "Al_per"
   ],
   "XGBoost": [
     "Ag_ppm",
@@ -33,7 +41,28 @@
     "Sn_ppm",
     "La_ppm",
     "Cu_ppm",
-    "Cs_ppm"
+    "Cs_ppm",
+    "Mn_ppm",
+    "Be_ppm",
+    "Fe_per",
+    "Ba_ppm",
+    "Mo_ppm",
+    "Ca_per",
+    "Ni_ppm",
+    "Na_per",
+    "Mg_per",
+    "Ga_ppm",
+    "Zr_ppm",
+    "S_per",
+    "V_ppm",
+    "Ta_ppm",
+    "Th_ppm",
+    "W_ppm",
+    "P_ppm",
+    "Sr_ppm",
+    "Pb_ppm",
+    "Y_ppm",
+    "Al_per"
   ],
   "HistGradientBoosting": [
     "Ag_ppm",
@@ -46,6 +75,20 @@
     "U_ppm",
     "Ni_ppm",
     "Mg_per",
-    "Sn_ppm"
+    "Sn_ppm",
+    "Mo_ppm",
+    "Cr_ppm",
+    "Sr_ppm",
+    "kmeans_dist_raw",
+    "Be_ppm",
+    "Ba_ppm",
+    "S_per",
+    "La_ppm",
+    "Ta_ppm",
+    "Ce_ppm",
+    "gmm_prob_max_raw",
+    "Mn_ppm",
+    "Fe_per",
+    "Se_ppm"
   ]
 }

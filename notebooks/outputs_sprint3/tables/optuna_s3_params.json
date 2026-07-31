@@ -1,41 +1,39 @@
 {
   "CatBoost": {
-    "f1_cv_optuna": 0.7447,
-    "f1_cv_fijos_s2": 0.7406,
+    "f1_cv_optuna": 0.7547,
+    "f1_cv_fijos_s2": 0.7563,
     "params_elegidos": {
-      "iterations": 162,
+      "iterations": 192,
       "depth": 5,
-      "learning_rate": 0.13615825447488727,
-      "l2_leaf_reg": 3.2670566091196096,
-      "subsample": 0.6212393136181309
+      "learning_rate": 0.09652506867857727
     },
-    "origen": "Optuna S3"
+    "origen": "Params S2 (Optuna no mejoró)"
   },
   "XGBoost": {
-    "f1_cv_optuna": 0.7363,
-    "f1_cv_fijos_s2": 0.7237,
+    "f1_cv_optuna": 0.7598,
+    "f1_cv_fijos_s2": 0.7386,
     "params_elegidos": {
-      "n_estimators": 208,
-      "max_depth": 6,
-      "learning_rate": 0.19695333046532648,
-      "subsample": 0.6327402386332946,
-      "colsample_bytree": 0.5349734253816496,
-      "reg_lambda": 3.23348125927181,
-      "reg_alpha": 1.3045150798100684,
-      "min_child_weight": 6
+      "n_estimators": 246,
+      "max_depth": 5,
+      "learning_rate": 0.162988104109129,
+      "subsample": 0.6836400677015656,
+      "colsample_bytree": 0.5323238821718723,
+      "reg_lambda": 4.872818624363775,
+      "reg_alpha": 0.5335753294623411,
+      "min_child_weight": 1
     },
     "origen": "Optuna S3"
   },
   "HistGradientBoosting": {
-    "f1_cv_optuna": 0.7289,
-    "f1_cv_fijos_s2": 0.7244,
+    "f1_cv_optuna": 0.7394,
+    "f1_cv_fijos_s2": 0.7434,
     "params_elegidos": {
-      "max_iter": 299,
-      "max_leaf_nodes": 20,
-      "learning_rate": 0.1574160343892239,
+      "learning_rate": 0.16696280609109398,
+      "max_iter": 150,
+      "max_leaf_nodes": 39,
       "min_samples_leaf": 48,
-      "l2_regularization": 2.502742707600918
+      "l2_regularization": 0.7845804474565208
     },
-    "origen": "Optuna S3"
+    "origen": "Params S2 (Optuna no mejoró)"
   }
 }
