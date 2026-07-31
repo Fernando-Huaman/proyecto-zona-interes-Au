@@ -1,5 +1,5 @@
 estrategia,detalle,f2_oof,delta,ci_lo,ci_hi,p_boot,aceptada
-A3_umbral_slice,slice = Franja Z,0.7506255212677231,0.04033,0.019355,0.062088,0.0,True
+A3_umbral_slice,slice = Franja Z,0.7359125315391085,0.025617,0.0017,0.049025,0.018,True
 A1_stacking,LogReg sobre OOF top-3,0.6927175843694494,-0.017578,-0.056386,0.017962,0.8185,False
 A4_ensemble_seeds,12 seeds,0.6797477224947442,-0.030548,-0.059044,0.001261,0.9705,False
 A2_reinclusion,k = 31 features,0.6793673616103523,-0.030928,-0.055508,-0.003228,0.9885,False

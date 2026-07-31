@@ -1,8 +1,8 @@
 {
   "sprint": 4,
   "nombre": "Plan de mitigación: slices + Fase A (A1-A4) + Fase B (forward) + hold-out + mapas",
-  "fecha": "2026-07-31 19:11",
-  "protocolo": "Diagnóstico por slices (embudo 3 etapas); Fase A: A1 stacking con diversidad, A2 re-inclusión, A3 umbral por slice (espacial/litológico), A4 ensemble de semillas; aceptación por bootstrap pareado (p<0.05); Fase B: forward incremental; hold-out una sola vez con IC 95 %; mapas comparativos Au vs probabilidades.",
+  "fecha": "2026-07-31 20:46",
+  "protocolo": "Diagnóstico por slices (embudo 3 etapas); Fase A: A1 stacking con diversidad, A2 re-inclusión, A3 umbral por slice (espacial/litológico), A4 ensemble de semillas; aceptación por bootstrap pareado (p<0.05); Fase B: forward incremental; calibración + umbral global nested (política robusta); hold-out una sola vez con IC 95 %; mapas comparativos Au vs probabilidades (interpolación esferoidal / kriging esférico).",
   "metrica_decision": "f2",
   "baseline": {
     "modelo": "XGBoost",
@@ -12,37 +12,40 @@
   "combo_final": [
     "A3_umbral_slice"
   ],
-  "f2_oof_final": 0.7506,
-  "f2_holdout": 0.6507,
+  "calibracion_umbral": {
+    "brier_oof": 0.0635,
+    "umbral_global_nested": 0.1842,
+    "umbral_global_std": 0.0075,
+    "politica_umbral": "global",
+    "f2_oof_umbral_global": 0.7196,
+    "umbral_aplicado_holdout": 0.18420934428771335
+  },
+  "f2_oof_final": 0.7359,
+  "f2_holdout": 0.7049,
   "f2_holdout_ci95": [
-    0.5417,
-    0.7478
+    0.6081,
+    0.7859
   ],
   "metricas_holdout": {
-    "F2": 0.6507,
-    "Recall": 0.7308,
-    "Precision": 0.4524,
-    "F1": 0.5588,
-    "Accuracy": 0.8595,
+    "F2": 0.7049,
+    "Recall": 0.8269,
+    "Precision": 0.4433,
+    "F1": 0.5772,
+    "Accuracy": 0.8525,
     "AUC-ROC": 0.9258,
     "AUC-PR": 0.6876,
     "Brier": 0.0626
   },
   "contraste_matriz_objetivos": {
     "Recall": {
-      "valor": 0.7308,
+      "valor": 0.8269,
       "objetivo": 0.75,
-      "cumple": false
+      "cumple": true
     },
-    "Precision": {
-      "valor": 0.4524,
-      "objetivo": 0.6,
-      "cumple": false
-    },
-    "AUC-PR": {
-      "valor": 0.6876,
-      "objetivo": 0.75,
-      "cumple": false
+    "F2": {
+      "valor": 0.7049,
+      "objetivo": 0.7,
+      "cumple": true
     },
     "AUC-ROC": {
       "valor": 0.9258,
@@ -54,11 +57,11 @@
     {
       "estrategia": "A3_umbral_slice",
       "detalle": "slice = Franja Z",
-      "f2_oof": 0.7506,
-      "delta": 0.0403,
-      "ci_lo": 0.0194,
-      "ci_hi": 0.0621,
-      "p_boot": 0.0,
+      "f2_oof": 0.7359,
+      "delta": 0.0256,
+      "ci_lo": 0.0017,
+      "ci_hi": 0.049,
+      "p_boot": 0.018,
       "aceptada": true
     },
     {
@@ -96,8 +99,8 @@
     {
       "paso": 1,
       "combo": "A3_umbral_slice",
-      "f2_oof": 0.7506,
-      "delta": 0.0403,
+      "f2_oof": 0.7359,
+      "delta": 0.0256,
       "p_boot": 0.0,
       "accion": "añadir"
     }
@@ -144,34 +147,34 @@
   },
   "a3_umbral_slice": {
     "mejor_slice": "Franja Z",
-    "f2_oof": 0.7506,
+    "f2_oof": 0.7359,
     "candidatos": [
       {
         "slice": "Cuadrante XY",
-        "f2_oof": 0.7491,
-        "delta": 0.0388,
-        "ci_lo": 0.0151,
-        "ci_hi": 0.0634,
-        "p_boot": 0.001
+        "f2_oof": 0.7101,
+        "delta": -0.0002,
+        "ci_lo": -0.0238,
+        "ci_hi": 0.0237,
+        "p_boot": 0.5085
       },
       {
         "slice": "Franja Z",
-        "f2_oof": 0.7506,
-        "delta": 0.0403,
-        "ci_lo": 0.0194,
-        "ci_hi": 0.0621,
-        "p_boot": 0.0
+        "f2_oof": 0.7359,
+        "delta": 0.0256,
+        "ci_lo": 0.0017,
+        "ci_hi": 0.049,
+        "p_boot": 0.018
       },
       {
         "slice": "Cluster",
-        "f2_oof": 0.7352,
-        "delta": 0.0249,
-        "ci_lo": 0.0062,
-        "ci_hi": 0.0455,
-        "p_boot": 0.0065
+        "f2_oof": 0.7125,
+        "delta": 0.0022,
+        "ci_lo": -0.0223,
+        "ci_hi": 0.0261,
+        "p_boot": 0.4125
       }
     ],
-    "nota": "Banda de probabilidad excluida: endógena al modelo (circularmente optimista)"
+    "nota": "Umbrales por slice estimados con CV anidado (honesto); banda de probabilidad excluida (endógena)."
   },
   "a4_ensemble_seeds": {
     "n_seeds": 12,
@@ -223,7 +226,7 @@
     "S1": 0.6678,
     "S2": 0.7258,
     "S3": 0.7308,
-    "S4": 0.7506
+    "S4": 0.7359
   },
   "versiones_librerias": {
     "numpy": "2.4.6",

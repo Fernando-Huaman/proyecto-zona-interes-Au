@@ -46,6 +46,6 @@
   "slice_a3": "Franja Z",
   "n_seeds_a4": null,
   "seeds_a4": null,
-  "f2_oof": 0.7506,
-  "f2_holdout": 0.6507
+  "f2_oof": 0.7359,
+  "f2_holdout": 0.7049
 }
