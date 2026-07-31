@@ -9,11 +9,11 @@ Reg. Logística,PCA sin balanceo,2,42,0.5633
 Reg. Logística,PCA sin balanceo,3,39,0.5599
 Reg. Logística,PCA sin balanceo,4,38,0.5597
 Reg. Logística,PCA sin balanceo,5,41,0.5576
-SVM (RBF),PCA sin balanceo,1,4,0.2362
-SVM (RBF),PCA sin balanceo,2,8,0.2261
-SVM (RBF),PCA sin balanceo,3,10,0.2173
-SVM (RBF),PCA sin balanceo,4,3,0.2148
-SVM (RBF),PCA sin balanceo,5,7,0.2117
+SVM (RBF),PCA sin balanceo,1,43,0.4316
+SVM (RBF),PCA sin balanceo,2,46,0.4312
+SVM (RBF),PCA sin balanceo,3,39,0.4306
+SVM (RBF),PCA sin balanceo,4,44,0.4305
+SVM (RBF),PCA sin balanceo,5,45,0.4305
 MLP,PCA sin balanceo,1,33,0.6383
 MLP,PCA sin balanceo,2,38,0.6306
 MLP,PCA sin balanceo,3,37,0.6274
