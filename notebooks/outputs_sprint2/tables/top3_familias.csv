@@ -1,0 +1,6 @@
+Familia,Info
+Boosting,"{'modelo': 'XGBoost', 'f2_cv': 0.7258}"
+Bagging/Árbol,"{'modelo': 'Random Forest', 'f2_cv': 0.6858}"
+Lineal/Kernel,"{'modelo': 'SVM (RBF)', 'f2_cv': 0.6797}"
+Red neuronal,"{'modelo': 'MLP', 'f2_cv': 0.6538}"
+Vecinos,"{'modelo': 'KNN', 'f2_cv': 0.6506}"

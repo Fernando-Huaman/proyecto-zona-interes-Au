@@ -1,4 +1,4 @@
-,F1_media,F1_std
-CatBoost,0.716,0.0226
-XGBoost,0.7196,0.0149
-HistGradientBoosting,0.7201,0.0151
+,F2_media,F2_std
+XGBoost,0.6595,0.0394
+Random Forest,0.6622,0.019
+SVM (RBF),0.6727,0.0109
