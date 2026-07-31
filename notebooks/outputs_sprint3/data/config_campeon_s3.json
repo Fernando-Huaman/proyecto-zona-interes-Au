@@ -1,0 +1,39 @@
+{
+  "modelo": "CatBoost",
+  "set_s2": "E0 Base",
+  "balanceo": "RandomOverSampler",
+  "features_s3": [
+    "Ag_ppm",
+    "Sb_ppm",
+    "Te_ppm",
+    "As_ppm",
+    "Rb_ppm",
+    "Sn_ppm",
+    "La_ppm",
+    "Mo_ppm",
+    "Cu_ppm",
+    "Mg_per",
+    "Cs_ppm",
+    "Cr_ppm",
+    "Ta_ppm",
+    "Th_ppm",
+    "U_ppm",
+    "Ni_ppm",
+    "Mn_ppm",
+    "Ga_ppm",
+    "Sr_ppm",
+    "Nb_ppm",
+    "Fe_per"
+  ],
+  "params_s3": {
+    "iterations": 162,
+    "depth": 5,
+    "learning_rate": 0.13615825447488727,
+    "l2_leaf_reg": 3.2670566091196096,
+    "subsample": 0.6212393136181309
+  },
+  "calibracion": "isotonic",
+  "umbral": 0.35363247863247865,
+  "f1_cv_s3": 0.7447,
+  "f1_oof_s3": 0.7182
+}

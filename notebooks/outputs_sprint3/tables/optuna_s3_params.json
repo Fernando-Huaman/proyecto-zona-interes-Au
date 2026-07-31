@@ -1,0 +1,41 @@
+{
+  "CatBoost": {
+    "f1_cv_optuna": 0.7447,
+    "f1_cv_fijos_s2": 0.7406,
+    "params_elegidos": {
+      "iterations": 162,
+      "depth": 5,
+      "learning_rate": 0.13615825447488727,
+      "l2_leaf_reg": 3.2670566091196096,
+      "subsample": 0.6212393136181309
+    },
+    "origen": "Optuna S3"
+  },
+  "XGBoost": {
+    "f1_cv_optuna": 0.7363,
+    "f1_cv_fijos_s2": 0.7237,
+    "params_elegidos": {
+      "n_estimators": 208,
+      "max_depth": 6,
+      "learning_rate": 0.19695333046532648,
+      "subsample": 0.6327402386332946,
+      "colsample_bytree": 0.5349734253816496,
+      "reg_lambda": 3.23348125927181,
+      "reg_alpha": 1.3045150798100684,
+      "min_child_weight": 6
+    },
+    "origen": "Optuna S3"
+  },
+  "HistGradientBoosting": {
+    "f1_cv_optuna": 0.7289,
+    "f1_cv_fijos_s2": 0.7244,
+    "params_elegidos": {
+      "max_iter": 299,
+      "max_leaf_nodes": 20,
+      "learning_rate": 0.1574160343892239,
+      "min_samples_leaf": 48,
+      "l2_regularization": 2.502742707600918
+    },
+    "origen": "Optuna S3"
+  }
+}

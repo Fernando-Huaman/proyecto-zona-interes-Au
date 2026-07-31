@@ -1,0 +1,179 @@
+{
+  "sprint": 3,
+  "nombre": "SHAP + selección (1-SE) + Re-Optuna + calibración + umbral — top-3",
+  "fecha": "2026-07-31 07:23",
+  "protocolo": "Pipeline completo a top-3; decisión por F1_CV; hold-out una sola vez (informativo).",
+  "campeon": "CatBoost",
+  "f1_cv_final": 0.7447,
+  "f1_oof_final": 0.7182,
+  "f1_holdout": 0.7619,
+  "f1_sprint2": 0.7493,
+  "mejora_vs_sprint2": -0.0046,
+  "metricas_holdout": {
+    "F1": 0.7619,
+    "Accuracy": 0.9415,
+    "Precision": 0.7547,
+    "Recall": 0.7692,
+    "AUC-ROC": 0.9546,
+    "AUC-PR": 0.8163,
+    "Brier": 0.0453
+  },
+  "top_3_pipeline": {
+    "CatBoost": {
+      "set_s2": "E0 Base",
+      "n_features_s2": 46,
+      "n_features_95_shap": 36,
+      "n_features_1se": 21,
+      "features_s3": [
+        "Ag_ppm",
+        "Sb_ppm",
+        "Te_ppm",
+        "As_ppm",
+        "Rb_ppm",
+        "Sn_ppm",
+        "La_ppm",
+        "Mo_ppm",
+        "Cu_ppm",
+        "Mg_per",
+        "Cs_ppm",
+        "Cr_ppm",
+        "Ta_ppm",
+        "Th_ppm",
+        "U_ppm",
+        "Ni_ppm",
+        "Mn_ppm",
+        "Ga_ppm",
+        "Sr_ppm",
+        "Nb_ppm",
+        "Fe_per"
+      ],
+      "f1_cv_s2": 0.7493,
+      "f1_cv_1se": 0.7406,
+      "f1_cv_optuna_s3": 0.7447,
+      "f1_cv_s3": 0.7447,
+      "params_s3": {
+        "iterations": 162,
+        "depth": 5,
+        "learning_rate": 0.13615825447488727,
+        "l2_leaf_reg": 3.2670566091196096,
+        "subsample": 0.6212393136181309
+      },
+      "origen_params": "Optuna S3",
+      "calibracion": "isotonic",
+      "brier_oof": {
+        "sin_calibrar": 0.05045,
+        "sigmoid": 0.05,
+        "isotonic": 0.04862
+      },
+      "umbral": 0.3536,
+      "f1_oof": 0.7182,
+      "gap_pre": 0.2644,
+      "gap_post": 0.2721
+    },
+    "XGBoost": {
+      "set_s2": "E0 Base",
+      "n_features_s2": 46,
+      "n_features_95_shap": 35,
+      "n_features_1se": 11,
+      "features_s3": [
+        "Ag_ppm",
+        "Sb_ppm",
+        "Rb_ppm",
+        "As_ppm",
+        "Te_ppm",
+        "U_ppm",
+        "Cr_ppm",
+        "Sn_ppm",
+        "La_ppm",
+        "Cu_ppm",
+        "Cs_ppm"
+      ],
+      "f1_cv_s2": 0.744,
+      "f1_cv_1se": 0.7237,
+      "f1_cv_optuna_s3": 0.7363,
+      "f1_cv_s3": 0.7363,
+      "params_s3": {
+        "n_estimators": 208,
+        "max_depth": 6,
+        "learning_rate": 0.19695333046532648,
+        "subsample": 0.6327402386332946,
+        "colsample_bytree": 0.5349734253816496,
+        "reg_lambda": 3.23348125927181,
+        "reg_alpha": 1.3045150798100684,
+        "min_child_weight": 6
+      },
+      "origen_params": "Optuna S3",
+      "calibracion": "isotonic",
+      "brier_oof": {
+        "sin_calibrar": 0.05493,
+        "sigmoid": 0.05077,
+        "isotonic": 0.05035
+      },
+      "umbral": 0.3225,
+      "f1_oof": 0.7226,
+      "gap_pre": 0.286,
+      "gap_post": 0.2495
+    },
+    "HistGradientBoosting": {
+      "set_s2": "E2 +Cluster RAW",
+      "n_features_s2": 51,
+      "n_features_95_shap": 37,
+      "n_features_1se": 11,
+      "features_s3": [
+        "Ag_ppm",
+        "Sb_ppm",
+        "Rb_ppm",
+        "Te_ppm",
+        "As_ppm",
+        "Cu_ppm",
+        "Cs_ppm",
+        "U_ppm",
+        "Ni_ppm",
+        "Mg_per",
+        "Sn_ppm"
+      ],
+      "f1_cv_s2": 0.7428,
+      "f1_cv_1se": 0.7244,
+      "f1_cv_optuna_s3": 0.7289,
+      "f1_cv_s3": 0.7289,
+      "params_s3": {
+        "max_iter": 299,
+        "max_leaf_nodes": 20,
+        "learning_rate": 0.1574160343892239,
+        "min_samples_leaf": 48,
+        "l2_regularization": 2.502742707600918
+      },
+      "origen_params": "Optuna S3",
+      "calibracion": "isotonic",
+      "brier_oof": {
+        "sin_calibrar": 0.05653,
+        "sigmoid": 0.04969,
+        "isotonic": 0.04944
+      },
+      "umbral": 0.4308,
+      "f1_oof": 0.7221,
+      "gap_pre": 0.2791,
+      "gap_post": 0.2741
+    }
+  },
+  "ablacion": {
+    "f1_completo": 0.7447,
+    "f1_sin_ag": 0.6061,
+    "f1_sin_economicos": 0.6126
+  },
+  "versiones_librerias": {
+    "python": "3.12.1",
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.9.0",
+    "imbalanced-learn": "0.14.2",
+    "xgboost": "3.3.0",
+    "lightgbm": "4.6.0",
+    "matplotlib": "3.11.0",
+    "seaborn": "0.13.2",
+    "shap": "0.52.0",
+    "optuna": "4.9.0",
+    "joblib": "1.5.3",
+    "catboost": "1.2.10"
+  }
+}

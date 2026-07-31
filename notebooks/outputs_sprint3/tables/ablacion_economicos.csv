@@ -1,0 +1,4 @@
+Variante,N features,F1_CV,Δ F1
+Completo (set S3),21,0.7447,
+Sin Ag_ppm,20,0.6061,-0.1386
+Sin económicos,19,0.6126,-0.1321
