@@ -1,0 +1,38 @@
+{
+  "CatBoost": {
+    "set": "E0 Base",
+    "balanceo": "RandomOverSampler",
+    "usa_optuna": true,
+    "params": {
+      "iterations": 192,
+      "depth": 5,
+      "learning_rate": 0.09652506867857727
+    },
+    "f1_cv": 0.7493
+  },
+  "XGBoost": {
+    "set": "E0 Base",
+    "balanceo": "RandomOverSampler",
+    "usa_optuna": true,
+    "params": {
+      "learning_rate": 0.14293248610251585,
+      "n_estimators": 97,
+      "max_depth": 8,
+      "subsample": 0.672759012360507
+    },
+    "f1_cv": 0.744
+  },
+  "HistGradientBoosting": {
+    "set": "E2 +Cluster RAW",
+    "balanceo": "RandomOverSampler",
+    "usa_optuna": true,
+    "params": {
+      "learning_rate": 0.16696280609109398,
+      "max_iter": 150,
+      "max_leaf_nodes": 39,
+      "min_samples_leaf": 48,
+      "l2_regularization": 0.7845804474565208
+    },
+    "f1_cv": 0.7428
+  }
+}

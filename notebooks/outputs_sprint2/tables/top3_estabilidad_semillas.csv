@@ -1,0 +1,4 @@
+,F1_media,F1_std
+CatBoost,0.716,0.0226
+XGBoost,0.7196,0.0149
+HistGradientBoosting,0.7201,0.0151
