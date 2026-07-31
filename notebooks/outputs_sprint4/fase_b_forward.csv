@@ -1,3 +1,0 @@
-paso,anade,combo,F1_OOF,delta_acum,aceptada
-1,A3_umbral_slice,A3_umbral_slice,0.792,0.0213,True
-2,A4_calib_slice,A3_umbral_slice+A4_calib_slice,0.7839,0.0132,False

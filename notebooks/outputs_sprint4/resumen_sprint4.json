@@ -1,146 +1,179 @@
 {
   "sprint": 4,
-  "nombre": "Estrategias finales de mitigación (cierre): Fase A individual + Fase B forward",
-  "protocolo": "Igual peso por estrategia; decisión por F1_CV/OOF; hold-out una sola vez.",
-  "modelo_base": "LightGBM (S3: 47 features, calibración isotónica, umbral OOF)",
-  "balanceo": "SMOTETomek",
-  "f1_cv_s3": 0.7706,
-  "f1_holdout_s3": 0.7619,
-  "f1_base_oof_s3": 0.7707,
-  "umbral_base_oof": 0.5069,
-  "elementos_base_shap": [
-    "Ag_ppm",
-    "Te_ppm",
-    "Se_ppm",
-    "Sb_ppm",
-    "La_ppm",
-    "Cu_ppm"
+  "nombre": "Plan de mitigación: slices + Fase A (A1-A3) + Fase B (forward) + hold-out",
+  "fecha": "2026-07-31 09:15",
+  "protocolo": "Diagnóstico por slices (embudo 3 etapas); Fase A: A1 stacking, A2 re-inclusión, A3 umbral por slice, aceptación por bootstrap pareado (p<0.05); Fase B: forward incremental de aceptadas; hold-out una sola vez.",
+  "baseline": {
+    "modelo": "XGBoost",
+    "f1_oof": 0.7212,
+    "umbral": 0.4214
+  },
+  "combo_final": [
+    "A2_reinclusion"
   ],
-  "slices_decisorios": [
-    "geoq_Ag_ppm",
-    "geoq_Sb_ppm",
-    "geoq_La_ppm",
-    "geoq_Cu_ppm",
-    "cuadrante_XY",
-    "franja_Z",
-    "concordancia_S2S3"
+  "f1_oof_final": 0.7576,
+  "f1_holdout": 0.7677,
+  "f1_holdout_ci95": [
+    0.6605,
+    0.8515
   ],
-  "slices_observacion": [
-    "dbscan_outlier"
-  ],
-  "n_slices_problematicos": 5,
-  "slices_problematicos": [
-    {
-      "slice": "concordancia_S2S3",
-      "categoria": "ambos_neg",
-      "n": 1479,
-      "F1": 0.0,
-      "IC95_sup": 0.0
-    },
-    {
-      "slice": "geoq_Ag_ppm",
-      "categoria": "medio",
-      "n": 572,
-      "F1": 0.16,
-      "IC95_sup": 0.353
-    },
-    {
-      "slice": "geoq_Sb_ppm",
-      "categoria": "bajo",
-      "n": 568,
-      "F1": 0.2222,
-      "IC95_sup": 0.5885
-    },
-    {
-      "slice": "concordancia_S2S3",
-      "categoria": "discrepan",
-      "n": 37,
-      "F1": 0.5641,
-      "IC95_sup": 0.718
-    },
-    {
-      "slice": "geoq_Sb_ppm",
-      "categoria": "medio",
-      "n": 567,
-      "F1": 0.6301,
-      "IC95_sup": 0.7467
-    }
-  ],
+  "metricas_holdout": {
+    "F1": 0.7677,
+    "Accuracy": 0.9461,
+    "Precision": 0.8085,
+    "Recall": 0.7308,
+    "AUC-ROC": 0.9607,
+    "AUC-PR": 0.837,
+    "Brier": 0.0427
+  },
   "fase_a": [
     {
-      "estrategia": "A3_umbral_slice",
-      "detalle": "cuadrante_XY",
-      "metrica": "F1_OOF",
-      "valor": 0.792,
-      "delta": 0.0213,
-      "mejora": true
-    },
-    {
-      "estrategia": "A4_calib_slice",
-      "detalle": "cuadrante_XY",
-      "metrica": "F1_OOF",
-      "valor": 0.7719,
-      "delta": 0.0012,
-      "mejora": true
-    },
-    {
       "estrategia": "A2_reinclusion",
-      "detalle": "k=47",
-      "metrica": "F1_CV",
-      "valor": 0.7706,
-      "delta": 0.0,
-      "mejora": false
-    },
-    {
-      "estrategia": "A1_ensamble",
-      "detalle": "ponderada_w=0.90",
-      "metrica": "F1_OOF",
-      "valor": 0.7707,
-      "delta": 0.0,
-      "mejora": true
-    }
-  ],
-  "A1_mejor_variante": "ponderada_w=0.90",
-  "A2_mejor_k": 47,
-  "A3_mejor_particion": "cuadrante_XY",
-  "A4_modo": "por_slice",
-  "A4_aporta": true,
-  "combo_ganadora": [
-    "A3_umbral_slice"
-  ],
-  "f1_combo_oof": 0.792,
-  "mejora_oof_vs_s3": 0.0213,
-  "forward_traza": [
-    {
-      "paso": 1,
-      "anade": "A3_umbral_slice",
-      "combo": "A3_umbral_slice",
-      "F1_OOF": 0.792,
-      "delta_acum": 0.0213,
+      "detalle": "k = 32 features",
+      "f1_oof": 0.7576,
+      "delta": 0.0364,
+      "ci_lo": 0.008,
+      "ci_hi": 0.0638,
+      "p_boot": 0.0025,
       "aceptada": true
     },
     {
-      "paso": 2,
-      "anade": "A4_calib_slice",
-      "combo": "A3_umbral_slice+A4_calib_slice",
-      "F1_OOF": 0.7839,
-      "delta_acum": 0.0132,
+      "estrategia": "A3_umbral_slice",
+      "detalle": "slice = Cuadrante XY",
+      "f1_oof": 0.743,
+      "delta": 0.0215,
+      "ci_lo": -0.007,
+      "ci_hi": 0.052,
+      "p_boot": 0.082,
+      "aceptada": false
+    },
+    {
+      "estrategia": "A1_stacking",
+      "detalle": "LogReg sobre OOF top-3",
+      "f1_oof": 0.7194,
+      "delta": -0.0016,
+      "ci_lo": -0.0278,
+      "ci_hi": 0.0252,
+      "p_boot": 0.556,
       "aceptada": false
     }
   ],
-  "metricas_finales": {
-    "F1": 0.6593,
-    "Precision": 0.7692,
-    "Recall": 0.5769,
-    "AUC_ROC": 0.9607,
-    "AUC_PR": 0.8274,
-    "Brier": 0.0452
+  "fase_b": [
+    {
+      "combo": "A2_reinclusion",
+      "f1_oof": 0.7576,
+      "delta_vs_ant": 0.0363,
+      "p_boot": 0.0025,
+      "adoptada": true
+    }
+  ],
+  "a1_stacking": {
+    "f1_oof": 0.7194,
+    "coeficientes": {
+      "CatBoost": 0.7645,
+      "XGBoost": 0.132,
+      "HistGradientBoosting": 0.9927
+    },
+    "f1_promedio_simple": 0.7249
   },
-  "mejora_holdout_vs_s3": -0.1026,
-  "evolucion_f1_cv": {
-    "sprint0": 0.709,
-    "sprint1": 0.7277,
-    "sprint2": 0.754,
-    "sprint3": 0.7706
+  "a2_reinclusion": {
+    "mejor_k": 32,
+    "n_seleccion_s3": 32,
+    "grid": [
+      32,
+      35,
+      38,
+      42,
+      46
+    ],
+    "f1_oof": 0.7576
+  },
+  "a3_umbral_slice": {
+    "mejor_slice": "Cuadrante XY",
+    "f1_oof": 0.743,
+    "candidatos": [
+      {
+        "slice": "Cuadrante XY",
+        "f1_oof": 0.743,
+        "delta": 0.0215,
+        "ci_lo": -0.007,
+        "ci_hi": 0.052,
+        "p_boot": 0.082
+      },
+      {
+        "slice": "Franja Z",
+        "f1_oof": 0.7302,
+        "delta": 0.0085,
+        "ci_lo": -0.0227,
+        "ci_hi": 0.0419,
+        "p_boot": 0.3045
+      },
+      {
+        "slice": "Banda prob.",
+        "f1_oof": 0.7212,
+        "delta": 0.0,
+        "ci_lo": 0.0,
+        "ci_hi": 0.0,
+        "p_boot": 1.0
+      }
+    ]
+  },
+  "slices_embudo": {
+    "n_elegibles": 33,
+    "n_etapa2_ic95": 7,
+    "n_etapa3_bonferroni": 6,
+    "problematicos": [
+      {
+        "slice": "Banda prob.",
+        "categoria": "Media",
+        "f1": 0.0
+      },
+      {
+        "slice": "Concordancia",
+        "categoria": "0",
+        "f1": 0.0
+      },
+      {
+        "slice": "Concordancia",
+        "categoria": "1",
+        "f1": 0.265
+      },
+      {
+        "slice": "Cercanía Au",
+        "categoria": "Borde",
+        "f1": 0.4433
+      },
+      {
+        "slice": "Geo: Ag_ppm",
+        "categoria": "T2",
+        "f1": 0.0827
+      },
+      {
+        "slice": "Geo: Sb_ppm",
+        "categoria": "T2",
+        "f1": 0.4584
+      }
+    ]
+  },
+  "evolucion_f1": {
+    "S0": 0.709,
+    "S1": 0.7277,
+    "S2": 0.7493,
+    "S3": 0.7598,
+    "S4": 0.7576
+  },
+  "versiones_librerias": {
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "sklearn": "1.9.0",
+    "imblearn": "0.14.2",
+    "xgboost": "3.3.0",
+    "lightgbm": "4.6.0",
+    "catboost": "1.2.10",
+    "scipy": "1.18.0",
+    "joblib": "1.5.3",
+    "python": "3.12.1",
+    "matplotlib": "3.11.0",
+    "seaborn": "0.13.2"
   }
 }
