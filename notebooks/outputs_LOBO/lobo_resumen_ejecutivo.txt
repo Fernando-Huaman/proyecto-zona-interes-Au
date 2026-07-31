@@ -2,29 +2,30 @@
 ================================================================
 RESUMEN EJECUTIVO - VALIDACION GEOGRAFICA LOBO
 ================================================================
-Dataset: 2132 muestras | 57 features | K=4 bloques (grilla por medianas East/North)
-Pipeline por fold: imputacion mediana -> log1p -> BorderlineSMOTE (solo train) -> StandardScaler -> XGBoost Optuna (seed=42)
+Dataset: 2132 muestras | 28 features | K=4 bloques (grilla por medianas East/North)
+Modelo por fold: StandardScaler -> SMOTE (solo train) -> XGBoost + calibracion isotonica (CalibratedClassifierCV cv=5); 28 features del campeon (sprint 4, seed=42)
+Umbral de decision (metrica F2, politica global anidada del sprint 4): 0.1842
 
 1) VALIDACION INTERNA (CV 5-fold estratificada, mismo pipeline):
-   F1 = 0.9474 ± 0.0213 | PR-AUC = 0.9935 | Brier = 0.0087
+   F2 = 0.7222 ± 0.0489 | PR-AUC = 0.6790 | Brier = 0.0623
 
 2) VALIDACION EXTERNA-GEOGRAFICA (LOBO):
-   F1 medio = 0.9418 ± 0.0218
-   PR-AUC medio = 0.9903 ± 0.0052
-   Brier medio = 0.0103 ± 0.0073
-   Mejor bloque : NO (F1 = 0.9733)
-   Peor bloque  : SE (F1 = 0.9231, IC95 [0.828, 0.982])
+   F2 medio = 0.5477 ± 0.0882
+   PR-AUC medio = 0.5086 ± 0.1677
+   Brier medio = 0.0845 ± 0.0299
+   Mejor bloque : NE (F2 = 0.6392)
+   Peor bloque  : NO (F2 = 0.4522, IC95 [0.354, 0.553])
 
-3) CONTRASTE H3 (caida F1 <= 0.05 vs CV 5-fold):
-   Delta F1 medio = 0.0055 -> CUMPLE
-   Bloques que cumplen individualmente: 4/4
+3) CONTRASTE H3 (caida F2 <= 0.05 vs CV 5-fold):
+   Delta F2 medio = 0.1745 -> NO CUMPLE
+   Bloques que cumplen individualmente: 0/4
 
 4) MONITOREO DE SHIFT:
 Bloque  PSI_max  n_features_PSI>0.20  n_features_KS_p<0.05  Top10_comunes_con_global  n_alertas  Requiere_reentrenar
-    NE    0.258                    3                    45                         9          2                 True
-    NO    0.827                   30                    53                         9          2                 True
-    SO    0.868                   17                    52                         9          2                 True
-    SE    0.434                   12                    52                         8          2                 True
+    NE    0.258                    1                    23                         7          2                 True
+    NO    0.734                   19                    26                         6          3                 True
+    SO    0.784                    8                    26                         6          3                 True
+    SE    0.434                    4                    26                         5          3                 True
 
 5) LIMITACION (trabajo futuro):
    El LOBO opera dentro del dataset disponible (Ancash). La transferibilidad a

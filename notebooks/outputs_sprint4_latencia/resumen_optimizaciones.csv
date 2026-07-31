@@ -1,7 +1,7 @@
-Optimizacion,Aplica a XGBoost,Resultado,Impacto en F1,Recomendacion
-ONNX Runtime (single-thread),Si,"Speedup 37.18x (batch=1), 0.62x (batch=427)",Sin cambio (equivalente),Usar en produccion
-ONNX Runtime (multi-thread),Si,Speedup 0.75x vs sklearn,Sin cambio,Para alto throughput
-Reduccion n_estimators (200 vs 300),Si,Speedup 1.21x,Degradacion -0.0000,Solo si latencia es critica
+Optimizacion,Aplica a XGBoost,Resultado,Impacto en F2,Recomendacion
+ONNX Runtime (single-thread),Si,"Speedup 29.66x (batch=1), 0.75x (batch=427)",Sin cambio (equivalente),Usar en produccion
+ONNX Runtime (multi-thread),Si,Speedup 1.14x vs core sklearn,Sin cambio,Para alto throughput
+Reduccion n_estimators (30 vs 52),Si,Speedup 1.41x,Degradacion -0.0067,Solo si latencia es critica
 TensorRT,No,"N/A - disenado para redes neuronales (CNN, Transformers)",N/A,No aplicable
 torch.compile,No,N/A - requiere modelos PyTorch,N/A,No aplicable
-Batching,Si,Throughput mejora: 37294 -> 155929 req/s,Sin cambio,Usar batches >=32 en produccion
+Batching,Si,Throughput: 85036 -> 372779 req/s,Sin cambio,Usar batches >=32 en produccion

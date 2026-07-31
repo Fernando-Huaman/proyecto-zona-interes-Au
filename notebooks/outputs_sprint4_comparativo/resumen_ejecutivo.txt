@@ -1,9 +1,17 @@
-RESUMEN EJECUTIVO - COMPARATIVO BASELINE vs MODELO FINAL
-Baseline: RF Baseline (FE) | Final: XGB Optuna + Mit. A
-F1: 0.8723 -> 0.9808 (Delta=+0.1084)
-Precision: 0.9762 -> 0.9808
-Recall: 0.7885 -> 0.9808
-IC 95% F1 Baseline: [0.7907, 0.9383]
-IC 95% F1 Final   : [0.9512, 1.0000]
-PR-AUC: 0.9717 -> 0.9932
-Mejora significativa (IC no solapan): True
+RESUMEN EJECUTIVO - EVOLUCIÓN DE XGBoost (SPRINT 0 -> SPRINT 4)
+Baseline: S0 · Baseline | Campeón: S4 · Campeón
+
+Trayectoria hold-out (mismo test fijo, n=427, 52 positivos):
+  S0: F2_val=0.5214 (CV) | F2_ho=0.5165 | Recall=0.4808 | Prec=0.7353 | umbral=0.5000 | Baseline: 43 features crudas, sin balanceo
+  S1: F2_val=0.6298 (CV) | F2_ho=0.7143 | Recall=0.7500 | Prec=0.6000 | umbral=0.5000 | Balanceo SMOTE + PCA por bloques
+  S2: F2_val=0.7258 (CV) | F2_ho=0.6985 | Recall=0.7308 | Prec=0.5938 | umbral=0.5000 | FE epitermal + cluster + Optuna (set E2)
+  S3: F2_val=0.7308 (CV) | F2_ho=0.6891 | Recall=0.8269 | Prec=0.4135 | umbral=0.1633 | Selección SHAP (28) + re-Optuna + calibración isotónica + umbral anidado
+  S4: F2_val=0.7196 (OOF) | F2_ho=0.7049 | Recall=0.8269 | Prec=0.4433 | umbral=0.1842 | Umbral GLOBAL anidado + validación por slices e IC95 (campeón)
+
+F2 hold-out: 0.5165 (S0) -> 0.7049 (S4) (Delta=+0.1884)
+Recall hold-out: 0.4808 -> 0.8269
+Precision hold-out: 0.7353 -> 0.4433
+IC 95% F2 S0: [0.3813, 0.6397]
+IC 95% F2 S4: [0.6093, 0.7840]
+Mejora significativa (IC F2 no solapan): False
+Se comparó la misma familia (XGBoost) en los 5 sprints; no se adoptó stacking (A1 no superó al XGBoost calibrado en F2 OOF).
