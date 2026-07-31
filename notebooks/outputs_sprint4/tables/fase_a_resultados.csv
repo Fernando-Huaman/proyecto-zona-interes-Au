@@ -1,5 +1,0 @@
-estrategia,detalle,f2_oof,delta,ci_lo,ci_hi,p_boot,aceptada
-A2_reinclusion,k = 28 features,0.7512520868113522,0.040957,0.019736,0.06407,0.0005,True
-A3_umbral_slice,slice = Franja Z,0.7506255212677231,0.04033,0.019355,0.062088,0.0,True
-A4_ensemble_seeds,12 seeds,0.7303370786516854,0.020042,-0.009144,0.048262,0.093,False
-A1_stacking,LogReg sobre OOF top-3,0.7208333333333333,0.010538,-0.014822,0.035707,0.2015,False
